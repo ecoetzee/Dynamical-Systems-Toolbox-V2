@@ -1,0 +1,388 @@
+      mwPointer IBRF8ptr1, IBRF8ptr2
+      mwPointer MTOTF8ptr1, MTOTF8ptr2
+      mwPointer ITPF8ptr1, ITPF8ptr2
+      mwPointer LABF8ptr1, LABF8ptr2
+      mwPointer NTSTF8ptr1, NTSTF8ptr2
+      mwPointer NCOLF8ptr1, NCOLF8ptr2
+      mwPointer IFPRF8ptr1, IFPRF8ptr2
+      mwPointer TF8ptr1, TF8ptr2
+      mwPointer TMF8ptr1, TMF8ptr2
+      mwPointer PARF8ptr1, PARF8ptr2
+      mwPointer RLDOTF8ptr1, RLDOTF8ptr2
+      mwPointer UF8ptr1, UF8ptr2
+      mwPointer UPSF8ptr1, UPSF8ptr2
+      mwPointer UDOTPSF8ptr1, UDOTPSF8ptr2
+      REAL*8, POINTER::IBRF8MWS(:)
+      REAL*8, POINTER::MTOTF8MWS(:)
+      REAL*8, POINTER::ITPF8MWS(:)
+      REAL*8, POINTER::LABF8MWS(:)
+      REAL*8, POINTER::NTSTF8MWS(:)
+      REAL*8, POINTER::NCOLF8MWS(:)
+      REAL*8, POINTER::IFPRF8MWS(:,:)
+      REAL*8, POINTER::TF8MWS(:)
+      REAL*8, POINTER::TMF8MWS(:,:)
+      REAL*8, POINTER::PARF8MWS(:,:)
+      REAL*8, POINTER::RLDOTF8MWS(:,:)
+      REAL*8, POINTER::UF8MWS(:,:)
+      REAL*8, POINTER::UPSF8MWS(:,:,:)
+      REAL*8, POINTER::UDOTPSF8MWS(:,:,:)
+C
+C
+C Assign Ibr values --------------
+      IBRF8ptr1=mxGetProperty(PLHS(1),1,'Ibr')
+C
+      IF( IBRF8ptr1 == 0 ) THEN
+        CALL mexErrMsgTxt("Property Ibr not found")
+      ENDIF
+C
+      M=SIZE(IBRF8)
+      D1=M
+      IBRF8ptr2 = mxCreateNumericArray(1,D1,mxClassIDFromClassName('double'),0)
+      IBRF8MWS => fpGetPr1(IBRF8ptr2)
+      IF( .NOT.ASSOCIATED(IBRF8MWS) ) THEN
+        CALL mexErrMsgTxt("Internal error pointing to Ibr pointer data")
+      ENDIF
+C
+      DO I=1,M
+        IBRF8MWS(I)=IBRF8(I)
+      ENDDO
+C
+      CALL mxSetProperty(PLHS(1),1,'Ibr',IBRF8ptr2)
+      CALL mxDestroyArray(IBRF8ptr2)
+      CALL mxDestroyArray(IBRF8ptr1)
+C
+C Assign Mtot values --------------
+      MTOTF8ptr1=mxGetProperty(PLHS(1),1,'Mtot')
+C
+      IF( MTOTF8ptr1 == 0 ) THEN
+        CALL mexErrMsgTxt("Property Mtot not found")
+      ENDIF
+C
+      M=SIZE(MTOTF8)
+      D1=M
+      MTOTF8ptr2 = mxCreateNumericArray(1,D1,mxClassIDFromClassName('double'),0)
+      MTOTF8MWS => fpGetPr1(MTOTF8ptr2)
+      IF( .NOT.ASSOCIATED(MTOTF8MWS) ) THEN
+        CALL mexErrMsgTxt("Internal error pointing to Mtot pointer data")
+      ENDIF
+C
+      DO I=1,M
+        MTOTF8MWS(I)=MTOTF8(I)
+      ENDDO
+C
+      CALL mxSetProperty(PLHS(1),1,'Mtot',MTOTF8ptr2)
+      CALL mxDestroyArray(MTOTF8ptr2)
+      CALL mxDestroyArray(MTOTF8ptr1)
+C
+C Assign Itp values --------------
+      ITPF8ptr1=mxGetProperty(PLHS(1),1,'Itp')
+C
+      IF( ITPF8ptr1 == 0 ) THEN
+        CALL mexErrMsgTxt("Property Itp not found")
+      ENDIF
+C
+      M=SIZE(ITPF8)
+      D1=M
+      ITPF8ptr2 = mxCreateNumericArray(1,D1,mxClassIDFromClassName('double'),0)
+      ITPF8MWS => fpGetPr1(ITPF8ptr2)
+      IF( .NOT.ASSOCIATED(ITPF8MWS) ) THEN
+        CALL mexErrMsgTxt("Internal error pointing to Itp pointer data")
+      ENDIF
+C
+      DO I=1,M
+        ITPF8MWS(I)=ITPF8(I)
+      ENDDO
+C
+      CALL mxSetProperty(PLHS(1),1,'Itp',ITPF8ptr2)
+      CALL mxDestroyArray(ITPF8ptr2)
+      CALL mxDestroyArray(ITPF8ptr1)
+C
+C Assign Lab values --------------
+      LABF8ptr1=mxGetProperty(PLHS(1),1,'Lab')
+C
+      IF( LABF8ptr1 == 0 ) THEN
+        CALL mexErrMsgTxt("Property Lab not found")
+      ENDIF
+C
+      M=SIZE(LABF8)
+      D1=M
+      LABF8ptr2 = mxCreateNumericArray(1,D1,mxClassIDFromClassName('double'),0)
+      LABF8MWS => fpGetPr1(LABF8ptr2)
+      IF( .NOT.ASSOCIATED(LABF8MWS) ) THEN
+        CALL mexErrMsgTxt("Internal error pointing to Lab pointer data")
+      ENDIF
+C
+      DO I=1,M
+        LABF8MWS(I)=LABF8(I)
+      ENDDO
+C
+      CALL mxSetProperty(PLHS(1),1,'Lab',LABF8ptr2)
+      CALL mxDestroyArray(LABF8ptr2)
+      CALL mxDestroyArray(LABF8ptr1)
+C
+C Assign Ntst values --------------
+      NTSTF8ptr1=mxGetProperty(PLHS(1),1,'Ntst')
+C
+      IF( NTSTF8ptr1 == 0 ) THEN
+        CALL mexErrMsgTxt("Property Ntst not found")
+      ENDIF
+C
+      M=SIZE(NTSTF8)
+      D1=M
+      NTSTF8ptr2 = mxCreateNumericArray(1,D1,mxClassIDFromClassName('double'),0)
+      NTSTF8MWS => fpGetPr1(NTSTF8ptr2)
+      IF( .NOT.ASSOCIATED(NTSTF8MWS) ) THEN
+        CALL mexErrMsgTxt("Internal error pointing to Ntst pointer data")
+      ENDIF
+C
+      DO I=1,M
+        NTSTF8MWS(I)=NTSTF8(I)
+      ENDDO
+C
+      CALL mxSetProperty(PLHS(1),1,'Ntst',NTSTF8ptr2)
+      CALL mxDestroyArray(NTSTF8ptr2)
+      CALL mxDestroyArray(NTSTF8ptr1)
+C
+C Assign Ncol values --------------
+      NCOLF8ptr1=mxGetProperty(PLHS(1),1,'Ncol')
+C
+      IF( NCOLF8ptr1 == 0 ) THEN
+        CALL mexErrMsgTxt("Property Ncol not found")
+      ENDIF
+C
+      M=SIZE(NCOLF8)
+      D1=M
+      NCOLF8ptr2 = mxCreateNumericArray(1,D1,mxClassIDFromClassName('double'),0)
+      NCOLF8MWS => fpGetPr1(NCOLF8ptr2)
+      IF( .NOT.ASSOCIATED(NCOLF8MWS) ) THEN
+        CALL mexErrMsgTxt("Internal error pointing to Ncol pointer data")
+      ENDIF
+C
+      DO I=1,M
+        NCOLF8MWS(I)=NCOLF8(I)
+      ENDDO
+C
+      CALL mxSetProperty(PLHS(1),1,'Ncol',NCOLF8ptr2)
+      CALL mxDestroyArray(NCOLF8ptr2)
+      CALL mxDestroyArray(NCOLF8ptr1)
+C
+C Assign Ifpr values --------------
+      IFPRF8ptr1=mxGetProperty(PLHS(1),1,'Ifpr')
+C
+      IF( IFPRF8ptr1 == 0 ) THEN
+        CALL mexErrMsgTxt("Property Ifpr not found")
+      ENDIF
+C
+      M=SIZE(IFPRF8,1)
+      N=SIZE(IFPRF8,2)
+      D2(1)=M
+      D2(2)=N
+      IFPRF8ptr2 = mxCreateNumericArray(2,D2,mxClassIDFromClassName('double'),0)
+      IFPRF8MWS => fpGetPr2(IFPRF8ptr2)
+      IF( .NOT.ASSOCIATED(IFPRF8MWS) ) THEN
+        CALL mexErrMsgTxt("Internal error pointing to Ifpr pointer data")
+      ENDIF
+C
+      DO I=1,M
+        DO J=1,N
+          IFPRF8MWS(I,J)=IFPRF8(I,J)
+        ENDDO
+      ENDDO
+C
+      CALL mxSetProperty(PLHS(1),1,'Ifpr',IFPRF8ptr2)
+      CALL mxDestroyArray(IFPRF8ptr2)
+      CALL mxDestroyArray(IFPRF8ptr1)
+C
+C Assign T values --------------
+      TF8ptr1=mxGetProperty(PLHS(1),1,'T')
+C
+      IF( TF8ptr1 == 0 ) THEN
+        CALL mexErrMsgTxt("Property T not found")
+      ENDIF
+C
+      M=SIZE(TF8)
+      D1=M
+      TF8ptr2 = mxCreateNumericArray(1,D1,mxClassIDFromClassName('double'),0)
+      TF8MWS => fpGetPr1(TF8ptr2)
+      IF( .NOT.ASSOCIATED(TF8MWS) ) THEN
+        CALL mexErrMsgTxt("Internal error pointing to T pointer data")
+      ENDIF
+C
+      DO I=1,M
+        TF8MWS(I)=TF8(I)
+      ENDDO
+C
+      CALL mxSetProperty(PLHS(1),1,'T',TF8ptr2)
+      CALL mxDestroyArray(TF8ptr2)
+      CALL mxDestroyArray(TF8ptr1)
+C
+C Assign Tm values --------------
+      TMF8ptr1=mxGetProperty(PLHS(1),1,'Tm')
+C
+      IF( TMF8ptr1 == 0 ) THEN
+        CALL mexErrMsgTxt("Property Tm not found")
+      ENDIF
+C
+      M=SIZE(TMF8,1)
+      N=SIZE(TMF8,2)
+      D2(1)=M
+      D2(2)=N
+      TMF8ptr2 = mxCreateNumericArray(2,D2,mxClassIDFromClassName('double'),0)
+      TMF8MWS => fpGetPr2(TMF8ptr2)
+      IF( .NOT.ASSOCIATED(TMF8MWS) ) THEN
+        CALL mexErrMsgTxt("Internal error pointing to Tm pointer data")
+      ENDIF
+C
+      DO I=1,M
+        DO J=1,N
+          TMF8MWS(I,J)=TMF8(I,J)
+        ENDDO
+      ENDDO
+C
+      CALL mxSetProperty(PLHS(1),1,'Tm',TMF8ptr2)
+      CALL mxDestroyArray(TMF8ptr2)
+      CALL mxDestroyArray(TMF8ptr1)
+C
+C Assign Par values --------------
+      PARF8ptr1=mxGetProperty(PLHS(1),1,'Par')
+C
+      IF( PARF8ptr1 == 0 ) THEN
+        CALL mexErrMsgTxt("Property Par not found")
+      ENDIF
+C
+      M=SIZE(PARF8,1)
+      N=SIZE(PARF8,2)
+      D2(1)=M
+      D2(2)=N
+      PARF8ptr2 = mxCreateNumericArray(2,D2,mxClassIDFromClassName('double'),0)
+      PARF8MWS => fpGetPr2(PARF8ptr2)
+      IF( .NOT.ASSOCIATED(PARF8MWS) ) THEN
+        CALL mexErrMsgTxt("Internal error pointing to Par pointer data")
+      ENDIF
+C
+      DO I=1,M
+        DO J=1,N
+          PARF8MWS(I,J)=PARF8(I,J)
+        ENDDO
+      ENDDO
+C
+      CALL mxSetProperty(PLHS(1),1,'Par',PARF8ptr2)
+      CALL mxDestroyArray(PARF8ptr2)
+      CALL mxDestroyArray(PARF8ptr1)
+C
+C Assign Rldot values --------------
+      RLDOTF8ptr1=mxGetProperty(PLHS(1),1,'Rldot')
+C
+      IF( RLDOTF8ptr1 == 0 ) THEN
+        CALL mexErrMsgTxt("Property Rldot not found")
+      ENDIF
+C
+      M=SIZE(RLDOTF8,1)
+      N=SIZE(RLDOTF8,2)
+      D2(1)=M
+      D2(2)=N
+      RLDOTF8ptr2 = mxCreateNumericArray(2,D2,mxClassIDFromClassName('double'),0)
+      RLDOTF8MWS => fpGetPr2(RLDOTF8ptr2)
+      IF( .NOT.ASSOCIATED(RLDOTF8MWS) ) THEN
+        CALL mexErrMsgTxt("Internal error pointing to Rldot pointer data")
+      ENDIF
+C
+      DO I=1,M
+        DO J=1,N
+          RLDOTF8MWS(I,J)=RLDOTF8(I,J)
+        ENDDO
+      ENDDO
+C
+      CALL mxSetProperty(PLHS(1),1,'Rldot',RLDOTF8ptr2)
+      CALL mxDestroyArray(RLDOTF8ptr2)
+      CALL mxDestroyArray(RLDOTF8ptr1)
+C
+C Assign U values --------------
+      UF8ptr1=mxGetProperty(PLHS(1),1,'U')
+C
+      IF( UF8ptr1 == 0 ) THEN
+        CALL mexErrMsgTxt("Property U not found")
+      ENDIF
+C
+      M=SIZE(UF8,1)
+      N=SIZE(UF8,2)
+      D2(1)=M
+      D2(2)=N
+      UF8ptr2 = mxCreateNumericArray(2,D2,mxClassIDFromClassName('double'),0)
+      UF8MWS => fpGetPr2(UF8ptr2)
+      IF( .NOT.ASSOCIATED(UF8MWS) ) THEN
+        CALL mexErrMsgTxt("Internal error pointing to U pointer data")
+      ENDIF
+C
+      DO I=1,M
+        DO J=1,N
+          UF8MWS(I,J)=UF8(I,J)
+        ENDDO
+      ENDDO
+C
+      CALL mxSetProperty(PLHS(1),1,'U',UF8ptr2)
+      CALL mxDestroyArray(UF8ptr2)
+      CALL mxDestroyArray(UF8ptr1)
+C
+C Assign Ups values --------------
+      UPSF8ptr1=mxGetProperty(PLHS(1),1,'Ups')
+C
+      IF( UPSF8ptr1 == 0 ) THEN
+        CALL mexErrMsgTxt("Property Ups not found")
+      ENDIF
+C
+      M=SIZE(UPSF8,1)
+      N=SIZE(UPSF8,2)
+      O=SIZE(UPSF8,3)
+      D3(1)=M
+      D3(2)=N
+      D3(3)=O
+      UPSF8ptr2 = mxCreateNumericArray(3,D3,mxClassIDFromClassName('double'),0)
+      UPSF8MWS => fpGetPr3(UPSF8ptr2)
+      IF( .NOT.ASSOCIATED(UPSF8MWS) ) THEN
+        CALL mexErrMsgTxt("Internal error pointing to Ups pointer data")
+      ENDIF
+C
+      DO I=1,M
+        DO J=1,N
+          DO K=1,O
+            UPSF8MWS(I,J,K)=UPSF8(I,J,K)
+          ENDDO
+        ENDDO
+      ENDDO
+C
+      CALL mxSetProperty(PLHS(1),1,'Ups',UPSF8ptr2)
+      CALL mxDestroyArray(UPSF8ptr2)
+      CALL mxDestroyArray(UPSF8ptr1)
+C
+C Assign Udotps values --------------
+      UDOTPSF8ptr1=mxGetProperty(PLHS(1),1,'Udotps')
+C
+      IF( UDOTPSF8ptr1 == 0 ) THEN
+        CALL mexErrMsgTxt("Property Udotps not found")
+      ENDIF
+C
+      M=SIZE(UDOTPSF8,1)
+      N=SIZE(UDOTPSF8,2)
+      O=SIZE(UDOTPSF8,3)
+      D3(1)=M
+      D3(2)=N
+      D3(3)=O
+      UDOTPSF8ptr2 = mxCreateNumericArray(3,D3,mxClassIDFromClassName('double'),0)
+      UDOTPSF8MWS => fpGetPr3(UDOTPSF8ptr2)
+      IF( .NOT.ASSOCIATED(UDOTPSF8MWS) ) THEN
+        CALL mexErrMsgTxt("Internal error pointing to Udotps pointer data")
+      ENDIF
+C
+      DO I=1,M
+        DO J=1,N
+          DO K=1,O
+            UDOTPSF8MWS(I,J,K)=UDOTPSF8(I,J,K)
+          ENDDO
+        ENDDO
+      ENDDO
+C
+      CALL mxSetProperty(PLHS(1),1,'Udotps',UDOTPSF8ptr2)
+      CALL mxDestroyArray(UDOTPSF8ptr2)
+      CALL mxDestroyArray(UDOTPSF8ptr1)
+C

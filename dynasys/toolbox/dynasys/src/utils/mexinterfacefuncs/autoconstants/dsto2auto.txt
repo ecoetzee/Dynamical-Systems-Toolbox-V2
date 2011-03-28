@@ -1,0 +1,674 @@
+      mwPointer NDIMptr1, NDIMptr2
+      mwPointer IPSptr1, IPSptr2
+      mwPointer IRSptr1, IRSptr2
+      mwPointer ILPptr1, ILPptr2
+      mwPointer NICPptr1, NICPptr2
+      mwPointer ICPptr1, ICPptr2
+      mwPointer NTSTptr1, NTSTptr2
+      mwPointer NCOLptr1, NCOLptr2
+      mwPointer IADptr1, IADptr2
+      mwPointer ISPptr1, ISPptr2
+      mwPointer ISWptr1, ISWptr2
+      mwPointer IPLTptr1, IPLTptr2
+      mwPointer NBCptr1, NBCptr2
+      mwPointer NINTptr1, NINTptr2
+      mwPointer NMXptr1, NMXptr2
+      mwPointer RL0ptr1, RL0ptr2
+      mwPointer RL1ptr1, RL1ptr2
+      mwPointer A0ptr1, A0ptr2
+      mwPointer A1ptr1, A1ptr2
+      mwPointer NPRptr1, NPRptr2
+      mwPointer MXBFptr1, MXBFptr2
+      mwPointer IIDptr1, IIDptr2
+      mwPointer ITMXptr1, ITMXptr2
+      mwPointer ITNWptr1, ITNWptr2
+      mwPointer NWTNptr1, NWTNptr2
+      mwPointer JACptr1, JACptr2
+      mwPointer EPSLptr1, EPSLptr2
+      mwPointer EPSUptr1, EPSUptr2
+      mwPointer EPSSptr1, EPSSptr2
+      mwPointer DSptr1, DSptr2
+      mwPointer DSMINptr1, DSMINptr2
+      mwPointer DSMAXptr1, DSMAXptr2
+      mwPointer IADSptr1, IADSptr2
+      mwPointer NTHLptr1, NTHLptr2
+      mwPointer ITHLptr1, ITHLptr2
+      mwPointer VTHLptr1, VTHLptr2
+      mwPointer NTHUptr1, NTHUptr2
+      mwPointer ITHUptr1, ITHUptr2
+      mwPointer VTHUptr1, VTHUptr2
+      mwPointer NUZRptr1, NUZRptr2
+      mwPointer IUZptr1, IUZptr2
+      mwPointer VUZptr1, VUZptr2
+C
+C
+C Assign Ndim values -------------- 
+      NDIMptr1=mxGetProperty(PLHS(1),i,'Ndim')
+C
+      IF( NDIMptr1 == 0 ) THEN
+        CALL mexErrMsgTxt("Property Ndim not found")
+      ENDIF
+C
+      IF( mxIsInt32(NDIMptr1) == 0 ) THEN
+        CALL mexErrMsgTxt("Property Ndim is not an integer")
+      ENDIF
+C
+      NDIMptr2=mxGetPr(NDIMptr1)
+      CALL mxCopyPtrToInteger4(NDIMptr2,NDIMDST,n)
+      CALL mxDestroyArray(NDIMptr1)
+C
+C Assign Ips values -------------- 
+      IPSptr1=mxGetProperty(PLHS(1),i,'Ips')
+C
+      IF( IPSptr1 == 0 ) THEN
+        CALL mexErrMsgTxt("Property Ips not found")
+      ENDIF
+C
+      IF( mxIsInt32(IPSptr1) == 0 ) THEN
+        CALL mexErrMsgTxt("Property Ips is not an integer")
+      ENDIF
+C
+      IPSptr2=mxGetPr(IPSptr1)
+      CALL mxCopyPtrToInteger4(IPSptr2,IPSDST,n)
+      CALL mxDestroyArray(IPSptr1)
+C
+C Assign Irs values -------------- 
+      IRSptr1=mxGetProperty(PLHS(1),i,'Irs')
+C
+      IF( IRSptr1 == 0 ) THEN
+        CALL mexErrMsgTxt("Property Irs not found")
+      ENDIF
+C
+      IF( mxIsInt32(IRSptr1) == 0 ) THEN
+        CALL mexErrMsgTxt("Property Irs is not an integer")
+      ENDIF
+C
+      IRSptr2=mxGetPr(IRSptr1)
+      CALL mxCopyPtrToInteger4(IRSptr2,IRSDST,n)
+      CALL mxDestroyArray(IRSptr1)
+C
+C Assign Ilp values -------------- 
+      ILPptr1=mxGetProperty(PLHS(1),i,'Ilp')
+C
+      IF( ILPptr1 == 0 ) THEN
+        CALL mexErrMsgTxt("Property Ilp not found")
+      ENDIF
+C
+      IF( mxIsInt32(ILPptr1) == 0 ) THEN
+        CALL mexErrMsgTxt("Property Ilp is not an integer")
+      ENDIF
+C
+      ILPptr2=mxGetPr(ILPptr1)
+      CALL mxCopyPtrToInteger4(ILPptr2,ILPDST,n)
+      CALL mxDestroyArray(ILPptr1)
+C
+C Assign Nicp values -------------- 
+      NICPptr1=mxGetProperty(PLHS(1),i,'Nicp')
+C
+      IF( NICPptr1 == 0 ) THEN
+        CALL mexErrMsgTxt("Property Nicp not found")
+      ENDIF
+C
+      IF( mxIsInt32(NICPptr1) == 0 ) THEN
+        CALL mexErrMsgTxt("Property Nicp is not an integer")
+      ENDIF
+C
+      NICPptr2=mxGetPr(NICPptr1)
+      CALL mxCopyPtrToInteger4(NICPptr2,NICPDST,n)
+      CALL mxDestroyArray(NICPptr1)
+C
+C Assign Icp values -------------- 
+      ICPptr1=mxGetProperty(PLHS(1),i,'Icp')
+C
+      IF( ICPptr1 == 0 ) THEN
+        CALL mexErrMsgTxt("Property Icp not found")
+      ENDIF
+C
+      IF( mxIsInt32(ICPptr1) == 0 ) THEN
+        CALL mexErrMsgTxt("Property Icp is not an integer")
+      ENDIF
+C
+      ICPptr2=mxGetPr(ICPptr1)
+      CALL mxCopyPtrToInteger4(ICPptr2,ICPDST,NICPDST)
+      CALL mxDestroyArray(ICPptr1)
+C
+C Assign Ntst values -------------- 
+      NTSTptr1=mxGetProperty(PLHS(1),i,'Ntst')
+C
+      IF( NTSTptr1 == 0 ) THEN
+        CALL mexErrMsgTxt("Property Ntst not found")
+      ENDIF
+C
+      IF( mxIsInt32(NTSTptr1) == 0 ) THEN
+        CALL mexErrMsgTxt("Property Ntst is not an integer")
+      ENDIF
+C
+      NTSTptr2=mxGetPr(NTSTptr1)
+      CALL mxCopyPtrToInteger4(NTSTptr2,NTSTDST,n)
+      CALL mxDestroyArray(NTSTptr1)
+C
+C Assign Ncol values -------------- 
+      NCOLptr1=mxGetProperty(PLHS(1),i,'Ncol')
+C
+      IF( NCOLptr1 == 0 ) THEN
+        CALL mexErrMsgTxt("Property Ncol not found")
+      ENDIF
+C
+      IF( mxIsInt32(NCOLptr1) == 0 ) THEN
+        CALL mexErrMsgTxt("Property Ncol is not an integer")
+      ENDIF
+C
+      NCOLptr2=mxGetPr(NCOLptr1)
+      CALL mxCopyPtrToInteger4(NCOLptr2,NCOLDST,n)
+      CALL mxDestroyArray(NCOLptr1)
+C
+C Assign Iad values -------------- 
+      IADptr1=mxGetProperty(PLHS(1),i,'Iad')
+C
+      IF( IADptr1 == 0 ) THEN
+        CALL mexErrMsgTxt("Property Iad not found")
+      ENDIF
+C
+      IF( mxIsInt32(IADptr1) == 0 ) THEN
+        CALL mexErrMsgTxt("Property Iad is not an integer")
+      ENDIF
+C
+      IADptr2=mxGetPr(IADptr1)
+      CALL mxCopyPtrToInteger4(IADptr2,IADDST,n)
+      CALL mxDestroyArray(IADptr1)
+C
+C Assign Isp values -------------- 
+      ISPptr1=mxGetProperty(PLHS(1),i,'Isp')
+C
+      IF( ISPptr1 == 0 ) THEN
+        CALL mexErrMsgTxt("Property Isp not found")
+      ENDIF
+C
+      IF( mxIsInt32(ISPptr1) == 0 ) THEN
+        CALL mexErrMsgTxt("Property Isp is not an integer")
+      ENDIF
+C
+      ISPptr2=mxGetPr(ISPptr1)
+      CALL mxCopyPtrToInteger4(ISPptr2,ISPDST,n)
+      CALL mxDestroyArray(ISPptr1)
+C
+C Assign Isw values -------------- 
+      ISWptr1=mxGetProperty(PLHS(1),i,'Isw')
+C
+      IF( ISWptr1 == 0 ) THEN
+        CALL mexErrMsgTxt("Property Isw not found")
+      ENDIF
+C
+      IF( mxIsInt32(ISWptr1) == 0 ) THEN
+        CALL mexErrMsgTxt("Property Isw is not an integer")
+      ENDIF
+C
+      ISWptr2=mxGetPr(ISWptr1)
+      CALL mxCopyPtrToInteger4(ISWptr2,ISWDST,n)
+      CALL mxDestroyArray(ISWptr1)
+C
+C Assign Iplt values -------------- 
+      IPLTptr1=mxGetProperty(PLHS(1),i,'Iplt')
+C
+      IF( IPLTptr1 == 0 ) THEN
+        CALL mexErrMsgTxt("Property Iplt not found")
+      ENDIF
+C
+      IF( mxIsInt32(IPLTptr1) == 0 ) THEN
+        CALL mexErrMsgTxt("Property Iplt is not an integer")
+      ENDIF
+C
+      IPLTptr2=mxGetPr(IPLTptr1)
+      CALL mxCopyPtrToInteger4(IPLTptr2,IPLTDST,n)
+      CALL mxDestroyArray(IPLTptr1)
+C
+C Assign Nbc values -------------- 
+      NBCptr1=mxGetProperty(PLHS(1),i,'Nbc')
+C
+      IF( NBCptr1 == 0 ) THEN
+        CALL mexErrMsgTxt("Property Nbc not found")
+      ENDIF
+C
+      IF( mxIsInt32(NBCptr1) == 0 ) THEN
+        CALL mexErrMsgTxt("Property Nbc is not an integer")
+      ENDIF
+C
+      NBCptr2=mxGetPr(NBCptr1)
+      CALL mxCopyPtrToInteger4(NBCptr2,NBCDST,n)
+      CALL mxDestroyArray(NBCptr1)
+C
+C Assign Nint values -------------- 
+      NINTptr1=mxGetProperty(PLHS(1),i,'Nint')
+C
+      IF( NINTptr1 == 0 ) THEN
+        CALL mexErrMsgTxt("Property Nint not found")
+      ENDIF
+C
+      IF( mxIsInt32(NINTptr1) == 0 ) THEN
+        CALL mexErrMsgTxt("Property Nint is not an integer")
+      ENDIF
+C
+      NINTptr2=mxGetPr(NINTptr1)
+      CALL mxCopyPtrToInteger4(NINTptr2,NINTDST,n)
+      CALL mxDestroyArray(NINTptr1)
+C
+C Assign Nmx values -------------- 
+      NMXptr1=mxGetProperty(PLHS(1),i,'Nmx')
+C
+      IF( NMXptr1 == 0 ) THEN
+        CALL mexErrMsgTxt("Property Nmx not found")
+      ENDIF
+C
+      IF( mxIsInt32(NMXptr1) == 0 ) THEN
+        CALL mexErrMsgTxt("Property Nmx is not an integer")
+      ENDIF
+C
+      NMXptr2=mxGetPr(NMXptr1)
+      CALL mxCopyPtrToInteger4(NMXptr2,NMXDST,n)
+      CALL mxDestroyArray(NMXptr1)
+C
+C Assign Rl0 values -------------- 
+      RL0ptr1=mxGetProperty(PLHS(1),i,'Rl0')
+C
+      IF( RL0ptr1 == 0 ) THEN
+        CALL mexErrMsgTxt("Property Rl0 not found")
+      ENDIF
+C
+      IF( mxIsDouble(RL0ptr1) == 0 ) THEN
+        CALL mexErrMsgTxt("Property Rl0 is not a double")
+      ENDIF
+C
+      RL0ptr2=mxGetPr(RL0ptr1)
+      CALL mxCopyPtrToReal8(RL0ptr2,RL0DST,n)
+      CALL mxDestroyArray(RL0ptr1)
+C
+C Assign Rl1 values -------------- 
+      RL1ptr1=mxGetProperty(PLHS(1),i,'Rl1')
+C
+      IF( RL1ptr1 == 0 ) THEN
+        CALL mexErrMsgTxt("Property Rl1 not found")
+      ENDIF
+C
+      IF( mxIsDouble(RL1ptr1) == 0 ) THEN
+        CALL mexErrMsgTxt("Property Rl1 is not a double")
+      ENDIF
+C
+      RL1ptr2=mxGetPr(RL1ptr1)
+      CALL mxCopyPtrToReal8(RL1ptr2,RL1DST,n)
+      CALL mxDestroyArray(RL1ptr1)
+C
+C Assign A0 values -------------- 
+      A0ptr1=mxGetProperty(PLHS(1),i,'A0')
+C
+      IF( A0ptr1 == 0 ) THEN
+        CALL mexErrMsgTxt("Property A0 not found")
+      ENDIF
+C
+      IF( mxIsDouble(A0ptr1) == 0 ) THEN
+        CALL mexErrMsgTxt("Property A0 is not a double")
+      ENDIF
+C
+      A0ptr2=mxGetPr(A0ptr1)
+      CALL mxCopyPtrToReal8(A0ptr2,A0DST,n)
+      CALL mxDestroyArray(A0ptr1)
+C
+C Assign A1 values -------------- 
+      A1ptr1=mxGetProperty(PLHS(1),i,'A1')
+C
+      IF( A1ptr1 == 0 ) THEN
+        CALL mexErrMsgTxt("Property A1 not found")
+      ENDIF
+C
+      IF( mxIsDouble(A1ptr1) == 0 ) THEN
+        CALL mexErrMsgTxt("Property A1 is not a double")
+      ENDIF
+C
+      A1ptr2=mxGetPr(A1ptr1)
+      CALL mxCopyPtrToReal8(A1ptr2,A1DST,n)
+      CALL mxDestroyArray(A1ptr1)
+C
+C Assign Npr values -------------- 
+      NPRptr1=mxGetProperty(PLHS(1),i,'Npr')
+C
+      IF( NPRptr1 == 0 ) THEN
+        CALL mexErrMsgTxt("Property Npr not found")
+      ENDIF
+C
+      IF( mxIsInt32(NPRptr1) == 0 ) THEN
+        CALL mexErrMsgTxt("Property Npr is not an integer")
+      ENDIF
+C
+      NPRptr2=mxGetPr(NPRptr1)
+      CALL mxCopyPtrToInteger4(NPRptr2,NPRDST,n)
+      CALL mxDestroyArray(NPRptr1)
+C
+C Assign Mxbf values -------------- 
+      MXBFptr1=mxGetProperty(PLHS(1),i,'Mxbf')
+C
+      IF( MXBFptr1 == 0 ) THEN
+        CALL mexErrMsgTxt("Property Mxbf not found")
+      ENDIF
+C
+      IF( mxIsInt32(MXBFptr1) == 0 ) THEN
+        CALL mexErrMsgTxt("Property Mxbf is not an integer")
+      ENDIF
+C
+      MXBFptr2=mxGetPr(MXBFptr1)
+      CALL mxCopyPtrToInteger4(MXBFptr2,MXBFDST,n)
+      CALL mxDestroyArray(MXBFptr1)
+C
+C Assign Iid values -------------- 
+      IIDptr1=mxGetProperty(PLHS(1),i,'Iid')
+C
+      IF( IIDptr1 == 0 ) THEN
+        CALL mexErrMsgTxt("Property Iid not found")
+      ENDIF
+C
+      IF( mxIsInt32(IIDptr1) == 0 ) THEN
+        CALL mexErrMsgTxt("Property Iid is not an integer")
+      ENDIF
+C
+      IIDptr2=mxGetPr(IIDptr1)
+      CALL mxCopyPtrToInteger4(IIDptr2,IIDDST,n)
+      CALL mxDestroyArray(IIDptr1)
+C
+C Assign Itmx values -------------- 
+      ITMXptr1=mxGetProperty(PLHS(1),i,'Itmx')
+C
+      IF( ITMXptr1 == 0 ) THEN
+        CALL mexErrMsgTxt("Property Itmx not found")
+      ENDIF
+C
+      IF( mxIsInt32(ITMXptr1) == 0 ) THEN
+        CALL mexErrMsgTxt("Property Itmx is not an integer")
+      ENDIF
+C
+      ITMXptr2=mxGetPr(ITMXptr1)
+      CALL mxCopyPtrToInteger4(ITMXptr2,ITMXDST,n)
+      CALL mxDestroyArray(ITMXptr1)
+C
+C Assign Itnw values -------------- 
+      ITNWptr1=mxGetProperty(PLHS(1),i,'Itnw')
+C
+      IF( ITNWptr1 == 0 ) THEN
+        CALL mexErrMsgTxt("Property Itnw not found")
+      ENDIF
+C
+      IF( mxIsInt32(ITNWptr1) == 0 ) THEN
+        CALL mexErrMsgTxt("Property Itnw is not an integer")
+      ENDIF
+C
+      ITNWptr2=mxGetPr(ITNWptr1)
+      CALL mxCopyPtrToInteger4(ITNWptr2,ITNWDST,n)
+      CALL mxDestroyArray(ITNWptr1)
+C
+C Assign Nwtn values -------------- 
+      NWTNptr1=mxGetProperty(PLHS(1),i,'Nwtn')
+C
+      IF( NWTNptr1 == 0 ) THEN
+        CALL mexErrMsgTxt("Property Nwtn not found")
+      ENDIF
+C
+      IF( mxIsInt32(NWTNptr1) == 0 ) THEN
+        CALL mexErrMsgTxt("Property Nwtn is not an integer")
+      ENDIF
+C
+      NWTNptr2=mxGetPr(NWTNptr1)
+      CALL mxCopyPtrToInteger4(NWTNptr2,NWTNDST,n)
+      CALL mxDestroyArray(NWTNptr1)
+C
+C Assign Jac values -------------- 
+      JACptr1=mxGetProperty(PLHS(1),i,'Jac')
+C
+      IF( JACptr1 == 0 ) THEN
+        CALL mexErrMsgTxt("Property Jac not found")
+      ENDIF
+C
+      IF( mxIsInt32(JACptr1) == 0 ) THEN
+        CALL mexErrMsgTxt("Property Jac is not an integer")
+      ENDIF
+C
+      JACptr2=mxGetPr(JACptr1)
+      CALL mxCopyPtrToInteger4(JACptr2,JACDST,n)
+      CALL mxDestroyArray(JACptr1)
+C
+C Assign Epsl values -------------- 
+      EPSLptr1=mxGetProperty(PLHS(1),i,'Epsl')
+C
+      IF( EPSLptr1 == 0 ) THEN
+        CALL mexErrMsgTxt("Property Epsl not found")
+      ENDIF
+C
+      IF( mxIsDouble(EPSLptr1) == 0 ) THEN
+        CALL mexErrMsgTxt("Property Epsl is not a double")
+      ENDIF
+C
+      EPSLptr2=mxGetPr(EPSLptr1)
+      CALL mxCopyPtrToReal8(EPSLptr2,EPSLDST,n)
+      CALL mxDestroyArray(EPSLptr1)
+C
+C Assign Epsu values -------------- 
+      EPSUptr1=mxGetProperty(PLHS(1),i,'Epsu')
+C
+      IF( EPSUptr1 == 0 ) THEN
+        CALL mexErrMsgTxt("Property Epsu not found")
+      ENDIF
+C
+      IF( mxIsDouble(EPSUptr1) == 0 ) THEN
+        CALL mexErrMsgTxt("Property Epsu is not a double")
+      ENDIF
+C
+      EPSUptr2=mxGetPr(EPSUptr1)
+      CALL mxCopyPtrToReal8(EPSUptr2,EPSUDST,n)
+      CALL mxDestroyArray(EPSUptr1)
+C
+C Assign Epss values -------------- 
+      EPSSptr1=mxGetProperty(PLHS(1),i,'Epss')
+C
+      IF( EPSSptr1 == 0 ) THEN
+        CALL mexErrMsgTxt("Property Epss not found")
+      ENDIF
+C
+      IF( mxIsDouble(EPSSptr1) == 0 ) THEN
+        CALL mexErrMsgTxt("Property Epss is not a double")
+      ENDIF
+C
+      EPSSptr2=mxGetPr(EPSSptr1)
+      CALL mxCopyPtrToReal8(EPSSptr2,EPSSDST,n)
+      CALL mxDestroyArray(EPSSptr1)
+C
+C Assign Ds values -------------- 
+      DSptr1=mxGetProperty(PLHS(1),i,'Ds')
+C
+      IF( DSptr1 == 0 ) THEN
+        CALL mexErrMsgTxt("Property Ds not found")
+      ENDIF
+C
+      IF( mxIsDouble(DSptr1) == 0 ) THEN
+        CALL mexErrMsgTxt("Property Ds is not a double")
+      ENDIF
+C
+      DSptr2=mxGetPr(DSptr1)
+      CALL mxCopyPtrToReal8(DSptr2,DSDST,n)
+      CALL mxDestroyArray(DSptr1)
+C
+C Assign Dsmin values -------------- 
+      DSMINptr1=mxGetProperty(PLHS(1),i,'Dsmin')
+C
+      IF( DSMINptr1 == 0 ) THEN
+        CALL mexErrMsgTxt("Property Dsmin not found")
+      ENDIF
+C
+      IF( mxIsDouble(DSMINptr1) == 0 ) THEN
+        CALL mexErrMsgTxt("Property Dsmin is not a double")
+      ENDIF
+C
+      DSMINptr2=mxGetPr(DSMINptr1)
+      CALL mxCopyPtrToReal8(DSMINptr2,DSMINDST,n)
+      CALL mxDestroyArray(DSMINptr1)
+C
+C Assign Dsmax values -------------- 
+      DSMAXptr1=mxGetProperty(PLHS(1),i,'Dsmax')
+C
+      IF( DSMAXptr1 == 0 ) THEN
+        CALL mexErrMsgTxt("Property Dsmax not found")
+      ENDIF
+C
+      IF( mxIsDouble(DSMAXptr1) == 0 ) THEN
+        CALL mexErrMsgTxt("Property Dsmax is not a double")
+      ENDIF
+C
+      DSMAXptr2=mxGetPr(DSMAXptr1)
+      CALL mxCopyPtrToReal8(DSMAXptr2,DSMAXDST,n)
+      CALL mxDestroyArray(DSMAXptr1)
+C
+C Assign Iads values -------------- 
+      IADSptr1=mxGetProperty(PLHS(1),i,'Iads')
+C
+      IF( IADSptr1 == 0 ) THEN
+        CALL mexErrMsgTxt("Property Iads not found")
+      ENDIF
+C
+      IF( mxIsInt32(IADSptr1) == 0 ) THEN
+        CALL mexErrMsgTxt("Property Iads is not an integer")
+      ENDIF
+C
+      IADSptr2=mxGetPr(IADSptr1)
+      CALL mxCopyPtrToInteger4(IADSptr2,IADSDST,n)
+      CALL mxDestroyArray(IADSptr1)
+C
+C Assign Nthl values -------------- 
+      NTHLptr1=mxGetProperty(PLHS(1),i,'Nthl')
+C
+      IF( NTHLptr1 == 0 ) THEN
+        CALL mexErrMsgTxt("Property Nthl not found")
+      ENDIF
+C
+      IF( mxIsInt32(NTHLptr1) == 0 ) THEN
+        CALL mexErrMsgTxt("Property Nthl is not an integer")
+      ENDIF
+C
+      NTHLptr2=mxGetPr(NTHLptr1)
+      CALL mxCopyPtrToInteger4(NTHLptr2,NTHLDST,n)
+      CALL mxDestroyArray(NTHLptr1)
+C
+C Assign Ithl values -------------- 
+      ITHLptr1=mxGetProperty(PLHS(1),i,'Ithl')
+C
+      IF( ITHLptr1 == 0 ) THEN
+        CALL mexErrMsgTxt("Property Ithl not found")
+      ENDIF
+C
+      IF( mxIsInt32(ITHLptr1) == 0 ) THEN
+        CALL mexErrMsgTxt("Property Ithl is not an integer")
+      ENDIF
+C
+      ITHLptr2=mxGetPr(ITHLptr1)
+      CALL mxCopyPtrToInteger4(ITHLptr2,ITHLDST,NTHLDST)
+      CALL mxDestroyArray(ITHLptr1)
+C
+C Assign Vthl values -------------- 
+      VTHLptr1=mxGetProperty(PLHS(1),i,'Vthl')
+C
+      IF( VTHLptr1 == 0 ) THEN
+        CALL mexErrMsgTxt("Property Vthl not found")
+      ENDIF
+C
+      IF( mxIsDouble(VTHLptr1) == 0 ) THEN
+        CALL mexErrMsgTxt("Property Vthl is not a double")
+      ENDIF
+C
+      VTHLptr2=mxGetPr(VTHLptr1)
+      CALL mxCopyPtrToReal8(VTHLptr2,VTHLDST,NTHLDST)
+      CALL mxDestroyArray(VTHLptr1)
+C
+C Assign Nthu values -------------- 
+      NTHUptr1=mxGetProperty(PLHS(1),i,'Nthu')
+C
+      IF( NTHUptr1 == 0 ) THEN
+        CALL mexErrMsgTxt("Property Nthu not found")
+      ENDIF
+C
+      IF( mxIsInt32(NTHUptr1) == 0 ) THEN
+        CALL mexErrMsgTxt("Property Nthu is not an integer")
+      ENDIF
+C
+      NTHUptr2=mxGetPr(NTHUptr1)
+      CALL mxCopyPtrToInteger4(NTHUptr2,NTHUDST,n)
+      CALL mxDestroyArray(NTHUptr1)
+C
+C Assign Ithu values -------------- 
+      ITHUptr1=mxGetProperty(PLHS(1),i,'Ithu')
+C
+      IF( ITHUptr1 == 0 ) THEN
+        CALL mexErrMsgTxt("Property Ithu not found")
+      ENDIF
+C
+      IF( mxIsInt32(ITHUptr1) == 0 ) THEN
+        CALL mexErrMsgTxt("Property Ithu is not an integer")
+      ENDIF
+C
+      ITHUptr2=mxGetPr(ITHUptr1)
+      CALL mxCopyPtrToInteger4(ITHUptr2,ITHUDST,NTHUDST)
+      CALL mxDestroyArray(ITHUptr1)
+C
+C Assign Vthu values -------------- 
+      VTHUptr1=mxGetProperty(PLHS(1),i,'Vthu')
+C
+      IF( VTHUptr1 == 0 ) THEN
+        CALL mexErrMsgTxt("Property Vthu not found")
+      ENDIF
+C
+      IF( mxIsDouble(VTHUptr1) == 0 ) THEN
+        CALL mexErrMsgTxt("Property Vthu is not a double")
+      ENDIF
+C
+      VTHUptr2=mxGetPr(VTHUptr1)
+      CALL mxCopyPtrToReal8(VTHUptr2,VTHUDST,NTHUDST)
+      CALL mxDestroyArray(VTHUptr1)
+C
+C Assign Nuzr values -------------- 
+      NUZRptr1=mxGetProperty(PLHS(1),i,'Nuzr')
+C
+      IF( NUZRptr1 == 0 ) THEN
+        CALL mexErrMsgTxt("Property Nuzr not found")
+      ENDIF
+C
+      IF( mxIsInt32(NUZRptr1) == 0 ) THEN
+        CALL mexErrMsgTxt("Property Nuzr is not an integer")
+      ENDIF
+C
+      NUZRptr2=mxGetPr(NUZRptr1)
+      CALL mxCopyPtrToInteger4(NUZRptr2,NUZRDST,n)
+      CALL mxDestroyArray(NUZRptr1)
+C
+C Assign Iuz values -------------- 
+      IUZptr1=mxGetProperty(PLHS(1),i,'Iuz')
+C
+      IF( IUZptr1 == 0 ) THEN
+        CALL mexErrMsgTxt("Property Iuz not found")
+      ENDIF
+C
+      IF( mxIsInt32(IUZptr1) == 0 ) THEN
+        CALL mexErrMsgTxt("Property Iuz is not an integer")
+      ENDIF
+C
+      IUZptr2=mxGetPr(IUZptr1)
+      CALL mxCopyPtrToInteger4(IUZptr2,IUZDST,NUZRDST)
+      CALL mxDestroyArray(IUZptr1)
+C
+C Assign Vuz values -------------- 
+      VUZptr1=mxGetProperty(PLHS(1),i,'Vuz')
+C
+      IF( VUZptr1 == 0 ) THEN
+        CALL mexErrMsgTxt("Property Vuz not found")
+      ENDIF
+C
+      IF( mxIsDouble(VUZptr1) == 0 ) THEN
+        CALL mexErrMsgTxt("Property Vuz is not a double")
+      ENDIF
+C
+      VUZptr2=mxGetPr(VUZptr1)
+      CALL mxCopyPtrToReal8(VUZptr2,VUZDST,NUZRDST)
+      CALL mxDestroyArray(VUZptr1)
+C

@@ -1,0 +1,18 @@
+Flight Visualization
+
+Phantom euler angles graphics
+
+
+Creates an up-dateable display of an F4 Phantom jet with flight data.
+
+
+
+I created this function to assist in displaying flight test data.
+
+It creates a patch and a collection of hg transform objects which allow one to easily update the figure.
+
+Also allows the control surfaces to be moved.
+
+Bar meters are included to display altitude, Mach number and g's.
+
+Typically one would use this inside a loop to display flight data as an animation. Just remember to call drawnow to force each frame to update.

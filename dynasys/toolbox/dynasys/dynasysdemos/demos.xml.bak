@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<demos>
+   <name>Dynamical Systems</name>
+   <type>toolbox</type>
+   <icon>$toolbox/matlab/icons/matlabicon.gif</icon>
+   <description isCdata="no">
+   <p>Dynamical Systems Toolbox extends the MATLAB&#174; technical computing environment 
+with tools and widely used algorithms for bifurcation analysis. 
+These algorithms use continuation methods to detect folds, hopf bifurcations
+and other nonlinear phenomena.</p>
+</description>
+   <label>Getting Started</label>
+   <demoitem>
+      <label>Matlab example in normal mode  (Demo:ab)</label>
+      <type>M-file</type>
+      <source>ab/run_demo_dst_mat_ab</source>
+      <file>ab/html/run_demo_dst_mat_ab.html</file>
+   </demoitem>
+   <demoitem>
+      <label>Simulink example in normal mode  (Demo:ab)</label>
+      <type>M-file</type>
+      <source>/ab/run_demo_mat_ab</source>
+      <file>ab/html/run_demo_dst_sim_ab.html</file>
+   </demoitem>
+   <demoitem>
+      <label>Matlab example in AUTO mode (Demo:ab)</label>
+      <type>M-file</type>
+      <source>/ab/run_demo_mat_ab</source>
+   </demoitem>
+   <label>Fixed Points</label>
+   <demoitem>
+      <label>Stationary Solutions of an Enzyme Model (Demo:enz)</label>
+      <type>M-file</type>
+      <source>enz/run_demo_enz</source>
+      <file>enz/html/run_demo_enz.html</file>
+   </demoitem>
+   <demoitem>
+      <label>Fixed Points of a Discrete Dynamical System (Demo:dd2)</label>
+      <type>M-file</type>
+      <source>dd2/run_demo_enz</source>
+      <file>dd2/html/run_demo_enz.html</file>
+   </demoitem>
+   <label>Periodic Solutions</label>
+   <demoitem>
+      <label>The Lorenz Equations (Demo:lrz)</label>
+      <type>M-file</type>
+      <source>lrz/run_demo_lrz</source>
+      <file>lrz/html/run_demo_lrz.html</file>
+   </demoitem>
+   <demoitem>
+      <label>The A > B > C Reaction (Demo:abc)</label>
+      <type>M-file</type>
+      <source>abc/run_demo_enz</source>
+      <file>abc/html/run_demo_enz.html</file>
+   </demoitem>
+   <label>Boundary Value Problems</label>
+   <demoitem>
+      <label>Bratu's Equation (Demo:exp)</label>
+      <type>M-file</type>
+      <source>exp/run_demo_exp</source>
+      <file>exp/html/run_demo_exp.html</file>
+   </demoitem>
+   <demoitem>
+      <label>Boundary and Integral Constraints (Demo:int)</label>
+      <type>M-file</type>
+      <source>int/run_demo_int</source>
+      <file>int/html/run_demo_int.html</file>
+   </demoitem>
+   <label>Parabolic PDE's</label>
+   <demoitem>
+      <label>Stationary States (1D Problem) (Demo:pd1)</label>
+      <type>M-file</type>
+      <source>pd1/run_demo_pd1</source>
+      <file>pd1/html/run_demo_pd1.html</file>
+   </demoitem>
+   <demoitem>
+      <label>Stationary States (2D Problem) (Demo:pd2)</label>
+      <type>M-file</type>
+      <source>pd2/run_demo_pd2</source>
+      <file>pd2/html/run_demo_pd2.html</file>
+   </demoitem>
+</demos>

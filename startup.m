@@ -1,0 +1,11 @@
+addpath('C:\Documents and Settings\ecoetzee\Desktop\dynasys\help\toolbox\dynasys');
+addpath('C:\Documents and Settings\ecoetzee\Desktop\dynasys\toolbox\dynasys');
+addpath('C:\Documents and Settings\ecoetzee\Desktop\dynasys\toolbox\dynasys\cmds');
+addpath('C:\Documents and Settings\ecoetzee\Desktop\dynasys\toolbox\dynasys\icons');
+addpath('C:\Documents and Settings\ecoetzee\Desktop\dynasys\toolbox\dynasys\dynasysdemos');
+addpath('C:\Documents and Settings\ecoetzee\Desktop\dynasys\toolbox\dynasys\src');
+addpath('C:\Documents and Settings\ecoetzee\Desktop\dynasys\toolbox\dynasys\utils\autoobj');
+addpath('C:\Documents and Settings\ecoetzee\Desktop\dynasys\toolbox\dynasys\utils\autoconst');
+addpath('C:\Documents and Settings\ecoetzee\Desktop\dynasys\toolbox\dynasys\utils\plaut');
+addpath('C:\Documents and Settings\ecoetzee\Desktop\dynasys\toolbox\dynasys\utils\flightviz');
+addpath('C:\Documents and Settings\ecoetzee\Desktop\dynasys\toolbox\dynasys\utils\figuremanagement');

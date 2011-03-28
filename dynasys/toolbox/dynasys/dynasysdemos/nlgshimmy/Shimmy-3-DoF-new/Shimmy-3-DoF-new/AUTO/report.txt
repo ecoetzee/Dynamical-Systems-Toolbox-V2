@@ -1,0 +1,3 @@
+Even though longitudinal mode behaves similar to the torsional mode of the landing gear at low velocities (<100 m/s), the effect of the lateral mode is increased with increase in the forward velocity of the aircraft. Specifically, the increase in the amplitude of the longitudinal mode at high velocities (>150 m/s) resembles the increase in the lateral mode with the amplitude of the torsional mode remaining constant. Also, the only stable solution at higher velocities in both the longitudinal and the lateral modes is the low-torsional amplitude and high lateral/longitudinal amplitude oscillations of the nose gear.
+
+The subcritical torus bifurcation of the stable periodic orbit at velocities around 170 m/s is identical in nature in both the 5-D and 7-D cases.

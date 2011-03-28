@@ -1,0 +1,370 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML is auto-generated from an M-file.
+To make changes, update the M-file and republish this document.
+      --><title>Boundary and Integral Constraints (Demo : int)</title><meta name="generator" content="MATLAB 7.9"><meta name="date" content="2010-10-26"><meta name="m-file" content="run_demo_int"><style type="text/css">
+
+body {
+  background-color: white;
+  margin:10px;
+}
+
+h1 {
+  color: #990000; 
+  font-size: x-large;
+}
+
+h2 {
+  color: #990000;
+  font-size: medium;
+}
+
+/* Make the text shrink to fit narrow windows, but not stretch too far in 
+wide windows. */ 
+p,h1,h2,div.content div {
+  max-width: 600px;
+  /* Hack for IE6 */
+  width: auto !important; width: 600px;
+}
+
+pre.codeinput {
+  background: #EEEEEE;
+  padding: 10px;
+}
+@media print {
+  pre.codeinput {word-wrap:break-word; width:100%;}
+} 
+
+span.keyword {color: #0000FF}
+span.comment {color: #228B22}
+span.string {color: #A020F0}
+span.untermstring {color: #B20000}
+span.syscmd {color: #B28C00}
+
+pre.codeoutput {
+  color: #666666;
+  padding: 10px;
+}
+
+pre.error {
+  color: red;
+}
+
+p.footer {
+  text-align: right;
+  font-size: xx-small;
+  font-weight: lighter;
+  font-style: italic;
+  color: gray;
+}
+
+
+/* ADDED the FOLLOWING*/
+/* == header == */
+div.header {
+  top:0px;
+  left:0px;
+  background: #660000;
+  border-bottom: 10px solid #EBF5F9;
+  margin-bottom: 10px;
+  font-weight: bold;
+  width: 100%;
+}
+div.left {
+  position: absolute;
+  top: 10px;
+  left: 0px;
+  padding: 10px;
+}
+div.right {
+  text-align: right;
+  padding: 10px;
+}
+div.header a {
+  color: white;
+}
+div.header {
+  color: white;
+} 
+/* ADDED the ABOVE code*/
+</style></head><body><div class="header"><div class="left"><a href="matlab:edit(fullfile(dynasysroot,'dynasysdemos','int','run_demo_int.m'))">Open run_demo_int.m in the Editor</a></div><div class="right"><a href="matlab:addpath(fullfile(dynasysroot,'dynasysdemos','int'));echodemo run_demo_int">Run in the Command Window</a></div></div><div class="content"><h1>Boundary and Integral Constraints (Demo : int)</h1><!--introduction--><p>This demo illustrates the computation of a solution family to the equation</p><p>: <img src="run_demo_int_eq41056.png" alt="$u_1'=u_2$">,</p><p>: <img src="run_demo_int_eq55603.png" alt="$u_2'=-p_1  e^{u_1}$">,</p><div><ul><li>with a non-separated boundary condition : $ u_1(0)-u_1(1)-p_2=0 $</li><li>and an integral constraint : <img src="run_demo_int_eq82815.png" alt="$\int_0^{1}u(t)dt-p_3=0$"></li></ul></div><p>The solution family contains a fold, which, in the second run, is continued in two equation parameters.</p><!--/introduction--><h2>Contents</h2><div><ul><li><a href="#1">Initialise workspace</a></li><li><a href="#2">Definition of function file</a></li><li><a href="#3">Definition of boundary conditions file</a></li><li><a href="#4">Definition of integral conditions file</a></li><li><a href="#5">Set intial conditions</a></li><li><a href="#6">Load and display constants</a></li><li><a href="#8">Compute the solution family containing the fold</a></li><li><a href="#9">Generate starting data for a curve of folds</a></li><li><a href="#10">Compute a curve of folds; restart from second run</a></li><li><a href="#11">Plot the solution</a></li></ul></div><h2>Initialise workspace<a name="1"></a></h2><p>Clear workspace</p><pre class="codeinput">clear <span class="string">all</span>
+
+<span class="comment">% Create a continuation object.</span>
+a{1}=auto;
+</pre><h2>Definition of function file<a name="2"></a></h2><p>Display function file contents.</p><pre class="codeinput">type(a{1}.s.FuncFileName);
+</pre><pre class="codeoutput">
+function [f,o,dfdu,dfdp]= func(par,u,ijac)
+%
+% equations file for demo int
+%
+f=[];
+o=[];
+dfdu=[];
+dfdp=[];
+
+e=exp(u(1));
+f(1)=u(2);
+f(2)=-par(1).*e;
+
+if(ijac==0)
+    return
+end
+
+dfdu(1,1)=0.0;
+dfdu(1,2)=1;
+dfdu(2,1)=-par(1).*e;
+dfdu(2,2)=0.0;
+
+if(ijac==1)
+    return
+end
+
+% parameter derivatives
+dfdp(1,1)=0.0;
+dfdp(2,1)=-e;
+
+
+
+</pre><h2>Definition of boundary conditions file<a name="3"></a></h2><p>Display boundary conditions file contents.</p><pre class="codeinput">type(a{1}.s.BcndFileName);
+</pre><pre class="codeoutput">
+function [fb,o,dbc]= bcnd(par,u0,u1,ijac)
+%
+% boundary conditions for demo int
+%
+fb=[];
+o=[];
+dbc=[];
+
+fb(1)=u0(1)-u1(1)-par(2);
+
+if(ijac==0)
+    return
+end
+
+dbc(1,1)=1.0;
+dbc(1,2)=0.0;
+
+dbc(1,3)=-1.0;
+dbc(1,4)=0.0;
+
+if(ijac==1)
+    return
+end
+
+% parameter derivatives
+dbc(1,5)=0.0;
+dbc(1,6)=-1.0;
+dbc(1,7)=0.0;
+
+
+</pre><h2>Definition of integral conditions file<a name="4"></a></h2><p>Display integral conditions file contents.</p><pre class="codeinput">type(a{1}.s.IcndFileName);
+</pre><pre class="codeoutput">
+function [fi,o,dint]= icnd(par,u,ijac)
+%
+%
+%
+fi=[];
+o=[];
+dint=[];
+
+fi(1)=u(1)-par(3);
+
+if(ijac==0)
+    return
+end
+
+dint(1,1)=1.0;
+dint(1,2)=0.0;
+
+if(ijac==1)
+    return
+end
+
+% parameter derivatives
+dint(1,3)=0.0;
+dint(1,4)=0.0;
+dint(1,5)=-1.0;
+
+</pre><h2>Set intial conditions<a name="5"></a></h2><p>We can either load data from the starting point file, or we can define the initial conditions directly into variable.</p><pre class="codeinput">[a{1}.s.Par0,a{1}.s.U0,a{1}.s.Out0]=stpnt;
+</pre><h2>Load and display constants<a name="6"></a></h2><p>Load the constants file.</p><pre class="codeinput">a{1}.c=cint1(a{1}.c);
+</pre><p>Display the constants.</p><pre class="codeinput">a{1}.c
+</pre><pre class="codeoutput">
+ans = 
+
+  autoconstants handle
+
+  Properties:
+     Ndim: 2
+    Noutx: 0
+      Ips: 4
+      Irs: 0
+      Ilp: 1
+      Icp: 1
+     Ntst: 5
+     Ncol: 4
+      Iad: 3
+      Isp: 1
+      Isw: 1
+     Iplt: 0
+      Nbc: 1
+     Nint: 1
+      Nmx: 40
+      Rl0: 0
+      Rl1: 20
+       A0: 0
+       A1: 100
+      Npr: 40
+     Mxbf: 10
+      Iid: 2
+     Itmx: 8
+     Itnw: 5
+     Nwtn: 3
+      Jac: 1
+     Epsl: 1.0000e-006
+     Epsu: 1.0000e-006
+     Epss: 1.0000e-004
+       Ds: 0.0100
+    Dsmin: 1.0000e-003
+    Dsmax: 2
+     Iads: 1
+      Thl: [2 0]
+      Thu: []
+      Uzr: [2x2 double]
+
+
+</pre><h2>Compute the solution family containing the fold<a name="8"></a></h2><p>Run equilbrium solutions.</p><pre class="codeinput">a{1}=runauto(a{1});
+</pre><pre class="codeoutput"> 
+    --------------- DYNAMICAL SYSTEMS TOOLBOX ---------------------     
+ 
+USER NAME      : ECOETZEE
+DATE           : 26/10/2010 10:10:15
+ 
+ 
+&lt;
+  BR    PT  TY  LAB      PAR(01)      L2-NORM     MAX U(01)     MAX U(02)
+   1     1  EP    1   0.00000E+00   0.00000E+00   0.00000E+00   0.00000E+00
+   1    11  UZ    2   1.00004E+00   2.96262E-01   4.29222E-02   5.00382E-01
+   1    14  UZ    3   3.00000E+00   9.26129E-01   1.37743E-01   1.51077E+00
+   1    21  LP    4   1.19238E+01   7.16493E+00   1.29249E+00   9.14571E+00
+   1    30  UZ    5   3.00000E+00   2.09605E+01   4.42789E+00   2.28138E+01
+   1    34  UZ    6   1.00000E+00   2.75893E+01   6.04503E+00   2.93292E+01
+   1    40  EP    7   1.07610E-01   3.94554E+01   8.94942E+00   4.10120E+01
+
+ Total Time    0.391E+00
+&gt;
+</pre><h2>Generate starting data for a curve of folds<a name="9"></a></h2><pre class="codeinput">a{2}=a{1};
+a{2}.c=cint2(a{2}.c);
+a{2}=runauto(a{2});
+</pre><pre class="codeoutput"> 
+    --------------- DYNAMICAL SYSTEMS TOOLBOX ---------------------     
+ 
+USER NAME      : ECOETZEE
+DATE           : 26/10/2010 10:10:16
+ 
+ 
+&lt;
+
+ Generating starting data  :
+ Restart at EP label below :
+
+  BR    PT  TY  LAB      PAR(01)      L2-NORM     MAX U(01)     MAX U(02)      PAR(02)
+   2     5  EP    8   1.19238E+01   7.16487E+00   1.29012E+00   9.14566E+00   0.00000E+00
+
+ Total Time    0.188E+00
+&gt;
+</pre><h2>Compute a curve of folds; restart from second run<a name="10"></a></h2><pre class="codeinput">a{3}=a{2};
+a{3}.c=cint3(a{3}.c);
+a{3}=runauto(a{3});
+</pre><pre class="codeoutput"> 
+    --------------- DYNAMICAL SYSTEMS TOOLBOX ---------------------     
+ 
+USER NAME      : ECOETZEE
+DATE           : 26/10/2010 10:10:16
+ 
+ 
+&lt;
+  BR    PT  TY  LAB      PAR(01)      L2-NORM     MAX U(01)     MAX U(02)      PAR(02)
+   2    38  UZ    9   3.00000E+00   1.23728E+01   3.49316E+00   1.27456E+01   7.90922E+00
+   2    40  EP   10   1.36979E+00   1.48682E+01   4.58514E+00   1.47518E+01   1.03924E+01
+
+ Total Time    0.233E+01
+&gt;
+</pre><h2>Plot the solution<a name="11"></a></h2><p>Create plaut object and plot solution.</p><pre class="codeinput">p=plautobj;
+set(p,<span class="string">'xLab'</span>,<span class="string">'Par'</span>,<span class="string">'yLab'</span>,<span class="string">'L2norm'</span>);
+ploteq(p,a);
+</pre><img vspace="5" hspace="5" src="run_demo_int_01.png" alt=""> <p class="footer"><br>
+      Published with MATLAB&reg; 7.9<br></p></div><!--
+##### SOURCE BEGIN #####
+%% Boundary and Integral Constraints (Demo : int)
+% This demo illustrates the computation of a solution family to
+% the equation
+%
+% : $u_1'=u_2$,
+% 
+% : $u_2'=-p_1  e^{u_1}$,
+%
+% * with a non-separated boundary condition : $ u_1(0)-u_1(1)-p_2=0 $
+% * and an integral constraint : $\int_0^{1}u(t)dt-p_3=0$
+% 
+% The solution family contains a fold, which, in the second run, is
+% continued in two equation parameters.
+
+%% Initialise workspace
+% Clear workspace
+clear all
+
+% Create a continuation object.
+a{1}=auto;
+
+%% Definition of function file
+% Display function file contents.
+type(a{1}.s.FuncFileName);
+
+%% Definition of boundary conditions file
+% Display boundary conditions file contents.
+type(a{1}.s.BcndFileName);
+
+%% Definition of integral conditions file
+% Display integral conditions file contents.
+type(a{1}.s.IcndFileName);
+
+%% Set intial conditions
+% We can either load data from the starting point file, or we 
+% can define the initial conditions directly into variable.
+[a{1}.s.Par0,a{1}.s.U0,a{1}.s.Out0]=stpnt;
+
+%% Load and display constants
+% Load the constants file.
+a{1}.c=cint1(a{1}.c);
+
+%%
+% Display the constants.
+a{1}.c
+
+%% Compute the solution family containing the fold
+% Run equilbrium solutions.
+a{1}=runauto(a{1});
+
+%% Generate starting data for a curve of folds
+a{2}=a{1};
+a{2}.c=cint2(a{2}.c);
+a{2}=runauto(a{2});
+
+%% Compute a curve of folds; restart from second run
+a{3}=a{2};
+a{3}.c=cint3(a{3}.c);
+a{3}=runauto(a{3});
+
+%% Plot the solution
+% Create plaut object and plot solution.
+p=plautobj;
+set(p,'xLab','Par','yLab','L2norm');
+ploteq(p,a);
+
+
+##### SOURCE END #####
+--></body></html>

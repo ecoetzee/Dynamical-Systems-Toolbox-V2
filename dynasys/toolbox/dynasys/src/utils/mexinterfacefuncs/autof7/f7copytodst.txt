@@ -1,0 +1,222 @@
+      mwPointer IBRF7ptr1, IBRF7ptr2
+      mwPointer MTOTF7ptr1, MTOTF7ptr2
+      mwPointer ITPF7ptr1, ITPF7ptr2
+      mwPointer LABF7ptr1, LABF7ptr2
+      mwPointer PARF7ptr1, PARF7ptr2
+      mwPointer VAXISF7ptr1, VAXISF7ptr2
+      mwPointer UF7ptr1, UF7ptr2
+      mwPointer OUTF7ptr1, OUTF7ptr2
+      REAL*8, POINTER::IBRF7MWS(:)
+      REAL*8, POINTER::MTOTF7MWS(:)
+      REAL*8, POINTER::ITPF7MWS(:)
+      REAL*8, POINTER::LABF7MWS(:)
+      REAL*8, POINTER::PARF7MWS(:,:)
+      REAL*8, POINTER::VAXISF7MWS(:)
+      REAL*8, POINTER::UF7MWS(:,:)
+      REAL*8, POINTER::OUTF7MWS(:,:)
+C
+C
+C Assign Ibr values --------------
+      IBRF7ptr1=mxGetProperty(PLHS(1),1,'Ibr')
+C
+      IF( IBRF7ptr1 == 0 ) THEN
+        CALL mexErrMsgTxt("Property Ibr not found")
+      ENDIF
+C
+      M=SIZE(IBRF7)
+      D1=M
+      IBRF7ptr2 = mxCreateNumericArray(1,D1,mxClassIDFromClassName('double'),0)
+      CALL MatlabAPI_COM_Apx1(%VAL(mxGetPr(IBRF7ptr2)), 1, D1 )
+      IBRF7MWS => Apx1
+      IF( .NOT.ASSOCIATED(IBRF7MWS) ) THEN
+        CALL mexErrMsgTxt("Internal error pointing to Ibr pointer data")
+      ENDIF
+C
+      DO I=1,M
+        IBRF7MWS(I)=IBRF7(I)
+      ENDDO
+C
+      CALL mxSetProperty(PLHS(1),1,'Ibr',IBRF7ptr2)
+      CALL mxDestroyArray(IBRF7ptr2)
+      CALL mxDestroyArray(IBRF7ptr1)
+C
+C Assign Mtot values --------------
+      MTOTF7ptr1=mxGetProperty(PLHS(1),1,'Mtot')
+C
+      IF( MTOTF7ptr1 == 0 ) THEN
+        CALL mexErrMsgTxt("Property Mtot not found")
+      ENDIF
+C
+      M=SIZE(MTOTF7)
+      D1=M
+      MTOTF7ptr2 = mxCreateNumericArray(1,D1,mxClassIDFromClassName('double'),0)
+      CALL MatlabAPI_COM_Apx1(%VAL(mxGetPr(MTOTF7ptr2)), 1, D1 )
+      MTOTF7MWS => Apx1
+      IF( .NOT.ASSOCIATED(MTOTF7MWS) ) THEN
+        CALL mexErrMsgTxt("Internal error pointing to Mtot pointer data")
+      ENDIF
+C
+      DO I=1,M
+        MTOTF7MWS(I)=MTOTF7(I)
+      ENDDO
+C
+      CALL mxSetProperty(PLHS(1),1,'Mtot',MTOTF7ptr2)
+      CALL mxDestroyArray(MTOTF7ptr2)
+      CALL mxDestroyArray(MTOTF7ptr1)
+C
+C Assign Itp values --------------
+      ITPF7ptr1=mxGetProperty(PLHS(1),1,'Itp')
+C
+      IF( ITPF7ptr1 == 0 ) THEN
+        CALL mexErrMsgTxt("Property Itp not found")
+      ENDIF
+C
+      M=SIZE(ITPF7)
+      D1=M
+      ITPF7ptr2 = mxCreateNumericArray(1,D1,mxClassIDFromClassName('double'),0)
+      CALL MatlabAPI_COM_Apx1(%VAL(mxGetPr(ITPF7ptr2)), 1, D1 )
+      ITPF7MWS => Apx1
+      IF( .NOT.ASSOCIATED(ITPF7MWS) ) THEN
+        CALL mexErrMsgTxt("Internal error pointing to Itp pointer data")
+      ENDIF
+C
+      DO I=1,M
+        ITPF7MWS(I)=ITPF7(I)
+      ENDDO
+C
+      CALL mxSetProperty(PLHS(1),1,'Itp',ITPF7ptr2)
+      CALL mxDestroyArray(ITPF7ptr2)
+      CALL mxDestroyArray(ITPF7ptr1)
+C
+C Assign Lab values --------------
+      LABF7ptr1=mxGetProperty(PLHS(1),1,'Lab')
+C
+      IF( LABF7ptr1 == 0 ) THEN
+        CALL mexErrMsgTxt("Property Lab not found")
+      ENDIF
+C
+      M=SIZE(LABF7)
+      D1=M
+      LABF7ptr2 = mxCreateNumericArray(1,D1,mxClassIDFromClassName('double'),0)
+      CALL MatlabAPI_COM_Apx1(%VAL(mxGetPr(LABF7ptr2)), 1, D1 )
+      LABF7MWS => Apx1
+      IF( .NOT.ASSOCIATED(LABF7MWS) ) THEN
+        CALL mexErrMsgTxt("Internal error pointing to Lab pointer data")
+      ENDIF
+C
+      DO I=1,M
+        LABF7MWS(I)=LABF7(I)
+      ENDDO
+C
+      CALL mxSetProperty(PLHS(1),1,'Lab',LABF7ptr2)
+      CALL mxDestroyArray(LABF7ptr2)
+      CALL mxDestroyArray(LABF7ptr1)
+C
+C Assign Par values --------------
+      PARF7ptr1=mxGetProperty(PLHS(1),1,'Par')
+C
+      IF( PARF7ptr1 == 0 ) THEN
+        CALL mexErrMsgTxt("Property Par not found")
+      ENDIF
+C
+      M=SIZE(PARF7,1)
+      N=SIZE(PARF7,2)
+      D2(1)=M
+      D2(2)=N
+      PARF7ptr2 = mxCreateNumericArray(2,D2,mxClassIDFromClassName('double'),0)
+      CALL MatlabAPI_COM_Apx2(%VAL(mxGetPr(PARF7ptr2)), 1, D2 )
+      PARF7MWS => Apx2
+      IF( .NOT.ASSOCIATED(PARF7MWS) ) THEN
+        CALL mexErrMsgTxt("Internal error pointing to Par pointer data")
+      ENDIF
+C
+      DO I=1,M
+        DO J=1,N
+          PARF7MWS(I,J)=PARF7(I,J)
+        ENDDO
+      ENDDO
+C
+      CALL mxSetProperty(PLHS(1),1,'Par',PARF7ptr2)
+      CALL mxDestroyArray(PARF7ptr2)
+      CALL mxDestroyArray(PARF7ptr1)
+C
+C Assign L2norm values --------------
+      VAXISF7ptr1=mxGetProperty(PLHS(1),1,'L2norm')
+C
+      IF( VAXISF7ptr1 == 0 ) THEN
+        CALL mexErrMsgTxt("Property L2norm not found")
+      ENDIF
+C
+      M=SIZE(VAXISF7)
+      D1=M
+      VAXISF7ptr2 = mxCreateNumericArray(1,D1,mxClassIDFromClassName('double'),0)
+      CALL MatlabAPI_COM_Apx1(%VAL(mxGetPr(VAXISF7ptr2)), 1, D1 )
+      VAXISF7MWS => Apx1
+      IF( .NOT.ASSOCIATED(VAXISF7MWS) ) THEN
+        CALL mexErrMsgTxt("Internal error pointing to L2norm pointer data")
+      ENDIF
+C
+      DO I=1,M
+        VAXISF7MWS(I)=VAXISF7(I)
+      ENDDO
+C
+      CALL mxSetProperty(PLHS(1),1,'L2norm',VAXISF7ptr2)
+      CALL mxDestroyArray(VAXISF7ptr2)
+      CALL mxDestroyArray(VAXISF7ptr1)
+C
+C Assign U values --------------
+      UF7ptr1=mxGetProperty(PLHS(1),1,'U')
+C
+      IF( UF7ptr1 == 0 ) THEN
+        CALL mexErrMsgTxt("Property U not found")
+      ENDIF
+C
+      M=SIZE(UF7,1)
+      N=SIZE(UF7,2)
+      D2(1)=M
+      D2(2)=N
+      UF7ptr2 = mxCreateNumericArray(2,D2,mxClassIDFromClassName('double'),0)
+      CALL MatlabAPI_COM_Apx2(%VAL(mxGetPr(UF7ptr2)), 1, D2 )
+      UF7MWS => Apx2
+      IF( .NOT.ASSOCIATED(UF7MWS) ) THEN
+        CALL mexErrMsgTxt("Internal error pointing to U pointer data")
+      ENDIF
+C
+      DO I=1,M
+        DO J=1,N
+          UF7MWS(I,J)=UF7(I,J)
+        ENDDO
+      ENDDO
+C
+      CALL mxSetProperty(PLHS(1),1,'U',UF7ptr2)
+      CALL mxDestroyArray(UF7ptr2)
+      CALL mxDestroyArray(UF7ptr1)
+C
+C Assign Out values --------------
+      OUTF7ptr1=mxGetProperty(PLHS(1),1,'Out')
+C
+      IF( OUTF7ptr1 == 0 ) THEN
+        CALL mexErrMsgTxt("Property Out not found")
+      ENDIF
+C
+      M=SIZE(OUTF7,1)
+      N=SIZE(OUTF7,2)
+      D2(1)=M
+      D2(2)=N
+      OUTF7ptr2 = mxCreateNumericArray(2,D2,mxClassIDFromClassName('double'),0)
+      CALL MatlabAPI_COM_Apx2(%VAL(mxGetPr(OUTF7ptr2)), 1, D2 )
+      OUTF7MWS => Apx2
+      IF( .NOT.ASSOCIATED(OUTF7MWS) ) THEN
+        CALL mexErrMsgTxt("Internal error pointing to Out pointer data")
+      ENDIF
+C
+      DO I=1,M
+        DO J=1,N
+          OUTF7MWS(I,J)=OUTF7(I,J)
+        ENDDO
+      ENDDO
+C
+      CALL mxSetProperty(PLHS(1),1,'Out',OUTF7ptr2)
+      CALL mxDestroyArray(OUTF7ptr2)
+      CALL mxDestroyArray(OUTF7ptr1)
+C

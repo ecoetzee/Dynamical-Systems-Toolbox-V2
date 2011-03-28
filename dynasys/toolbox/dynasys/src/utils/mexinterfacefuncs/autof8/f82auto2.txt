@@ -1,0 +1,502 @@
+      mwPointer IBRF8ptr1, IBRF8ptr2
+      mwPointer MTOTF8ptr1, MTOTF8ptr2
+      mwPointer ITPF8ptr1, ITPF8ptr2
+      mwPointer LABF8ptr1, LABF8ptr2
+      mwPointer NFPRF8ptr1, NFPRF8ptr2
+      mwPointer ISWF8ptr1, ISWF8ptr2
+      mwPointer NTPLF8ptr1, NTPLF8ptr2
+      mwPointer NARF8ptr1, NARF8ptr2
+      mwPointer NROWPRF8ptr1, NROWPRF8ptr2
+      mwPointer NTSTF8ptr1, NTSTF8ptr2
+      mwPointer NCOLF8ptr1, NCOLF8ptr2
+      mwPointer NPARXF8ptr1, NPARXF8ptr2
+      mwPointer IFPRF8ptr1, IFPRF8ptr2
+      mwPointer TF8ptr1, TF8ptr2
+      mwPointer TMF8ptr1, TMF8ptr2
+      mwPointer PARF8ptr1, PARF8ptr2
+      mwPointer RLDOTF8ptr1, RLDOTF8ptr2
+      mwPointer UF8ptr1, UF8ptr2
+      mwPointer UPSF8ptr1, UPSF8ptr2
+      mwPointer UDOTPSF8ptr1, UDOTPSF8ptr2
+C
+C
+C Assign Ibr values --------------
+      IBRF8ptr1=mxGetProperty(PRHS(4),i,'Ibr')
+C
+      IF( IBRF8ptr1 == 0 ) THEN
+        CALL mexErrMsgTxt("Property Ibr in object F8 not found")
+      ENDIF
+C
+      IF( mxIsInt32(IBRF8ptr1) == 0 ) THEN
+        CALL mexErrMsgTxt("Property Ibr in object F8 is not an integer")
+      ENDIF
+C
+      IBRF8ptr2=mxGetPr(IBRF8ptr1)
+      IF( IRSDST > 0) THEN
+        m=mxGetNumberOfElements(IBRF8ptr1)
+        D1ptr=mxGetDimensions(IBRF8ptr1)
+        CALL mxCopyPtrToInteger4(D1ptr,D1,1)
+        ALLOCATE(IBRF8(D1(1)))
+      ELSE
+        m=0
+        ALLOCATE(IBRF8(0))
+      ENDIF
+      CALL mxCopyPtrToInteger4(IBRF8ptr2,IBRF8,m)
+      CALL mxDestroyArray(IBRF8ptr1)
+C
+C Assign Mtot values --------------
+      MTOTF8ptr1=mxGetProperty(PRHS(4),i,'Mtot')
+C
+      IF( MTOTF8ptr1 == 0 ) THEN
+        CALL mexErrMsgTxt("Property Mtot in object F8 not found")
+      ENDIF
+C
+      IF( mxIsInt32(MTOTF8ptr1) == 0 ) THEN
+        CALL mexErrMsgTxt("Property Mtot in object F8 is not an integer")
+      ENDIF
+C
+      MTOTF8ptr2=mxGetPr(MTOTF8ptr1)
+      IF( IRSDST > 0) THEN
+        m=mxGetNumberOfElements(MTOTF8ptr1)
+        D1ptr=mxGetDimensions(MTOTF8ptr1)
+        CALL mxCopyPtrToInteger4(D1ptr,D1,1)
+        ALLOCATE(MTOTF8(D1(1)))
+      ELSE
+        m=0
+        ALLOCATE(MTOTF8(0))
+      ENDIF
+      CALL mxCopyPtrToInteger4(MTOTF8ptr2,MTOTF8,m)
+      CALL mxDestroyArray(MTOTF8ptr1)
+C
+C Assign Itp values --------------
+      ITPF8ptr1=mxGetProperty(PRHS(4),i,'Itp')
+C
+      IF( ITPF8ptr1 == 0 ) THEN
+        CALL mexErrMsgTxt("Property Itp in object F8 not found")
+      ENDIF
+C
+      IF( mxIsInt32(ITPF8ptr1) == 0 ) THEN
+        CALL mexErrMsgTxt("Property Itp in object F8 is not an integer")
+      ENDIF
+C
+      ITPF8ptr2=mxGetPr(ITPF8ptr1)
+      IF( IRSDST > 0) THEN
+        m=mxGetNumberOfElements(ITPF8ptr1)
+        D1ptr=mxGetDimensions(ITPF8ptr1)
+        CALL mxCopyPtrToInteger4(D1ptr,D1,1)
+        ALLOCATE(ITPF8(D1(1)))
+      ELSE
+        m=0
+        ALLOCATE(ITPF8(0))
+      ENDIF
+      CALL mxCopyPtrToInteger4(ITPF8ptr2,ITPF8,m)
+      CALL mxDestroyArray(ITPF8ptr1)
+C
+C Assign Lab values --------------
+      LABF8ptr1=mxGetProperty(PRHS(4),i,'Lab')
+C
+      IF( LABF8ptr1 == 0 ) THEN
+        CALL mexErrMsgTxt("Property Lab in object F8 not found")
+      ENDIF
+C
+      IF( mxIsInt32(LABF8ptr1) == 0 ) THEN
+        CALL mexErrMsgTxt("Property Lab in object F8 is not an integer")
+      ENDIF
+C
+      LABF8ptr2=mxGetPr(LABF8ptr1)
+      IF( IRSDST > 0) THEN
+        m=mxGetNumberOfElements(LABF8ptr1)
+        D1ptr=mxGetDimensions(LABF8ptr1)
+        CALL mxCopyPtrToInteger4(D1ptr,D1,1)
+        ALLOCATE(LABF8(D1(1)))
+      ELSE
+        m=0
+        ALLOCATE(LABF8(0))
+      ENDIF
+      CALL mxCopyPtrToInteger4(LABF8ptr2,LABF8,m)
+      CALL mxDestroyArray(LABF8ptr1)
+C
+C Assign Nfpr values --------------
+      NFPRF8ptr1=mxGetProperty(PRHS(4),i,'Nfpr')
+C
+      IF( NFPRF8ptr1 == 0 ) THEN
+        CALL mexErrMsgTxt("Property Nfpr in object F8 not found")
+      ENDIF
+C
+      IF( mxIsInt32(NFPRF8ptr1) == 0 ) THEN
+        CALL mexErrMsgTxt("Property Nfpr in object F8 is not an integer")
+      ENDIF
+C
+      NFPRF8ptr2=mxGetPr(NFPRF8ptr1)
+      IF( IRSDST > 0) THEN
+        m=mxGetNumberOfElements(NFPRF8ptr1)
+        D1ptr=mxGetDimensions(NFPRF8ptr1)
+        CALL mxCopyPtrToInteger4(D1ptr,D1,1)
+        ALLOCATE(NFPRF8(D1(1)))
+      ELSE
+        m=0
+        ALLOCATE(NFPRF8(0))
+      ENDIF
+      CALL mxCopyPtrToInteger4(NFPRF8ptr2,NFPRF8,m)
+      CALL mxDestroyArray(NFPRF8ptr1)
+C
+C Assign Isw values --------------
+      ISWF8ptr1=mxGetProperty(PRHS(4),i,'Isw')
+C
+      IF( ISWF8ptr1 == 0 ) THEN
+        CALL mexErrMsgTxt("Property Isw in object F8 not found")
+      ENDIF
+C
+      IF( mxIsInt32(ISWF8ptr1) == 0 ) THEN
+        CALL mexErrMsgTxt("Property Isw in object F8 is not an integer")
+      ENDIF
+C
+      ISWF8ptr2=mxGetPr(ISWF8ptr1)
+      IF( IRSDST > 0) THEN
+        m=mxGetNumberOfElements(ISWF8ptr1)
+        D1ptr=mxGetDimensions(ISWF8ptr1)
+        CALL mxCopyPtrToInteger4(D1ptr,D1,1)
+        ALLOCATE(ISWF8(D1(1)))
+      ELSE
+        m=0
+        ALLOCATE(ISWF8(0))
+      ENDIF
+      CALL mxCopyPtrToInteger4(ISWF8ptr2,ISWF8,m)
+      CALL mxDestroyArray(ISWF8ptr1)
+C
+C Assign Ntpl values --------------
+      NTPLF8ptr1=mxGetProperty(PRHS(4),i,'Ntpl')
+C
+      IF( NTPLF8ptr1 == 0 ) THEN
+        CALL mexErrMsgTxt("Property Ntpl in object F8 not found")
+      ENDIF
+C
+      IF( mxIsInt32(NTPLF8ptr1) == 0 ) THEN
+        CALL mexErrMsgTxt("Property Ntpl in object F8 is not an integer")
+      ENDIF
+C
+      NTPLF8ptr2=mxGetPr(NTPLF8ptr1)
+      IF( IRSDST > 0) THEN
+        m=mxGetNumberOfElements(NTPLF8ptr1)
+        D1ptr=mxGetDimensions(NTPLF8ptr1)
+        CALL mxCopyPtrToInteger4(D1ptr,D1,1)
+        ALLOCATE(NTPLF8(D1(1)))
+      ELSE
+        m=0
+        ALLOCATE(NTPLF8(0))
+      ENDIF
+      CALL mxCopyPtrToInteger4(NTPLF8ptr2,NTPLF8,m)
+      CALL mxDestroyArray(NTPLF8ptr1)
+C
+C Assign Nar values --------------
+      NARF8ptr1=mxGetProperty(PRHS(4),i,'Nar')
+C
+      IF( NARF8ptr1 == 0 ) THEN
+        CALL mexErrMsgTxt("Property Nar in object F8 not found")
+      ENDIF
+C
+      IF( mxIsInt32(NARF8ptr1) == 0 ) THEN
+        CALL mexErrMsgTxt("Property Nar in object F8 is not an integer")
+      ENDIF
+C
+      NARF8ptr2=mxGetPr(NARF8ptr1)
+      IF( IRSDST > 0) THEN
+        m=mxGetNumberOfElements(NARF8ptr1)
+        D1ptr=mxGetDimensions(NARF8ptr1)
+        CALL mxCopyPtrToInteger4(D1ptr,D1,1)
+        ALLOCATE(NARF8(D1(1)))
+      ELSE
+        m=0
+        ALLOCATE(NARF8(0))
+      ENDIF
+      CALL mxCopyPtrToInteger4(NARF8ptr2,NARF8,m)
+      CALL mxDestroyArray(NARF8ptr1)
+C
+C Assign Nrowpr values --------------
+      NROWPRF8ptr1=mxGetProperty(PRHS(4),i,'Nrowpr')
+C
+      IF( NROWPRF8ptr1 == 0 ) THEN
+        CALL mexErrMsgTxt("Property Nrowpr in object F8 not found")
+      ENDIF
+C
+      IF( mxIsInt32(NROWPRF8ptr1) == 0 ) THEN
+        CALL mexErrMsgTxt("Property Nrowpr in object F8 is not an integer")
+      ENDIF
+C
+      NROWPRF8ptr2=mxGetPr(NROWPRF8ptr1)
+      IF( IRSDST > 0) THEN
+        m=mxGetNumberOfElements(NROWPRF8ptr1)
+        D1ptr=mxGetDimensions(NROWPRF8ptr1)
+        CALL mxCopyPtrToInteger4(D1ptr,D1,1)
+        ALLOCATE(NROWPRF8(D1(1)))
+      ELSE
+        m=0
+        ALLOCATE(NROWPRF8(0))
+      ENDIF
+      CALL mxCopyPtrToInteger4(NROWPRF8ptr2,NROWPRF8,m)
+      CALL mxDestroyArray(NROWPRF8ptr1)
+C
+C Assign Ntst values --------------
+      NTSTF8ptr1=mxGetProperty(PRHS(4),i,'Ntst')
+C
+      IF( NTSTF8ptr1 == 0 ) THEN
+        CALL mexErrMsgTxt("Property Ntst in object F8 not found")
+      ENDIF
+C
+      IF( mxIsInt32(NTSTF8ptr1) == 0 ) THEN
+        CALL mexErrMsgTxt("Property Ntst in object F8 is not an integer")
+      ENDIF
+C
+      NTSTF8ptr2=mxGetPr(NTSTF8ptr1)
+      IF( IRSDST > 0) THEN
+        m=mxGetNumberOfElements(NTSTF8ptr1)
+        D1ptr=mxGetDimensions(NTSTF8ptr1)
+        CALL mxCopyPtrToInteger4(D1ptr,D1,1)
+        ALLOCATE(NTSTF8(D1(1)))
+      ELSE
+        m=0
+        ALLOCATE(NTSTF8(0))
+      ENDIF
+      CALL mxCopyPtrToInteger4(NTSTF8ptr2,NTSTF8,m)
+      CALL mxDestroyArray(NTSTF8ptr1)
+C
+C Assign Ncol values --------------
+      NCOLF8ptr1=mxGetProperty(PRHS(4),i,'Ncol')
+C
+      IF( NCOLF8ptr1 == 0 ) THEN
+        CALL mexErrMsgTxt("Property Ncol in object F8 not found")
+      ENDIF
+C
+      IF( mxIsInt32(NCOLF8ptr1) == 0 ) THEN
+        CALL mexErrMsgTxt("Property Ncol in object F8 is not an integer")
+      ENDIF
+C
+      NCOLF8ptr2=mxGetPr(NCOLF8ptr1)
+      IF( IRSDST > 0) THEN
+        m=mxGetNumberOfElements(NCOLF8ptr1)
+        D1ptr=mxGetDimensions(NCOLF8ptr1)
+        CALL mxCopyPtrToInteger4(D1ptr,D1,1)
+        ALLOCATE(NCOLF8(D1(1)))
+      ELSE
+        m=0
+        ALLOCATE(NCOLF8(0))
+      ENDIF
+      CALL mxCopyPtrToInteger4(NCOLF8ptr2,NCOLF8,m)
+      CALL mxDestroyArray(NCOLF8ptr1)
+C
+C Assign Nparx values --------------
+      NPARXF8ptr1=mxGetProperty(PRHS(4),i,'Nparx')
+C
+      IF( NPARXF8ptr1 == 0 ) THEN
+        CALL mexErrMsgTxt("Property Nparx in object F8 not found")
+      ENDIF
+C
+      IF( mxIsInt32(NPARXF8ptr1) == 0 ) THEN
+        CALL mexErrMsgTxt("Property Nparx in object F8 is not an integer")
+      ENDIF
+C
+      NPARXF8ptr2=mxGetPr(NPARXF8ptr1)
+      IF( IRSDST > 0) THEN
+        m=mxGetNumberOfElements(NPARXF8ptr1)
+        D1ptr=mxGetDimensions(NPARXF8ptr1)
+        CALL mxCopyPtrToInteger4(D1ptr,D1,1)
+        ALLOCATE(NPARXF8(D1(1)))
+      ELSE
+        m=0
+        ALLOCATE(NPARXF8(0))
+      ENDIF
+      CALL mxCopyPtrToInteger4(NPARXF8ptr2,NPARXF8,m)
+      CALL mxDestroyArray(NPARXF8ptr1)
+C
+C Assign Ifpr values --------------
+      IFPRF8ptr1=mxGetProperty(PRHS(4),i,'Ifpr')
+C
+      IF( IFPRF8ptr1 == 0 ) THEN
+        CALL mexErrMsgTxt("Property Ifpr in object F8 not found")
+      ENDIF
+C
+      IF( mxIsInt32(IFPRF8ptr1) == 0 ) THEN
+        CALL mexErrMsgTxt("Property Ifpr in object F8 is not an integer")
+      ENDIF
+C
+      IFPRF8ptr2=mxGetPr(IFPRF8ptr1)
+      IF( IRSDST > 0) THEN
+        m=mxGetNumberOfElements(IFPRF8ptr1)
+        D2ptr=mxGetDimensions(IFPRF8ptr1)
+        CALL mxCopyPtrToInteger4(D2ptr,D2,2)
+        ALLOCATE(IFPRF8(D2(1),D2(2)))
+      ELSE
+        m=0
+        ALLOCATE(IFPRF8(0,0))
+      ENDIF
+      CALL mxCopyPtrToInteger4(IFPRF8ptr2,IFPRF8,m)
+      CALL mxDestroyArray(IFPRF8ptr1)
+C
+C Assign T values --------------
+      TF8ptr1=mxGetProperty(PRHS(4),i,'T')
+C
+      IF( TF8ptr1 == 0 ) THEN
+        CALL mexErrMsgTxt("Property T in object F8 not found")
+      ENDIF
+C
+      IF( mxIsDouble(TF8ptr1) == 0 ) THEN
+        CALL mexErrMsgTxt("Property T in object F8 is not a double")
+      ENDIF
+C
+      TF8ptr2=mxGetPr(TF8ptr1)
+      IF( IRSDST > 0) THEN
+        m=mxGetNumberOfElements(TF8ptr1)
+        D1ptr=mxGetDimensions(TF8ptr1)
+        CALL mxCopyPtrToReal8(D1ptr,D1,1)
+        ALLOCATE(TF8(D1(1)))
+      ELSE
+        m=0
+        ALLOCATE(TF8(0))
+      ENDIF
+      CALL mxCopyPtrToReal8(TF8ptr2,TF8,m)
+      CALL mxDestroyArray(TF8ptr1)
+C
+C Assign Tm values --------------
+      TMF8ptr1=mxGetProperty(PRHS(4),i,'Tm')
+C
+      IF( TMF8ptr1 == 0 ) THEN
+        CALL mexErrMsgTxt("Property Tm in object F8 not found")
+      ENDIF
+C
+      IF( mxIsDouble(TMF8ptr1) == 0 ) THEN
+        CALL mexErrMsgTxt("Property Tm in object F8 is not a double")
+      ENDIF
+C
+      TMF8ptr2=mxGetPr(TMF8ptr1)
+      IF( IRSDST > 0) THEN
+        m=mxGetNumberOfElements(TMF8ptr1)
+        D2ptr=mxGetDimensions(TMF8ptr1)
+        CALL mxCopyPtrToReal8(D2ptr,D2,2)
+        ALLOCATE(TMF8(D2(1),D2(2)))
+      ELSE
+        m=0
+        ALLOCATE(TMF8(0,0))
+      ENDIF
+      CALL mxCopyPtrToReal8(TMF8ptr2,TMF8,m)
+      CALL mxDestroyArray(TMF8ptr1)
+C
+C Assign Par values --------------
+      PARF8ptr1=mxGetProperty(PRHS(4),i,'Par')
+C
+      IF( PARF8ptr1 == 0 ) THEN
+        CALL mexErrMsgTxt("Property Par in object F8 not found")
+      ENDIF
+C
+      IF( mxIsDouble(PARF8ptr1) == 0 ) THEN
+        CALL mexErrMsgTxt("Property Par in object F8 is not a double")
+      ENDIF
+C
+      PARF8ptr2=mxGetPr(PARF8ptr1)
+      IF( IRSDST > 0) THEN
+        m=mxGetNumberOfElements(PARF8ptr1)
+        D2ptr=mxGetDimensions(PARF8ptr1)
+        CALL mxCopyPtrToReal8(D2ptr,D2,2)
+        ALLOCATE(PARF8(D2(1),D2(2)))
+      ELSE
+        m=0
+        ALLOCATE(PARF8(0,0))
+      ENDIF
+      CALL mxCopyPtrToReal8(PARF8ptr2,PARF8,m)
+      CALL mxDestroyArray(PARF8ptr1)
+C
+C Assign Rldot values --------------
+      RLDOTF8ptr1=mxGetProperty(PRHS(4),i,'Rldot')
+C
+      IF( RLDOTF8ptr1 == 0 ) THEN
+        CALL mexErrMsgTxt("Property Rldot in object F8 not found")
+      ENDIF
+C
+      IF( mxIsDouble(RLDOTF8ptr1) == 0 ) THEN
+        CALL mexErrMsgTxt("Property Rldot in object F8 is not a double")
+      ENDIF
+C
+      RLDOTF8ptr2=mxGetPr(RLDOTF8ptr1)
+      IF( IRSDST > 0) THEN
+        m=mxGetNumberOfElements(RLDOTF8ptr1)
+        D2ptr=mxGetDimensions(RLDOTF8ptr1)
+        CALL mxCopyPtrToReal8(D2ptr,D2,2)
+        ALLOCATE(RLDOTF8(D2(1),D2(2)))
+      ELSE
+        m=0
+        ALLOCATE(RLDOTF8(0,0))
+      ENDIF
+      CALL mxCopyPtrToReal8(RLDOTF8ptr2,RLDOTF8,m)
+      CALL mxDestroyArray(RLDOTF8ptr1)
+C
+C Assign U values --------------
+      UF8ptr1=mxGetProperty(PRHS(4),i,'U')
+C
+      IF( UF8ptr1 == 0 ) THEN
+        CALL mexErrMsgTxt("Property U in object F8 not found")
+      ENDIF
+C
+      IF( mxIsDouble(UF8ptr1) == 0 ) THEN
+        CALL mexErrMsgTxt("Property U in object F8 is not a double")
+      ENDIF
+C
+      UF8ptr2=mxGetPr(UF8ptr1)
+      IF( IRSDST > 0) THEN
+        m=mxGetNumberOfElements(UF8ptr1)
+        D2ptr=mxGetDimensions(UF8ptr1)
+        CALL mxCopyPtrToReal8(D2ptr,D2,2)
+        ALLOCATE(UF8(D2(1),D2(2)))
+      ELSE
+        m=0
+        ALLOCATE(UF8(0,0))
+      ENDIF
+      CALL mxCopyPtrToReal8(UF8ptr2,UF8,m)
+      CALL mxDestroyArray(UF8ptr1)
+C
+C Assign Ups values --------------
+      UPSF8ptr1=mxGetProperty(PRHS(4),i,'Ups')
+C
+      IF( UPSF8ptr1 == 0 ) THEN
+        CALL mexErrMsgTxt("Property Ups in object F8 not found")
+      ENDIF
+C
+      IF( mxIsDouble(UPSF8ptr1) == 0 ) THEN
+        CALL mexErrMsgTxt("Property Ups in object F8 is not a double")
+      ENDIF
+C
+      UPSF8ptr2=mxGetPr(UPSF8ptr1)
+      IF( IRSDST > 0) THEN
+        m=mxGetNumberOfElements(UPSF8ptr1)
+        D3ptr=mxGetDimensions(UPSF8ptr1)
+        CALL mxCopyPtrToReal8(D3ptr,D3,3)
+        ALLOCATE(UPSF8(D3(1),D3(2),D3(3)))
+      ELSE
+        m=0
+        ALLOCATE(UPSF8(0,0,0))
+      ENDIF
+      CALL mxCopyPtrToReal8(UPSF8ptr2,UPSF8,m)
+      CALL mxDestroyArray(UPSF8ptr1)
+C
+C Assign Udotps values --------------
+      UDOTPSF8ptr1=mxGetProperty(PRHS(4),i,'Udotps')
+C
+      IF( UDOTPSF8ptr1 == 0 ) THEN
+        CALL mexErrMsgTxt("Property Udotps in object F8 not found")
+      ENDIF
+C
+      IF( mxIsDouble(UDOTPSF8ptr1) == 0 ) THEN
+        CALL mexErrMsgTxt("Property Udotps in object F8 is not a double")
+      ENDIF
+C
+      UDOTPSF8ptr2=mxGetPr(UDOTPSF8ptr1)
+      IF( IRSDST > 0) THEN
+        m=mxGetNumberOfElements(UDOTPSF8ptr1)
+        D3ptr=mxGetDimensions(UDOTPSF8ptr1)
+        CALL mxCopyPtrToReal8(D3ptr,D3,3)
+        ALLOCATE(UDOTPSF8(D3(1),D3(2),D3(3)))
+      ELSE
+        m=0
+        ALLOCATE(UDOTPSF8(0,0,0))
+      ENDIF
+      CALL mxCopyPtrToReal8(UDOTPSF8ptr2,UDOTPSF8,m)
+      CALL mxDestroyArray(UDOTPSF8ptr1)
+C

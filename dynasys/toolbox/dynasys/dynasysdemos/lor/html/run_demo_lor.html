@@ -1,0 +1,284 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML is auto-generated from an M-file.
+To make changes, update the M-file and republish this document.
+      --><title>run_demo_lor</title><meta name="generator" content="MATLAB 7.9"><meta name="date" content="2010-10-26"><meta name="m-file" content="run_demo_lor"><style type="text/css">
+
+body {
+  background-color: white;
+  margin:10px;
+}
+
+h1 {
+  color: #990000; 
+  font-size: x-large;
+}
+
+h2 {
+  color: #990000;
+  font-size: medium;
+}
+
+/* Make the text shrink to fit narrow windows, but not stretch too far in 
+wide windows. */ 
+p,h1,h2,div.content div {
+  max-width: 600px;
+  /* Hack for IE6 */
+  width: auto !important; width: 600px;
+}
+
+pre.codeinput {
+  background: #EEEEEE;
+  padding: 10px;
+}
+@media print {
+  pre.codeinput {word-wrap:break-word; width:100%;}
+} 
+
+span.keyword {color: #0000FF}
+span.comment {color: #228B22}
+span.string {color: #A020F0}
+span.untermstring {color: #B20000}
+span.syscmd {color: #B28C00}
+
+pre.codeoutput {
+  color: #666666;
+  padding: 10px;
+}
+
+pre.error {
+  color: red;
+}
+
+p.footer {
+  text-align: right;
+  font-size: xx-small;
+  font-weight: lighter;
+  font-style: italic;
+  color: gray;
+}
+
+
+/* ADDED the FOLLOWING*/
+/* == header == */
+div.header {
+  top:0px;
+  left:0px;
+  background: #660000;
+  border-bottom: 10px solid #EBF5F9;
+  margin-bottom: 10px;
+  font-weight: bold;
+  width: 100%;
+}
+div.left {
+  position: absolute;
+  top: 10px;
+  left: 0px;
+  padding: 10px;
+}
+div.right {
+  text-align: right;
+  padding: 10px;
+}
+div.header a {
+  color: white;
+}
+div.header {
+  color: white;
+} 
+/* ADDED the ABOVE code*/
+</style></head><body><div class="header"><div class="left"><a href="matlab:edit(fullfile(dynasysroot,'dynasysdemos','lor','run_demo_lor.m'))">Open run_demo_lor.m in the Editor</a></div><div class="right"><a href="matlab:addpath(fullfile(dynasysroot,'dynasysdemos','lor'));echodemo run_demo_lor">Run in the Command Window</a></div></div><div class="content"><h2>Contents</h2><div><ul><li><a href="#1">Starting an Orbit from Numerical Data (Demo : lor)</a></li><li><a href="#2">Starting data</a></li><li><a href="#3">Compute a solution family, restart from <tt>lor.dat</tt></a></li><li><a href="#6">Switch branches at a period-doubling detected in the first run</a></li><li><a href="#9">Switch branches at a period-doubling detected in the second run</a></li></ul></div><h2>Starting an Orbit from Numerical Data (Demo : lor)<a name="1"></a></h2><p>This demo illustrates how to start the computation of a family of periodic solutions from numerical data obtained, for example, from an initial value solver. As an illustrative application we consider the Lorenz equations</p><p>: <img src="run_demo_lor_eq20144.png" alt="$u_1' =  p_3 (u_2 - u_1)$">,</p><p>: <img src="run_demo_lor_eq88062.png" alt="$u_2' =  p_1 u_1 - u_2 - u_1 u_3$">,</p><p>: <img src="run_demo_lor_eq02450.png" alt="$u_3' =  u_1 u_2 - p_2 u_3$">.</p><p>Numerical simulations with a simple initial value solver show the existence of a stable periodic orbit when <img src="run_demo_lor_eq74588.png" alt="$p_1 = 280$">, <img src="run_demo_lor_eq68243.png" alt="$p_2 = 8/3$">, <img src="run_demo_lor_eq77038.png" alt="$p_3 = 10$">. Numerical data representing one complete periodic oscillation are contained in the file <tt>lor.dat</tt> and then placed in the f8 object.</p><pre class="codeinput">clear <span class="string">all</span>
+</pre><h2>Starting data<a name="2"></a></h2><p>Numerical data representing one complete periodic oscillation are contained in the file lor.dat. Each row in lor.dat contains four real numbers, namely, the time variable t, u1, u2 and u3. These values can also be obtained from a simulation and then placed in the f8 object. The correponding parameter values are defined in <tt>a{1}.s.Par0</tt>. The constant a{1}.c.Ips then allows for using the data in <tt>lor.dat</tt> where we also specify a{1}.c.Irs=0. The mesh will be suitably adapted to the solution, using the number of mesh intervals a{1}.c.Ntst and the number of collocation point per mesh interval a{1}.c.Ncol specified in the constants-file <tt>clor1.m</tt>.</p><pre class="codeinput">dat=textread(<span class="string">'lor.dat'</span>);
+</pre><h2>Compute a solution family, restart from <tt>lor.dat</tt><a name="3"></a></h2><p>Create first object</p><pre class="codeinput">a{1}=auto;
+a{1}.c=clor1(a{1}.c);
+a{1}.s.Par0=[280,8/3,10];
+
+<span class="comment">% Populate f8 object with data from text file</span>
+a{1}=dat2f8(a{1},dat);
+
+<span class="comment">% First run</span>
+a{1}=runauto(a{1});
+</pre><pre class="codeoutput"> 
+    --------------- DYNAMICAL SYSTEMS TOOLBOX ---------------------     
+ 
+USER NAME      : ECOETZEE
+DATE           : 26/10/2010 10:16:26
+ 
+ 
+&lt;
+  BR    PT  TY  LAB      PAR(01) INTEGRAL U(01)     MAX U(01)     MAX U(02)     MAX U(03)      PERIOD
+   1    18  PD    2   2.29407E+02  -1.06862E+00   3.65050E+01   6.67239E+01   3.06557E+02   4.80867E-01
+   1    21  EP    3   1.85022E+02  -1.31178E+00   3.18654E+01   5.70012E+01   2.57568E+02   5.39124E-01
+
+ Total Time    0.152E+01
+&gt;
+</pre><p>Plot the phase plane of the limit cycles with labels 2 and 3</p><pre class="codeinput">p=plautobj;
+set(p,<span class="string">'lcLab'</span>,[2,3],<span class="string">'xEqStr'</span>,<span class="string">'U(1)'</span>,<span class="string">'xLab'</span>,<span class="string">'U(1)'</span>,<span class="string">'yEqStr'</span>,<span class="string">'U(2)'</span>,<span class="string">'yLab'</span>,<span class="string">'U(2)'</span>);
+plotlcph(p,a{1});
+snapnow;
+close(gcf);
+</pre><img vspace="5" hspace="5" src="run_demo_lor_01.png" alt=""> <p>Plot the response against the normalised period</p><pre class="codeinput">plotlcpr(p,a);
+snapnow;
+close(gcf);
+</pre><img vspace="5" hspace="5" src="run_demo_lor_02.png" alt=""> <h2>Switch branches at a period-doubling detected in the first run<a name="6"></a></h2><p>Create second object</p><pre class="codeinput">a{2}=a{1};
+a{2}.c=copy(a{1}.c);
+a{2}.c=clor2(a{2}.c);
+
+a{2}=runauto(a{2});
+</pre><pre class="codeoutput"> 
+    --------------- DYNAMICAL SYSTEMS TOOLBOX ---------------------     
+ 
+USER NAME      : ECOETZEE
+DATE           : 26/10/2010 10:16:31
+ 
+ 
+&lt;
+  BR    PT  TY  LAB      PAR(01) INTEGRAL U(01)     MAX U(01)     MAX U(02)     MAX U(03)      PERIOD
+   2    22  PD    4   2.18210E+02  -1.05589E+00   3.58675E+01   6.61411E+01   2.99070E+02   9.87949E-01
+   2    28  EP    5   1.95159E+02  -1.02809E+00   3.41320E+01   6.26942E+01   2.75063E+02   1.04981E+00
+
+ Total Time    0.409E+01
+&gt;
+</pre><p>Plot the phase plane of the limit cycles with labels 4 and 5</p><pre class="codeinput">set(p,<span class="string">'lcLab'</span>,[4,5],<span class="string">'xEqStr'</span>,<span class="string">'U(1)'</span>,<span class="string">'xLab'</span>,<span class="string">'U(1)'</span>,<span class="string">'yEqStr'</span>,<span class="string">'U(2)'</span>,<span class="string">'yLab'</span>,<span class="string">'U(2)'</span>);
+plotlcph(p,a{2});
+snapnow;
+close(gcf);
+</pre><img vspace="5" hspace="5" src="run_demo_lor_03.png" alt=""> <p>Plot the response against the normalised period</p><pre class="codeinput">plotlcpr(p,a{2});
+snapnow;
+close(gcf);
+</pre><img vspace="5" hspace="5" src="run_demo_lor_04.png" alt=""> <h2>Switch branches at a period-doubling detected in the second run<a name="9"></a></h2><p>Create third object</p><pre class="codeinput">a{3}=a{2};
+a{3}.c=copy(a{1}.c);
+a{3}.c=clor3(a{2}.c);
+
+a{3}=runauto(a{3});
+</pre><pre class="codeoutput"> 
+    --------------- DYNAMICAL SYSTEMS TOOLBOX ---------------------     
+ 
+USER NAME      : ECOETZEE
+DATE           : 26/10/2010 10:16:37
+ 
+ 
+&lt;
+  BR    PT  TY  LAB      PAR(01) INTEGRAL U(01)     MAX U(01)     MAX U(02)     MAX U(03)      PERIOD
+   3    14  PD    6   2.15966E+02  -1.06184E+00   3.58660E+01   6.63158E+01   2.97685E+02   1.98675E+00
+   3    24  EP    7   1.99563E+02  -1.10541E+00   3.47361E+01   6.39048E+01   2.80640E+02   2.07247E+00
+
+ Total Time    0.520E+01
+&gt;
+</pre><p>Plot the phase plane of the limit cycles with labels 6 and 7</p><pre class="codeinput">set(p,<span class="string">'lcLab'</span>,[6,7],<span class="string">'xEqStr'</span>,<span class="string">'U(1)'</span>,<span class="string">'xLab'</span>,<span class="string">'U(1)'</span>,<span class="string">'yEqStr'</span>,<span class="string">'U(2)'</span>,<span class="string">'yLab'</span>,<span class="string">'U(2)'</span>);
+plotlcph(p,a{3});
+snapnow;
+close(gcf);
+</pre><img vspace="5" hspace="5" src="run_demo_lor_05.png" alt=""> <p>Plot the response against the normalised period</p><pre class="codeinput">plotlcpr(p,a{3});
+snapnow;
+close(gcf);
+</pre><img vspace="5" hspace="5" src="run_demo_lor_06.png" alt=""> <p class="footer"><br>
+      Published with MATLAB&reg; 7.9<br></p></div><!--
+##### SOURCE BEGIN #####
+%% Starting an Orbit from Numerical Data (Demo : lor)
+% This demo illustrates how to start the computation of a family of periodic 
+% solutions from numerical data obtained, for example, from an initial value 
+% solver. As an illustrative application we consider the Lorenz equations
+%  
+% : $u_1' =  p_3 (u_2 - u_1)$,
+%  
+% : $u_2' =  p_1 u_1 - u_2 - u_1 u_3$,  
+%  
+% : $u_3' =  u_1 u_2 - p_2 u_3$.
+%  
+% Numerical simulations with a simple initial value solver show the existence of 
+% a stable periodic orbit when $p_1 = 280$, $p_2 = 8/3$, $p_3 = 10$. Numerical 
+% data representing one complete periodic oscillation are contained in the file 
+% |lor.dat| and then placed in the f8 object. 
+%  
+
+clear all
+
+%% Starting data
+% Numerical data representing one complete periodic oscillation are contained in 
+% the file lor.dat. Each row in lor.dat contains four real numbers, namely, the 
+% time variable t, u1, u2 and u3. These values can also be obtained from a 
+% simulation and then placed in the f8 object. The correponding parameter values 
+% are defined in |a{1}.s.Par0|. The constant a{1}.c.Ips then allows for using
+% the data in |lor.dat| where we also specify a{1}.c.Irs=0. The mesh will be
+% suitably adapted to the solution, using the number of mesh intervals a{1}.c.Ntst
+% and the number of collocation point per mesh interval a{1}.c.Ncol specified in the 
+% constants-file |clor1.m|.
+dat=textread('lor.dat');
+
+%% Compute a solution family, restart from |lor.dat| 
+% Create first object
+a{1}=auto;
+a{1}.c=clor1(a{1}.c);
+a{1}.s.Par0=[280,8/3,10];
+
+% Populate f8 object with data from text file
+a{1}=dat2f8(a{1},dat);
+
+% First run
+a{1}=runauto(a{1});
+
+%%
+% Plot the phase plane of the limit cycles with labels 2 and 3
+p=plautobj;
+set(p,'lcLab',[2,3],'xEqStr','U(1)','xLab','U(1)','yEqStr','U(2)','yLab','U(2)');
+plotlcph(p,a{1});
+snapnow;
+close(gcf);
+
+%%
+% Plot the response against the normalised period
+plotlcpr(p,a);
+snapnow;
+close(gcf);
+
+%% Switch branches at a period-doubling detected in the first run
+% Create second object
+a{2}=a{1};
+a{2}.c=copy(a{1}.c);
+a{2}.c=clor2(a{2}.c);
+
+a{2}=runauto(a{2});
+
+%%
+% Plot the phase plane of the limit cycles with labels 4 and 5
+set(p,'lcLab',[4,5],'xEqStr','U(1)','xLab','U(1)','yEqStr','U(2)','yLab','U(2)');
+plotlcph(p,a{2});
+snapnow;
+close(gcf);
+
+%%
+% Plot the response against the normalised period
+plotlcpr(p,a{2});
+snapnow;
+close(gcf);
+
+%% Switch branches at a period-doubling detected in the second run
+% Create third object
+a{3}=a{2};
+a{3}.c=copy(a{1}.c);
+a{3}.c=clor3(a{2}.c);
+
+a{3}=runauto(a{3});
+
+%%
+% Plot the phase plane of the limit cycles with labels 6 and 7
+set(p,'lcLab',[6,7],'xEqStr','U(1)','xLab','U(1)','yEqStr','U(2)','yLab','U(2)');
+plotlcph(p,a{3});
+snapnow;
+close(gcf);
+
+%%
+% Plot the response against the normalised period
+plotlcpr(p,a{3});
+snapnow;
+close(gcf);
+
+displayEndOfDemoMessage(mfilename)
+
+##### SOURCE END #####
+--></body></html>

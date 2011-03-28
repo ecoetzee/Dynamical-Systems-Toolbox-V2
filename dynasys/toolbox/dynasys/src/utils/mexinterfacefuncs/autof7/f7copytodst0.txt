@@ -1,0 +1,162 @@
+      mwPointer IBRF7ptr1, IBRF7ptr2, IBRF7ptr3
+      mwPointer MTOTF7ptr1, MTOTF7ptr2, MTOTF7ptr3
+      mwPointer ITPF7ptr1, ITPF7ptr2, ITPF7ptr3
+      mwPointer LABF7ptr1, LABF7ptr2, LABF7ptr3
+      mwPointer PARF7ptr1, PARF7ptr2, PARF7ptr3
+      mwPointer VAXISF7ptr1, VAXISF7ptr2, VAXISF7ptr3
+      mwPointer UF7ptr1, UF7ptr2, UF7ptr3
+      mwPointer OUTF7ptr1, OUTF7ptr2, OUTF7ptr3
+C
+C
+C Assign Ibr values --------------
+      IBRF7ptr1=mxGetProperty(PLHS(1),i,'Ibr')
+C
+      IF( IBRF7ptr1 == 0 ) THEN
+        CALL mexErrMsgTxt("Property Ibr not found")
+      ENDIF
+C
+      IF( mxIsInt32(IBRF7ptr1) == 0 ) THEN
+        CALL mexErrMsgTxt("Property Ibr is not an integer")
+      ENDIF
+C
+      IBRF7ptr2=mxGetPr(IBRF7ptr1)
+      m=SIZE(IBRF7)
+      IBRF7ptr3=mxRealloc(IBRF7ptr2,SIZEOF(IBRF7))
+      CALL mxCopyInteger4ToPtr(IBRF7,IBRF7ptr3,m)
+C
+      CALL mxSetProperty(PLHS(1),i,'Ibr',IBRF7ptr1)
+      CALL mxDestroyArray(IBRF7ptr1)
+C
+C Assign Mtot values --------------
+      MTOTF7ptr1=mxGetProperty(PLHS(1),i,'Mtot')
+C
+      IF( MTOTF7ptr1 == 0 ) THEN
+        CALL mexErrMsgTxt("Property Mtot not found")
+      ENDIF
+C
+      IF( mxIsInt32(MTOTF7ptr1) == 0 ) THEN
+        CALL mexErrMsgTxt("Property Mtot is not an integer")
+      ENDIF
+C
+      MTOTF7ptr2=mxGetPr(MTOTF7ptr1)
+      m=SIZE(MTOTF7)
+      MTOTF7ptr3=mxRealloc(MTOTF7ptr2,SIZEOF(MTOTF7))
+      CALL mxCopyInteger4ToPtr(MTOTF7,MTOTF7ptr3,m)
+C
+      CALL mxSetProperty(PLHS(1),i,'Mtot',MTOTF7ptr1)
+      CALL mxDestroyArray(MTOTF7ptr1)
+C
+C Assign Itp values --------------
+      ITPF7ptr1=mxGetProperty(PLHS(1),i,'Itp')
+C
+      IF( ITPF7ptr1 == 0 ) THEN
+        CALL mexErrMsgTxt("Property Itp not found")
+      ENDIF
+C
+      IF( mxIsInt32(ITPF7ptr1) == 0 ) THEN
+        CALL mexErrMsgTxt("Property Itp is not an integer")
+      ENDIF
+C
+      ITPF7ptr2=mxGetPr(ITPF7ptr1)
+      m=SIZE(ITPF7)
+      ITPF7ptr3=mxRealloc(ITPF7ptr2,SIZEOF(ITPF7))
+      CALL mxCopyInteger4ToPtr(ITPF7,ITPF7ptr3,m)
+C
+      CALL mxSetProperty(PLHS(1),i,'Itp',ITPF7ptr1)
+      CALL mxDestroyArray(ITPF7ptr1)
+C
+C Assign Lab values --------------
+      LABF7ptr1=mxGetProperty(PLHS(1),i,'Lab')
+C
+      IF( LABF7ptr1 == 0 ) THEN
+        CALL mexErrMsgTxt("Property Lab not found")
+      ENDIF
+C
+      IF( mxIsInt32(LABF7ptr1) == 0 ) THEN
+        CALL mexErrMsgTxt("Property Lab is not an integer")
+      ENDIF
+C
+      LABF7ptr2=mxGetPr(LABF7ptr1)
+      m=SIZE(LABF7)
+      LABF7ptr3=mxRealloc(LABF7ptr2,SIZEOF(LABF7))
+      CALL mxCopyInteger4ToPtr(LABF7,LABF7ptr3,m)
+C
+      CALL mxSetProperty(PLHS(1),i,'Lab',LABF7ptr1)
+      CALL mxDestroyArray(LABF7ptr1)
+C
+C Assign Par values --------------
+      PARF7ptr1=mxGetProperty(PLHS(1),i,'Par')
+C
+      IF( PARF7ptr1 == 0 ) THEN
+        CALL mexErrMsgTxt("Property Par not found")
+      ENDIF
+C
+      IF( mxIsDouble(PARF7ptr1) == 0 ) THEN
+        CALL mexErrMsgTxt("Property Par is not a double")
+      ENDIF
+C
+      PARF7ptr2=mxGetPr(PARF7ptr1)
+      m=SIZE(PARF7)
+      PARF7ptr3=mxRealloc(PARF7ptr2,SIZEOF(PARF7))
+      CALL mxCopyReal8ToPtr(PARF7,PARF7ptr3,m)
+C
+      CALL mxSetProperty(PLHS(1),i,'Par',PARF7ptr1)
+      CALL mxDestroyArray(PARF7ptr1)
+C
+C Assign L2norm values --------------
+      VAXISF7ptr1=mxGetProperty(PLHS(1),i,'L2norm')
+C
+      IF( VAXISF7ptr1 == 0 ) THEN
+        CALL mexErrMsgTxt("Property L2norm not found")
+      ENDIF
+C
+      IF( mxIsDouble(VAXISF7ptr1) == 0 ) THEN
+        CALL mexErrMsgTxt("Property L2norm is not a double")
+      ENDIF
+C
+      VAXISF7ptr2=mxGetPr(VAXISF7ptr1)
+      m=SIZE(VAXISF7)
+      VAXISF7ptr3=mxRealloc(VAXISF7ptr2,SIZEOF(VAXISF7))
+      CALL mxCopyReal8ToPtr(VAXISF7,VAXISF7ptr3,m)
+C
+      CALL mxSetProperty(PLHS(1),i,'L2norm',VAXISF7ptr1)
+      CALL mxDestroyArray(VAXISF7ptr1)
+C
+C Assign U values --------------
+      UF7ptr1=mxGetProperty(PLHS(1),i,'U')
+C
+      IF( UF7ptr1 == 0 ) THEN
+        CALL mexErrMsgTxt("Property U not found")
+      ENDIF
+C
+      IF( mxIsDouble(UF7ptr1) == 0 ) THEN
+        CALL mexErrMsgTxt("Property U is not a double")
+      ENDIF
+C
+      UF7ptr2=mxGetPr(UF7ptr1)
+      m=SIZE(UF7)
+      UF7ptr3=mxRealloc(UF7ptr2,SIZEOF(UF7))
+      CALL mxCopyReal8ToPtr(UF7,UF7ptr3,m)
+C
+      CALL mxSetProperty(PLHS(1),i,'U',UF7ptr1)
+      CALL mxDestroyArray(UF7ptr1)
+C
+C Assign Out values --------------
+      OUTF7ptr1=mxGetProperty(PLHS(1),i,'Out')
+C
+      IF( OUTF7ptr1 == 0 ) THEN
+        CALL mexErrMsgTxt("Property Out not found")
+      ENDIF
+C
+      IF( mxIsDouble(OUTF7ptr1) == 0 ) THEN
+        CALL mexErrMsgTxt("Property Out is not a double")
+      ENDIF
+C
+      OUTF7ptr2=mxGetPr(OUTF7ptr1)
+      m=SIZE(OUTF7)
+      OUTF7ptr3=mxRealloc(OUTF7ptr2,SIZEOF(OUTF7))
+      CALL mxCopyReal8ToPtr(OUTF7,OUTF7ptr3,m)
+C
+      CALL mxSetProperty(PLHS(1),i,'Out',OUTF7ptr1)
+      CALL mxDestroyArray(OUTF7ptr1)
+C

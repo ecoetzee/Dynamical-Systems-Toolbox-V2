@@ -1,0 +1,41 @@
+<toc version="2.0"> 
+<tocitem target="main_command_reference.html">Functions 
+  <tocitem target="main_command_reference.html#Convert_Constants_File">Convert Constants File
+    <tocitem target="cmd_convertcc.html"><name>convertchc</name><purpose>Convert constants file to object format</purpose></tocitem> 
+  </tocitem> 
+  <tocitem target="main_command_reference.html#Basic_Commands">Basic Commands 
+    <tocitem target="cmd_ap.html"><name>ap</name><purpose>Append output files to existing files</purpose></tocitem> 
+    <tocitem target="cmd_sv.html"><name>sv</name><purpose>Save output files to specific names</purpose></tocitem> 
+  </tocitem> 
+  <tocitem target="main_command_reference.html#Plotting_Commands">Plotting Commands 
+    <tocitem target="cmd_plotds.html"><name>plotds</name><purpose>Plot auto file to figure</purpose></tocitem> 
+    <tocitem target="cmd_plotdsobj.html"><name>plotdsobj</name><purpose>Plot auto object to figure</purpose></tocitem> 
+  </tocitem>
+  <tocitem target="main_command_reference.html#File_Manipulation">File Manipulation
+    <tocitem target="cmd_cl.html"><name>cl</name><purpose>Clean current directory of fort. , .o, and .exe files</purpose></tocitem> 
+    <tocitem target="cmd_cp.html"><name>cp</name><purpose>Copy data files</purpose></tocitem> 
+    <tocitem target="cmd_df.html"><name>df</name><purpose>Delete output files</purpose></tocitem> 
+    <tocitem target="cmd_dl.html"><name>dl</name><purpose>Delete files</purpose></tocitem> 
+    <tocitem target="cmd_mv.html"><name>mv</name><purpose>Move files</purpose></tocitem> 
+  </tocitem>  
+  <tocitem target="main_command_reference.html#Diagnostics">Diagnostics
+    <tocitem target="cmd_bp.html"><name>bp</name><purpose>Value of "branch point function"</purpose></tocitem> 
+    <tocitem target="cmd_ev.html"><name>ev</name><purpose>Eigenvalue of Jacobian</purpose></tocitem> 
+    <tocitem target="cmd_fl.html"><name>fl</name><purpose>Floquet multipliers</purpose></tocitem> 
+    <tocitem target="cmd_hb.html"><name>hb</name><purpose>Value of "Hopf function"</purpose></tocitem> 
+    <tocitem target="cmd_it.html"><name>it</name><purpose>Number of Newton iterations per step</purpose></tocitem> 
+    <tocitem target="cmd_lp.html"><name>lp</name><purpose>Value of "limit point function"</purpose></tocitem> 
+    <tocitem target="cmd_no.html"><name>no</name><purpose>Notes section of output file</purpose></tocitem> 
+    <tocitem target="cmd_sp.html"><name>sp</name><purpose>Value of "secondary periodic bifurcation function"</purpose></tocitem> 
+    <tocitem target="cmd_st.html"><name>st</name><purpose>Number of stable eigenvalues or Floquet multipliers per continuation step</purpose></tocitem> 
+    <tocitem target="cmd_sz.html"><name>sz</name><purpose>Continuation step size per continuation step</purpose></tocitem> 
+  </tocitem> 
+  <tocitem target="main_command_reference.html#File_Maintenance">File Maintenance 
+    <tocitem target="cmd_gz.html"><name>gz</name><purpose>Compress output files into a zip folder</purpose></tocitem> 
+    <tocitem target="cmd_uz.html"><name>uz</name><purpose>Unzip compressed output files from a zipped folder</purpose></tocitem> 
+  </tocitem> 
+</tocitem> 
+</toc>
+
+  	
+ 	

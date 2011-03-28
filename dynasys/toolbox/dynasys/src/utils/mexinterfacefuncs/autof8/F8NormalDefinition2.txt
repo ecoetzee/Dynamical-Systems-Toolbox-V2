@@ -1,0 +1,450 @@
+C
+C HEADER INFORMATION ---------------------------------------------------
+C
+      USE AUTO_CONSTANTS, ONLY:IBRF8,oldIBRF8,MTOTF8,oldMTOTF8,ITPF8,old
+     &ITPF8,LABF8,oldLABF8,NFPRF8,oldNFPRF8,ISWF8,oldISWF8,NTPLF8,oldNTP
+     &LF8,NARF8,oldNARF8,NROWPRF8,oldNROWPRF8,NTSTF8,oldNTSTF8,NCOLF8,ol
+     &dNCOLF8,NPARXF8,oldNPARXF8,IFPRF8,oldIFPRF8,TF8,oldTF8,TMF8,oldTMF
+     &8,PARF8,oldPARF8,RLDOTF8,oldRLDOTF8,UF8,oldUF8,UPSF8,oldUPSF8,UDOT
+     &PSF8,oldUDOTPSF8,NPARX
+
+
+C
+C ARRAY ALLOCATION  ----------------------------------------------------
+C
+C IBR ------------
+      R=SIZE(IBRF8,1)
+      ALLOCATE(oldIBRF8(R))
+      oldIBRF8=IBRF8
+      DEALLOCATE(IBRF8)
+      ALLOCATE(IBRF8(R+1))
+      IF(R > 0) THEN
+          DO I=1,R
+            IBRF8(I)=oldIBRF8(I)
+          ENDDO
+      ENDIF
+      IBRF8(R+1)=IBR
+      DEALLOCATE(oldIBRF8)
+C
+C MTOT ------------
+      R=SIZE(MTOTF8,1)
+      ALLOCATE(oldMTOTF8(R))
+      oldMTOTF8=MTOTF8
+      DEALLOCATE(MTOTF8)
+      ALLOCATE(MTOTF8(R+1))
+      IF(R > 0) THEN
+          DO I=1,R
+            MTOTF8(I)=oldMTOTF8(I)
+          ENDDO
+      ENDIF
+      MTOTF8(R+1)=MTOT
+      DEALLOCATE(oldMTOTF8)
+C
+C ITP ------------
+      R=SIZE(ITPF8,1)
+      ALLOCATE(oldITPF8(R))
+      oldITPF8=ITPF8
+      DEALLOCATE(ITPF8)
+      ALLOCATE(ITPF8(R+1))
+      IF(R > 0) THEN
+          DO I=1,R
+            ITPF8(I)=oldITPF8(I)
+          ENDDO
+      ENDIF
+      ITPF8(R+1)=ITP
+      DEALLOCATE(oldITPF8)
+C
+C LAB ------------
+      R=SIZE(LABF8,1)
+      ALLOCATE(oldLABF8(R))
+      oldLABF8=LABF8
+      DEALLOCATE(LABF8)
+      ALLOCATE(LABF8(R+1))
+      IF(R > 0) THEN
+          DO I=1,R
+            LABF8(I)=oldLABF8(I)
+          ENDDO
+      ENDIF
+      LABF8(R+1)=LAB
+      DEALLOCATE(oldLABF8)
+C
+C NFPR ------------
+      R=SIZE(NFPRF8,1)
+      ALLOCATE(oldNFPRF8(R))
+      oldNFPRF8=NFPRF8
+      DEALLOCATE(NFPRF8)
+      ALLOCATE(NFPRF8(R+1))
+      IF(R > 0) THEN
+          DO I=1,R
+            NFPRF8(I)=oldNFPRF8(I)
+          ENDDO
+      ENDIF
+      NFPRF8(R+1)=NFPR
+      DEALLOCATE(oldNFPRF8)
+C
+C ISW ------------
+      R=SIZE(ISWF8,1)
+      ALLOCATE(oldISWF8(R))
+      oldISWF8=ISWF8
+      DEALLOCATE(ISWF8)
+      ALLOCATE(ISWF8(R+1))
+      IF(R > 0) THEN
+          DO I=1,R
+            ISWF8(I)=oldISWF8(I)
+          ENDDO
+      ENDIF
+      ISWF8(R+1)=ISW
+      DEALLOCATE(oldISWF8)
+C
+C NTPL ------------
+      R=SIZE(NTPLF8,1)
+      ALLOCATE(oldNTPLF8(R))
+      oldNTPLF8=NTPLF8
+      DEALLOCATE(NTPLF8)
+      ALLOCATE(NTPLF8(R+1))
+      IF(R > 0) THEN
+          DO I=1,R
+            NTPLF8(I)=oldNTPLF8(I)
+          ENDDO
+      ENDIF
+      NTPLF8(R+1)=NTPL
+      DEALLOCATE(oldNTPLF8)
+C
+C NAR ------------
+      R=SIZE(NARF8,1)
+      ALLOCATE(oldNARF8(R))
+      oldNARF8=NARF8
+      DEALLOCATE(NARF8)
+      ALLOCATE(NARF8(R+1))
+      IF(R > 0) THEN
+          DO I=1,R
+            NARF8(I)=oldNARF8(I)
+          ENDDO
+      ENDIF
+      NARF8(R+1)=NAR
+      DEALLOCATE(oldNARF8)
+C
+C NROWPR ------------
+      R=SIZE(NROWPRF8,1)
+      ALLOCATE(oldNROWPRF8(R))
+      oldNROWPRF8=NROWPRF8
+      DEALLOCATE(NROWPRF8)
+      ALLOCATE(NROWPRF8(R+1))
+      IF(R > 0) THEN
+          DO I=1,R
+            NROWPRF8(I)=oldNROWPRF8(I)
+          ENDDO
+      ENDIF
+      NROWPRF8(R+1)=NROWPR
+      DEALLOCATE(oldNROWPRF8)
+C
+C NTST ------------
+      R=SIZE(NTSTF8,1)
+      ALLOCATE(oldNTSTF8(R))
+      oldNTSTF8=NTSTF8
+      DEALLOCATE(NTSTF8)
+      ALLOCATE(NTSTF8(R+1))
+      IF(R > 0) THEN
+          DO I=1,R
+            NTSTF8(I)=oldNTSTF8(I)
+          ENDDO
+      ENDIF
+      NTSTF8(R+1)=NTST
+      DEALLOCATE(oldNTSTF8)
+C
+C NCOL ------------
+      R=SIZE(NCOLF8,1)
+      ALLOCATE(oldNCOLF8(R))
+      oldNCOLF8=NCOLF8
+      DEALLOCATE(NCOLF8)
+      ALLOCATE(NCOLF8(R+1))
+      IF(R > 0) THEN
+          DO I=1,R
+            NCOLF8(I)=oldNCOLF8(I)
+          ENDDO
+      ENDIF
+      NCOLF8(R+1)=NCOL
+      DEALLOCATE(oldNCOLF8)
+C
+C NPARX ------------
+      R=SIZE(NPARXF8,1)
+      ALLOCATE(oldNPARXF8(R))
+      oldNPARXF8=NPARXF8
+      DEALLOCATE(NPARXF8)
+      ALLOCATE(NPARXF8(R+1))
+      IF(R > 0) THEN
+          DO I=1,R
+            NPARXF8(I)=oldNPARXF8(I)
+          ENDDO
+      ENDIF
+      NPARXF8(R+1)=NPARX
+      DEALLOCATE(oldNPARXF8)
+C
+C IFPR ------------
+      R=SIZE(IFPRF8,1)
+      C=SIZE(IFPRF8,2)
+      ALLOCATE(oldIFPRF8(R,NFPR))
+      oldIFPRF8=IFPRF8
+      DEALLOCATE(IFPRF8)
+      ALLOCATE(IFPRF8(R+1,NFPR))
+      IF(R > 0) THEN
+          DO I=1,R
+            DO J=1,NFPR
+              IFPRF8(I,J)=oldIFPRF8(I,J)
+            ENDDO
+          ENDDO
+      ENDIF
+      DO J=1,NFPR
+        IFPRF8(R+1,J)=IFPR(ICP(J))
+      ENDDO
+      DEALLOCATE(oldIFPRF8)
+C
+C T ------------
+      R=SIZE(TF8,1)
+      ALLOCATE(oldTF8(R))
+      oldTF8=TF8
+      DEALLOCATE(TF8)
+      ALLOCATE(TF8(R+1))
+      IF(R > 0) THEN
+          DO I=1,R
+            TF8(I)=oldTF8(I)
+          ENDDO
+      ENDIF
+      TF8(R+1)=T
+      DEALLOCATE(oldTF8)
+C
+C TM ------------
+      R=SIZE(TMF8,1)
+      C=SIZE(TMF8,2)
+      ALLOCATE(oldTMF8(R,NTST+1))
+      oldTMF8=TMF8
+      DEALLOCATE(TMF8)
+      ALLOCATE(TMF8(R+1,NTST+1))
+      IF(R > 0) THEN
+          DO I=1,R
+            DO J=1,NTST+1
+              TMF8(I,J)=oldTMF8(I,J)
+            ENDDO
+          ENDDO
+      ENDIF
+      DO J=1,NTST+1
+        TMF8(R+1,J)=TM(J)
+      ENDDO
+      DEALLOCATE(oldTMF8)
+C
+C PAR ------------
+      R=SIZE(PARF8,1)
+      C=SIZE(PARF8,2)
+      ALLOCATE(oldPARF8(R,NPARX))
+      oldPARF8=PARF8
+      DEALLOCATE(PARF8)
+      ALLOCATE(PARF8(R+1,NPARX))
+      IF(R > 0) THEN
+          DO I=1,R
+            DO J=1,NPARX
+              PARF8(I,J)=oldPARF8(I,J)
+            ENDDO
+          ENDDO
+      ENDIF
+      DO J=1,NPARX
+        PARF8(R+1,J)=PAR(J)
+      ENDDO
+      DEALLOCATE(oldPARF8)
+C
+C RLDOT ------------
+      R=SIZE(RLDOTF8,1)
+      C=SIZE(RLDOTF8,2)
+      ALLOCATE(oldRLDOTF8(R,NFPR))
+      oldRLDOTF8=RLDOTF8
+      DEALLOCATE(RLDOTF8)
+      ALLOCATE(RLDOTF8(R+1,NFPR))
+      IF(R > 0) THEN
+          DO I=1,R
+            DO J=1,NFPR
+              RLDOTF8(I,J)=oldRLDOTF8(I,J)
+            ENDDO
+          ENDDO
+      ENDIF
+      DO J=1,NFPR
+        RLDOTF8(R+1,J)=RLDOT(J)
+      ENDDO
+      DEALLOCATE(oldRLDOTF8)
+C
+C U ------------
+      R=SIZE(UF8,1)
+      C=SIZE(UF8,2)
+      ALLOCATE(oldUF8(R,NDIM))
+      oldUF8=UF8
+      DEALLOCATE(UF8)
+      ALLOCATE(UF8(R+1,NDIM))
+      IF(R > 0) THEN
+          DO I=1,R
+            DO J=1,NDIM
+              UF8(I,J)=oldUF8(I,J)
+            ENDDO
+          ENDDO
+      ENDIF
+      DO J=1,NDIM
+        UF8(R+1,J)=U(J)
+      ENDDO
+      DEALLOCATE(oldUF8)
+C
+C UPS ------------
+      R=SIZE(UPSF8,1)
+      C=SIZE(UPSF8,2)
+      P=SIZE(UPSF8,3)
+      ALLOCATE(oldUPSF8(NTPL,NDIM,P))
+      oldUPSF8=UPSF8
+      DEALLOCATE(UPSF8)
+      ALLOCATE(UPSF8(NTPL,NDIM,P+1))
+      IF(R > 0) THEN
+        DO I=1,NTPL
+          DO J=1,NDIM
+            DO K=1,P
+              UPSF8(I,J,K)=oldUPSF8(I,J,K)
+            ENDDO
+          ENDDO
+        ENDDO
+      ENDIF
+      DO I=1,NTPL
+        DO J=1,NDIM
+          UPSF8(I,J,P+1)=UPS(I,J)
+        ENDDO
+      ENDDO
+      DEALLOCATE(oldUPSF8)
+C
+C UDOTPS ------------
+      R=SIZE(UDOTPSF8,1)
+      C=SIZE(UDOTPSF8,2)
+      P=SIZE(UDOTPSF8,3)
+      ALLOCATE(oldUDOTPSF8(NTPL,NDIM,P))
+      oldUDOTPSF8=UDOTPSF8
+      DEALLOCATE(UDOTPSF8)
+      ALLOCATE(UDOTPSF8(NTPL,NDIM,P+1))
+      IF(R > 0) THEN
+        DO I=1,NTPL
+          DO J=1,NDIM
+            DO K=1,P
+              UDOTPSF8(I,J,K)=oldUDOTPSF8(I,J,K)
+            ENDDO
+          ENDDO
+        ENDDO
+      ENDIF
+      DO I=1,NTPL
+        DO J=1,NDIM
+          UDOTPSF8(I,J,P+1)=UDOTPS(I,J)
+        ENDDO
+      ENDDO
+      DEALLOCATE(oldUDOTPSF8)
+C
+
+
+C
+C MODULE DECLARATIONS --------------------------------------------------
+C
+      INTEGER,ALLOCATABLE :: IBRF8(:)
+      INTEGER,ALLOCATABLE :: oldIBRF8(:)
+      INTEGER,ALLOCATABLE :: MTOTF8(:)
+      INTEGER,ALLOCATABLE :: oldMTOTF8(:)
+      INTEGER,ALLOCATABLE :: ITPF8(:)
+      INTEGER,ALLOCATABLE :: oldITPF8(:)
+      INTEGER,ALLOCATABLE :: LABF8(:)
+      INTEGER,ALLOCATABLE :: oldLABF8(:)
+      INTEGER,ALLOCATABLE :: NFPRF8(:)
+      INTEGER,ALLOCATABLE :: oldNFPRF8(:)
+      INTEGER,ALLOCATABLE :: ISWF8(:)
+      INTEGER,ALLOCATABLE :: oldISWF8(:)
+      INTEGER,ALLOCATABLE :: NTPLF8(:)
+      INTEGER,ALLOCATABLE :: oldNTPLF8(:)
+      INTEGER,ALLOCATABLE :: NARF8(:)
+      INTEGER,ALLOCATABLE :: oldNARF8(:)
+      INTEGER,ALLOCATABLE :: NROWPRF8(:)
+      INTEGER,ALLOCATABLE :: oldNROWPRF8(:)
+      INTEGER,ALLOCATABLE :: NTSTF8(:)
+      INTEGER,ALLOCATABLE :: oldNTSTF8(:)
+      INTEGER,ALLOCATABLE :: NCOLF8(:)
+      INTEGER,ALLOCATABLE :: oldNCOLF8(:)
+      INTEGER,ALLOCATABLE :: NPARXF8(:)
+      INTEGER,ALLOCATABLE :: oldNPARXF8(:)
+      INTEGER,ALLOCATABLE :: IFPRF8(:,:)
+      INTEGER,ALLOCATABLE :: oldIFPRF8(:,:)
+      DOUBLE PRECISION,ALLOCATABLE :: TF8(:)
+      DOUBLE PRECISION,ALLOCATABLE :: oldTF8(:)
+      DOUBLE PRECISION,ALLOCATABLE :: TMF8(:,:)
+      DOUBLE PRECISION,ALLOCATABLE :: oldTMF8(:,:)
+      DOUBLE PRECISION,ALLOCATABLE :: PARF8(:,:)
+      DOUBLE PRECISION,ALLOCATABLE :: oldPARF8(:,:)
+      DOUBLE PRECISION,ALLOCATABLE :: RLDOTF8(:,:)
+      DOUBLE PRECISION,ALLOCATABLE :: oldRLDOTF8(:,:)
+      DOUBLE PRECISION,ALLOCATABLE :: UF8(:,:)
+      DOUBLE PRECISION,ALLOCATABLE :: oldUF8(:,:)
+      DOUBLE PRECISION,ALLOCATABLE :: UPSF8(:,:,:)
+      DOUBLE PRECISION,ALLOCATABLE :: oldUPSF8(:,:,:)
+      DOUBLE PRECISION,ALLOCATABLE :: UDOTPSF8(:,:,:)
+      DOUBLE PRECISION,ALLOCATABLE :: oldUDOTPSF8(:,:,:)
+C
+C ALLOCATE VARIABLES IN COPYDSTOBJECTS.F -------------------------------
+C
+      ALLOCATE(IBRF8(0))
+      ALLOCATE(MTOTF8(0))
+      ALLOCATE(ITPF8(0))
+      ALLOCATE(LABF8(0))
+      ALLOCATE(NFPRF8(0))
+      ALLOCATE(ISWF8(0))
+      ALLOCATE(NTPLF8(0))
+      ALLOCATE(NARF8(0))
+      ALLOCATE(NROWPRF8(0))
+      ALLOCATE(NTSTF8(0))
+      ALLOCATE(NCOLF8(0))
+      ALLOCATE(NPARXF8(0))
+      ALLOCATE(IFPRF8(0,0))
+      ALLOCATE(TF8(0))
+      ALLOCATE(TMF8(0,0))
+      ALLOCATE(PARF8(0,0))
+      ALLOCATE(RLDOTF8(0,0))
+      ALLOCATE(UF8(0,0))
+      ALLOCATE(UPSF8(0,0,0))
+      ALLOCATE(UDOTPSF8(0,0,0))
+C
+C DEALLOCATE ALLOCATED VARIABLES ---------------------------------------
+C
+      IF(ALLOCATED(IBRF8))DEALLOCATE(IBRF8)
+      IF(ALLOCATED(oldIBRF8))DEALLOCATE(oldIBRF8)
+      IF(ALLOCATED(MTOTF8))DEALLOCATE(MTOTF8)
+      IF(ALLOCATED(oldMTOTF8))DEALLOCATE(oldMTOTF8)
+      IF(ALLOCATED(ITPF8))DEALLOCATE(ITPF8)
+      IF(ALLOCATED(oldITPF8))DEALLOCATE(oldITPF8)
+      IF(ALLOCATED(LABF8))DEALLOCATE(LABF8)
+      IF(ALLOCATED(oldLABF8))DEALLOCATE(oldLABF8)
+      IF(ALLOCATED(NFPRF8))DEALLOCATE(NFPRF8)
+      IF(ALLOCATED(oldNFPRF8))DEALLOCATE(oldNFPRF8)
+      IF(ALLOCATED(ISWF8))DEALLOCATE(ISWF8)
+      IF(ALLOCATED(oldISWF8))DEALLOCATE(oldISWF8)
+      IF(ALLOCATED(NTPLF8))DEALLOCATE(NTPLF8)
+      IF(ALLOCATED(oldNTPLF8))DEALLOCATE(oldNTPLF8)
+      IF(ALLOCATED(NARF8))DEALLOCATE(NARF8)
+      IF(ALLOCATED(oldNARF8))DEALLOCATE(oldNARF8)
+      IF(ALLOCATED(NROWPRF8))DEALLOCATE(NROWPRF8)
+      IF(ALLOCATED(oldNROWPRF8))DEALLOCATE(oldNROWPRF8)
+      IF(ALLOCATED(NTSTF8))DEALLOCATE(NTSTF8)
+      IF(ALLOCATED(oldNTSTF8))DEALLOCATE(oldNTSTF8)
+      IF(ALLOCATED(NCOLF8))DEALLOCATE(NCOLF8)
+      IF(ALLOCATED(oldNCOLF8))DEALLOCATE(oldNCOLF8)
+      IF(ALLOCATED(NPARXF8))DEALLOCATE(NPARXF8)
+      IF(ALLOCATED(oldNPARXF8))DEALLOCATE(oldNPARXF8)
+      IF(ALLOCATED(IFPRF8))DEALLOCATE(IFPRF8)
+      IF(ALLOCATED(oldIFPRF8))DEALLOCATE(oldIFPRF8)
+      IF(ALLOCATED(TF8))DEALLOCATE(TF8)
+      IF(ALLOCATED(oldTF8))DEALLOCATE(oldTF8)
+      IF(ALLOCATED(TMF8))DEALLOCATE(TMF8)
+      IF(ALLOCATED(oldTMF8))DEALLOCATE(oldTMF8)
+      IF(ALLOCATED(PARF8))DEALLOCATE(PARF8)
+      IF(ALLOCATED(oldPARF8))DEALLOCATE(oldPARF8)
+      IF(ALLOCATED(RLDOTF8))DEALLOCATE(RLDOTF8)
+      IF(ALLOCATED(oldRLDOTF8))DEALLOCATE(oldRLDOTF8)
+      IF(ALLOCATED(UF8))DEALLOCATE(UF8)
+      IF(ALLOCATED(oldUF8))DEALLOCATE(oldUF8)
+      IF(ALLOCATED(UPSF8))DEALLOCATE(UPSF8)
+      IF(ALLOCATED(oldUPSF8))DEALLOCATE(oldUPSF8)
+      IF(ALLOCATED(UDOTPSF8))DEALLOCATE(UDOTPSF8)
+      IF(ALLOCATED(oldUDOTPSF8))DEALLOCATE(oldUDOTPSF8)

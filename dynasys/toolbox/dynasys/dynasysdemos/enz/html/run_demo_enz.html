@@ -1,0 +1,263 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML is auto-generated from an M-file.
+To make changes, update the M-file and republish this document.
+      --><title>Stationary Solutions of an Enzyme Model (Demo : enz)</title><meta name="generator" content="MATLAB 7.9"><meta name="date" content="2010-10-26"><meta name="m-file" content="run_demo_enz"><style type="text/css">
+
+body {
+  background-color: white;
+  margin:10px;
+}
+
+h1 {
+  color: #990000; 
+  font-size: x-large;
+}
+
+h2 {
+  color: #990000;
+  font-size: medium;
+}
+
+/* Make the text shrink to fit narrow windows, but not stretch too far in 
+wide windows. */ 
+p,h1,h2,div.content div {
+  max-width: 600px;
+  /* Hack for IE6 */
+  width: auto !important; width: 600px;
+}
+
+pre.codeinput {
+  background: #EEEEEE;
+  padding: 10px;
+}
+@media print {
+  pre.codeinput {word-wrap:break-word; width:100%;}
+} 
+
+span.keyword {color: #0000FF}
+span.comment {color: #228B22}
+span.string {color: #A020F0}
+span.untermstring {color: #B20000}
+span.syscmd {color: #B28C00}
+
+pre.codeoutput {
+  color: #666666;
+  padding: 10px;
+}
+
+pre.error {
+  color: red;
+}
+
+p.footer {
+  text-align: right;
+  font-size: xx-small;
+  font-weight: lighter;
+  font-style: italic;
+  color: gray;
+}
+
+
+/* ADDED the FOLLOWING*/
+/* == header == */
+div.header {
+  top:0px;
+  left:0px;
+  background: #660000;
+  border-bottom: 10px solid #EBF5F9;
+  margin-bottom: 10px;
+  font-weight: bold;
+  width: 100%;
+}
+div.left {
+  position: absolute;
+  top: 10px;
+  left: 0px;
+  padding: 10px;
+}
+div.right {
+  text-align: right;
+  padding: 10px;
+}
+div.header a {
+  color: white;
+}
+div.header {
+  color: white;
+} 
+/* ADDED the ABOVE code*/
+</style></head><body><div class="header"><div class="left"><a href="matlab:edit(fullfile(dynasysroot,'dynasysdemos','enz','run_demo_enz.m'))">Open run_demo_enz.m in the Editor</a></div><div class="right"><a href="matlab:addpath(fullfile(dynasysroot,'dynasysdemos','enz'));echodemo run_demo_enz">Run in the Command Window</a></div></div><div class="content"><h1>Stationary Solutions of an Enzyme Model (Demo : enz)</h1><p>The equations, that model a two-compartment enzyme system (Kernevez,1980), are given by</p><p>:   <img src="run_demo_enz_eq24285.png" alt="$s_1' = (s_0 - s_1) + (s_2 - s_1) - \rho R (s_1)$">,</p><p>:   <img src="run_demo_enz_eq60657.png" alt="$s_2' = (s_0 + \mu - s_2) + (s_1 - s_2) - \rho R (s_2)$">,</p><p>where</p><div><ul><li><img src="run_demo_enz_eq87542.png" alt="$R (s) = \frac{s}{1 + s + \kappa s^{2}}$">.</li><li>The free parameter is <img src="run_demo_enz_eq79724.png" alt="$s_0$">.</li><li>Other parameters are fixed.</li></ul></div><p>This equation is also considered by (Doedel, Keller and Kern, 1991).</p><pre class="codeinput">clear <span class="string">all</span>
+</pre><p>Create continuation object.</p><pre class="codeinput">a{1}=auto;
+</pre><p>Print function file to screen.</p><pre class="codeinput">type(a{1}.s.FuncFileName);
+</pre><pre class="codeoutput">
+function [f,o,dfdu,dfdp]= func(par,u,ijac)
+%
+% function file for enz demo
+% 
+f=[];
+o=[];
+dfdu=[];
+dfdp=[];
+%
+s0=par(1);
+rm=par(2);
+rh=par(3);
+rk=par(4);
+%
+s1=u(1);
+s2=u(2);
+%
+rs1=s1/(1+s1+rk*s1.^2);
+rs2=s2/(1+s2+rk*s2.^2);
+%
+f(1)=(s0-s1) + (s2-s1) - rh * rs1;
+f(2)=(s0+rm-s2) + (s1-s2) - rh * rs2;
+
+
+
+</pre><p>Set initial conditions.</p><pre class="codeinput">[a{1}.s.Par0,a{1}.s.U0,a{1}.s.Out0]=stpnt;
+</pre><p>Set constants.</p><pre class="codeinput">a{1}.c=cenz1(a{1}.c);
+</pre><p>Run continuation.</p><pre class="codeinput">a{1}=runauto(a{1});
+</pre><pre class="codeoutput"> 
+    --------------- DYNAMICAL SYSTEMS TOOLBOX ---------------------     
+ 
+USER NAME      : ECOETZEE
+DATE           : 26/10/2010 10:09:57
+ 
+ 
+&lt;
+  BR    PT  TY  LAB      PAR(01)      L2-NORM         U(01)         U(02)
+   1     1  EP    1   0.00000E+00   0.00000E+00   0.00000E+00   0.00000E+00
+   1   141  LP    2   3.43569E+01   1.48261E+00   1.04836E+00   1.04836E+00
+   1   145  BP    3   3.42229E+01   1.66053E+00   1.17417E+00   1.17417E+00
+   1   214  BP    4   2.21816E+01   6.21472E+00   4.39447E+00   4.39447E+00
+   1   244  LP    5   1.88871E+01   1.24765E+01   8.82220E+00   8.82220E+00
+   1   250  EP    6   1.89864E+01   1.39722E+01   9.87985E+00   9.87985E+00
+  BR    PT  TY  LAB      PAR(01)      L2-NORM         U(01)         U(02)
+   2    84  LP    7   2.53727E+01   5.91179E+00   5.88408E+00   5.71738E-01
+   2   104  LP    8   2.66221E+01   8.84510E+00   8.78280E+00   1.04795E+00
+   2   172  LP    9   2.21816E+01   6.21472E+00   4.39452E+00   4.39443E+00
+   2   173  BP   10   2.21825E+01   6.21537E+00   4.34437E+00   4.44492E+00
+   2   227  LP   11   2.66221E+01   8.84511E+00   1.04796E+00   8.78281E+00
+   2   250  EP   12   2.62164E+01   8.09079E+00   7.85840E-01   8.05254E+00
+
+ Total Time    0.531E+00
+&gt;
+</pre><p>Data is contained in the autof7 object.</p><pre class="codeinput">a{1}.f7
+</pre><pre class="codeoutput">
+ans = 
+
+  autof7
+
+  Properties:
+       Ibr: [500x1 double]
+      Mtot: [500x1 double]
+       Itp: [500x1 double]
+       Lab: [500x1 double]
+       Par: [500x1 double]
+    L2norm: [500x1 double]
+         U: [500x2 double]
+       Out: [500x0 double]
+
+
+</pre><p>Special points are contained in the autof8 object.</p><pre class="codeinput">a{1}.f8
+</pre><pre class="codeoutput">
+ans = 
+
+  autof8
+
+  Properties:
+       Ibr: [12x1 double]
+      Mtot: [12x1 double]
+       Itp: [12x1 double]
+       Lab: [12x1 double]
+      Nfpr: [12x1 double]
+       Isw: [12x1 double]
+      Ntpl: [12x1 double]
+       Nar: [12x1 double]
+    Nrowpr: [12x1 double]
+      Ntst: [12x1 double]
+      Ncol: [12x1 double]
+     Nparx: [12x1 double]
+      Ifpr: []
+         T: [12x1 double]
+        Tm: []
+       Par: [12x36 double]
+     Rldot: []
+         U: [12x2 double]
+       Ups: []
+    Udotps: []
+
+
+</pre><p>Create plot object and plot diagram.</p><div><ul><li>Blue solid lines represent stable solutions</li><li>Red dashed lines represent unstable solutions</li></ul></div><pre class="codeinput">p=plautobj;
+set(p,<span class="string">'xLab'</span>,<span class="string">'Par'</span>,<span class="string">'yLab'</span>,<span class="string">'L2norm'</span>);
+ploteq(p,a{1});
+</pre><img vspace="5" hspace="5" src="run_demo_enz_01.png" alt=""> <p class="footer"><br>
+      Published with MATLAB&reg; 7.9<br></p></div><!--
+##### SOURCE BEGIN #####
+%% Stationary Solutions of an Enzyme Model (Demo : enz) 
+% The equations, that model a two-compartment enzyme system
+% (Kernevez,1980), are given by
+% 
+% :   $s_1' = (s_0 - s_1) + (s_2 - s_1) - \rho R (s_1)$, 
+%
+% :   $s_2' = (s_0 + \mu - s_2) + (s_1 - s_2) - \rho R (s_2)$, 
+%
+% where
+%  
+% * $R (s) = \frac{s}{1 + s + \kappa s^{2}}$.
+% * The free parameter is $s_0$.
+% * Other parameters are fixed. 
+%
+% This equation is also considered by (Doedel, Keller and Kern, 1991).
+% 
+% 
+clear all
+
+%% 
+% Create continuation object.
+a{1}=auto;
+
+%%
+% Print function file to screen.
+type(a{1}.s.FuncFileName);
+
+%%
+% Set initial conditions.
+[a{1}.s.Par0,a{1}.s.U0,a{1}.s.Out0]=stpnt;
+
+%%
+% Set constants.
+a{1}.c=cenz1(a{1}.c);
+
+%%
+% Run continuation.
+a{1}=runauto(a{1});
+
+%%
+% Data is contained in the autof7 object.
+a{1}.f7
+
+%%
+% Special points are contained in the autof8 object.
+a{1}.f8
+
+%%
+% Create plot object and plot diagram.
+% 
+% * Blue solid lines represent stable solutions
+% * Red dashed lines represent unstable solutions
+% 
+p=plautobj;
+set(p,'xLab','Par','yLab','L2norm');
+ploteq(p,a{1});
+
+
+
+##### SOURCE END #####
+--></body></html>

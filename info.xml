@@ -1,0 +1,40 @@
+<productinfo
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="http://www.bristol.ac.uk">
+<?xml-stylesheet type="text/xsl" href=""?>
+
+<matlabrelease>2008b</matlabrelease>
+<name>Dynamical Systems</name>
+<type>toolbox</type>
+<icon>$toolbox/matlab/icons/matlabicon.gif</icon>
+<help_location>C:\Documents and Settings\ecoetzee\Desktop\dynasys\help\toolbox\dynasys</help_location>
+
+<list>
+
+<listitem>
+<label>Help</label>
+<callback>doc dynasys</callback>
+<icon>$toolbox/matlab/icons/book_mat.gif</icon>
+</listitem>
+
+<listitem>
+<label>Demos</label>
+<callback>demo toolbox Dynamical</callback>
+<icon>$toolbox/matlab/icons/demoicon.gif</icon>
+</listitem>
+
+<listitem>
+<label>Background Info (Web)</label>
+<callback>web http://www.dynamicalsystems.org -browser;</callback>
+<icon>$toolbox/matlab/icons/webicon.gif</icon>
+</listitem>
+
+<listitem>
+<label>Product Page (Web)</label>
+<callback>web http://indy.cs.concordia.ca/auto/ -browser;</callback>
+<icon>$toolbox/matlab/icons/webicon.gif</icon>
+</listitem>
+
+</list>
+
+</productinfo>

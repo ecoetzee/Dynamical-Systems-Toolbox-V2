@@ -1,0 +1,281 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML is auto-generated from an M-file.
+To make changes, update the M-file and republish this document.
+      --><title>Bratu's Equation (Demo : exp)</title><meta name="generator" content="MATLAB 7.9"><meta name="date" content="2010-10-26"><meta name="m-file" content="run_demo_exp"><style type="text/css">
+
+body {
+  background-color: white;
+  margin:10px;
+}
+
+h1 {
+  color: #990000; 
+  font-size: x-large;
+}
+
+h2 {
+  color: #990000;
+  font-size: medium;
+}
+
+/* Make the text shrink to fit narrow windows, but not stretch too far in 
+wide windows. */ 
+p,h1,h2,div.content div {
+  max-width: 600px;
+  /* Hack for IE6 */
+  width: auto !important; width: 600px;
+}
+
+pre.codeinput {
+  background: #EEEEEE;
+  padding: 10px;
+}
+@media print {
+  pre.codeinput {word-wrap:break-word; width:100%;}
+} 
+
+span.keyword {color: #0000FF}
+span.comment {color: #228B22}
+span.string {color: #A020F0}
+span.untermstring {color: #B20000}
+span.syscmd {color: #B28C00}
+
+pre.codeoutput {
+  color: #666666;
+  padding: 10px;
+}
+
+pre.error {
+  color: red;
+}
+
+p.footer {
+  text-align: right;
+  font-size: xx-small;
+  font-weight: lighter;
+  font-style: italic;
+  color: gray;
+}
+
+
+/* ADDED the FOLLOWING*/
+/* == header == */
+div.header {
+  top:0px;
+  left:0px;
+  background: #660000;
+  border-bottom: 10px solid #EBF5F9;
+  margin-bottom: 10px;
+  font-weight: bold;
+  width: 100%;
+}
+div.left {
+  position: absolute;
+  top: 10px;
+  left: 0px;
+  padding: 10px;
+}
+div.right {
+  text-align: right;
+  padding: 10px;
+}
+div.header a {
+  color: white;
+}
+div.header {
+  color: white;
+} 
+/* ADDED the ABOVE code*/
+</style></head><body><div class="header"><div class="left"><a href="matlab:edit(fullfile(dynasysroot,'dynasysdemos','exp','run_demo_exp.m'))">Open run_demo_exp.m in the Editor</a></div><div class="right"><a href="matlab:addpath(fullfile(dynasysroot,'dynasysdemos','exp'));echodemo run_demo_exp">Run in the Command Window</a></div></div><div class="content"><h1>Bratu's Equation (Demo : exp)</h1><!--introduction--><p>This demo illustrates the computation of a solution family to the boundary value problem</p><p>: <img src="run_demo_exp_eq02453.png" alt="$u_1' = u_2$">,</p><p>: <img src="run_demo_exp_eq89048.png" alt="$u_2' = -p_1  e^{u_1}$">,</p><p>with boundary conditions <img src="run_demo_exp_eq39312.png" alt="$u_1(0)=0$">,  <img src="run_demo_exp_eq22132.png" alt="$u_1(1)=0$"> This equation is also considered by Doedel, Keller, and Kernevez (1991).</p><!--/introduction--><h2>Contents</h2><div><ul><li><a href="#1">Initialise workspace</a></li><li><a href="#2">Definition of function file</a></li><li><a href="#3">Definition of boundary conditions file</a></li><li><a href="#4">Set intial conditions</a></li><li><a href="#5">Load and display constants</a></li><li><a href="#6">Compute the solution family containing the fold</a></li><li><a href="#7">Restart at a labeled solution, using increased accuracy</a></li><li><a href="#8">Plot the solution</a></li></ul></div><h2>Initialise workspace<a name="1"></a></h2><p>Clear workspace</p><pre class="codeinput">clear <span class="string">all</span>
+
+<span class="comment">% Create a continuation object.</span>
+a{1}=auto;
+</pre><h2>Definition of function file<a name="2"></a></h2><p>Display function file contents.</p><pre class="codeinput">type(a{1}.s.FuncFileName);
+</pre><pre class="codeoutput">
+function [f,o,dfdu,dfdp]= func(par,u,ijac)
+%
+% equations file for demo exp
+%
+f=[];
+o=[];
+dfdu=[];
+dfdp=[];
+
+f(1)= u(2);
+f(2)=-par(1) * exp(u(1));
+
+
+</pre><h2>Definition of boundary conditions file<a name="3"></a></h2><p>Display boundary conditions file contents.</p><pre class="codeinput">type(a{1}.s.BcndFileName);
+</pre><pre class="codeoutput">
+function [fb,o,dbc]= bcnd(par,u0,u1,ijac)
+%
+% boundary conditions for demo exp
+%
+fb=[];
+o=[];
+dbc=[];
+
+fb(1)=u0(1);
+fb(2)=u1(1);
+
+
+</pre><h2>Set intial conditions<a name="4"></a></h2><p>We can either load data from the starting point file, or we can define the initial conditions directly into variable.</p><pre class="codeinput">[a{1}.s.Par0,a{1}.s.U0,a{1}.s.Out0]=stpnt;
+</pre><h2>Load and display constants<a name="5"></a></h2><p>Load the constants file.</p><pre class="codeinput">a{1}.c=cexp1(a{1}.c);
+
+<span class="comment">% Display the constants.</span>
+a{1}.c
+</pre><pre class="codeoutput">
+ans = 
+
+  autoconstants handle
+
+  Properties:
+     Ndim: 2
+    Noutx: 0
+      Ips: 4
+      Irs: 0
+      Ilp: 1
+      Icp: 1
+     Ntst: 10
+     Ncol: 4
+      Iad: 3
+      Isp: 1
+      Isw: 1
+     Iplt: 3
+      Nbc: 2
+     Nint: 0
+      Nmx: 100
+      Rl0: 0
+      Rl1: 4
+       A0: 0
+       A1: 50
+      Npr: 100
+     Mxbf: 10
+      Iid: 2
+     Itmx: 8
+     Itnw: 5
+     Nwtn: 3
+      Jac: 0
+     Epsl: 1.0000e-007
+     Epsu: 1.0000e-007
+     Epss: 1.0000e-004
+       Ds: 0.0100
+    Dsmin: 1.0000e-003
+    Dsmax: 0.2000
+     Iads: 1
+      Thl: []
+      Thu: []
+      Uzr: [6x2 double]
+
+
+</pre><h2>Compute the solution family containing the fold<a name="6"></a></h2><p>Run equilbrium solutions.</p><pre class="codeinput">a{1}=runauto(a{1});
+</pre><pre class="codeoutput"> 
+    --------------- DYNAMICAL SYSTEMS TOOLBOX ---------------------     
+ 
+USER NAME      : ECOETZEE
+DATE           : 26/10/2010 10:10:02
+ 
+ 
+&lt;
+  BR    PT  TY  LAB      PAR(01) INTEGRAL U(01)     MAX U(01)     MAX U(02)
+   1     1  EP    1   0.00000E+00   0.00000E+00   0.00000E+00   0.00000E+00
+   1    10  UZ    2   5.00071E-01   4.39344E-02   6.60050E-02   2.61316E-01
+   1    13  UZ    3   1.00000E+00   9.32569E-02   1.40484E-01   5.49353E-01
+   1    16  UZ    4   1.50000E+00   1.49861E-01   2.26457E-01   8.73235E-01
+   1    19  UZ    5   2.00000E+00   2.16936E-01   3.28922E-01   1.24822E+00
+   1    22  UZ    6   2.50000E+00   3.00803E-01   4.57926E-01   1.70436E+00
+   1    26  UZ    7   3.00001E+00   4.17958E-01   6.39959E-01   2.31962E+00
+   1    33  LP    8   3.51383E+00   7.61901E-01   1.18679E+00   4.00000E+00
+   1    43  UZ    9   3.00000E+00   1.23967E+00   1.97495E+00   6.10338E+00
+   1    49  UZ   10   2.49999E+00   1.50867E+00   2.43170E+00   7.20931E+00
+   1    55  UZ   11   2.00000E+00   1.77497E+00   2.89390E+00   8.26876E+00
+   1    62  UZ   12   1.50000E+00   2.07208E+00   3.41999E+00   9.42385E+00
+   1    70  UZ   13   1.00000E+00   2.44387E+00   4.09144E+00   1.08469E+01
+   1    82  UZ   14   5.00000E-01   3.01064E+00   5.13556E+00   1.29998E+01
+   1   100  EP   15   1.48905E-01   3.89420E+00   6.80010E+00   1.63687E+01
+
+ Total Time    0.286E+01
+&gt;
+</pre><h2>Restart at a labeled solution, using increased accuracy<a name="7"></a></h2><pre class="codeinput">a{2}=a{1};
+a{2}.c=cexp2(a{2}.c);
+a{2}=runauto(a{2});
+</pre><pre class="codeoutput"> 
+    --------------- DYNAMICAL SYSTEMS TOOLBOX ---------------------     
+ 
+USER NAME      : ECOETZEE
+DATE           : 26/10/2010 10:10:06
+ 
+ 
+&lt;
+  BR    PT  TY  LAB      PAR(01) INTEGRAL U(01)     MAX U(01)     MAX U(02)
+   1   100  EP   16   9.52916E-05   8.40578E+00   1.56186E+01   3.40101E+01
+
+ Total Time    0.364E+01
+&gt;
+</pre><h2>Plot the solution<a name="8"></a></h2><p>Create plaut object and plot solution.</p><pre class="codeinput">p=plautobj;
+set(p,<span class="string">'xLab'</span>,<span class="string">'Par'</span>,<span class="string">'yLab'</span>,<span class="string">'L2norm'</span>);
+ploteq(p,a);
+</pre><img vspace="5" hspace="5" src="run_demo_exp_01.png" alt=""> <p class="footer"><br>
+      Published with MATLAB&reg; 7.9<br></p></div><!--
+##### SOURCE BEGIN #####
+%% Bratu's Equation (Demo : exp)
+% This demo illustrates the computation of a solution family to
+% the boundary value problem
+%
+% : $u_1' = u_2$,
+%
+% : $u_2' = -p_1  e^{u_1}$,
+%
+% with boundary conditions $u_1(0)=0$,  $u_1(1)=0$
+% This equation is also considered by Doedel, Keller, and Kernevez (1991).
+
+%% Initialise workspace
+% Clear workspace
+clear all
+
+% Create a continuation object.
+a{1}=auto;
+
+%% Definition of function file
+% Display function file contents.
+type(a{1}.s.FuncFileName);
+
+%% Definition of boundary conditions file
+% Display boundary conditions file contents.
+type(a{1}.s.BcndFileName);
+
+%% Set intial conditions
+% We can either load data from the starting point file, or we 
+% can define the initial conditions directly into variable.
+[a{1}.s.Par0,a{1}.s.U0,a{1}.s.Out0]=stpnt;
+
+%% Load and display constants
+% Load the constants file.
+a{1}.c=cexp1(a{1}.c);
+
+% Display the constants.
+a{1}.c
+
+%% Compute the solution family containing the fold
+% Run equilbrium solutions.
+a{1}=runauto(a{1});
+
+%% Restart at a labeled solution, using increased accuracy
+a{2}=a{1};
+a{2}.c=cexp2(a{2}.c);
+a{2}=runauto(a{2});
+
+%% Plot the solution
+% Create plaut object and plot solution.
+p=plautobj;
+set(p,'xLab','Par','yLab','L2norm');
+ploteq(p,a);
+
+
+##### SOURCE END #####
+--></body></html>

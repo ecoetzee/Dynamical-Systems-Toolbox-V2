@@ -1,0 +1,310 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML is auto-generated from an M-file.
+To make changes, update the M-file and republish this document.
+      --><title>Stationary States (2D Problem)(Demo : pd2)</title><meta name="generator" content="MATLAB 7.9"><meta name="date" content="2010-10-26"><meta name="m-file" content="run_demo_pd2"><style type="text/css">
+
+body {
+  background-color: white;
+  margin:10px;
+}
+
+h1 {
+  color: #990000; 
+  font-size: x-large;
+}
+
+h2 {
+  color: #990000;
+  font-size: medium;
+}
+
+/* Make the text shrink to fit narrow windows, but not stretch too far in 
+wide windows. */ 
+p,h1,h2,div.content div {
+  max-width: 600px;
+  /* Hack for IE6 */
+  width: auto !important; width: 600px;
+}
+
+pre.codeinput {
+  background: #EEEEEE;
+  padding: 10px;
+}
+@media print {
+  pre.codeinput {word-wrap:break-word; width:100%;}
+} 
+
+span.keyword {color: #0000FF}
+span.comment {color: #228B22}
+span.string {color: #A020F0}
+span.untermstring {color: #B20000}
+span.syscmd {color: #B28C00}
+
+pre.codeoutput {
+  color: #666666;
+  padding: 10px;
+}
+
+pre.error {
+  color: red;
+}
+
+p.footer {
+  text-align: right;
+  font-size: xx-small;
+  font-weight: lighter;
+  font-style: italic;
+  color: gray;
+}
+
+
+/* ADDED the FOLLOWING*/
+/* == header == */
+div.header {
+  top:0px;
+  left:0px;
+  background: #660000;
+  border-bottom: 10px solid #EBF5F9;
+  margin-bottom: 10px;
+  font-weight: bold;
+  width: 100%;
+}
+div.left {
+  position: absolute;
+  top: 10px;
+  left: 0px;
+  padding: 10px;
+}
+div.right {
+  text-align: right;
+  padding: 10px;
+}
+div.header a {
+  color: white;
+}
+div.header {
+  color: white;
+} 
+/* ADDED the ABOVE code*/
+</style></head><body><div class="header"><div class="left"><a href="matlab:edit(fullfile(dynasysroot,'dynasysdemos','pd2','run_demo_pd2.m'))">Open run_demo_pd2.m in the Editor</a></div><div class="right"><a href="matlab:addpath(fullfile(dynasysroot,'dynasysdemos','pd2'));echodemo run_demo_pd2">Run in the Command Window</a></div></div><div class="content"><h1>Stationary States (2D Problem)(Demo : pd2)</h1><!--introduction--><p>This demo uses Euler's method to locate a stationary solution of a nonlinear parabolic PDE, followed by continuation of this stationary state in a free problem parameter. The equations are</p><p>: <img src="run_demo_pd2_eq20027.png" alt="${\partial u_1 / \partial t} = D_1~{\partial^2 u_1 / \partial x^2}~+~p_1~ u ~( 1-u) ~-~ u_1 u_2$"> , : <img src="run_demo_pd2_eq59314.png" alt="${\partial u_2 / \partial t} = D_2~{\partial^2 u_2 / \partial x^2} ~-~ u_2 ~+~ u_1 u_2$"> ,</p><div><ul><li>on the space interval <tt>[0,L]</tt>,</li><li>where <tt>L=PAR(11)=1</tt> is fixed throughout,</li><li>as are the diffusion constants <tt>D_1=PAR(15)=Z</tt> and <tt>D_2=PAR(16)=1</tt>.</li><li>The boundary conditions are <tt>u_1(0) = u_1(L) = 0</tt> and <tt>u_2(0) = u_2(L) = 1</tt>,   for all time.</li></ul></div><p>Euler time integration is only first order accurate, so that the time step must be sufficiently small to ensure correct results. Indeed, this option has been added only as a convenience, and should generally be used only to locate stationary states.</p><!--/introduction--><h2>Contents</h2><div><ul><li><a href="#1">Initialise workspace</a></li><li><a href="#2">Definition of function file</a></li><li><a href="#3">Definition of initial conditions file</a></li><li><a href="#4">Set intial conditions</a></li><li><a href="#5">Load and display constants</a></li><li><a href="#6">Time integration towards stationary state</a></li><li><a href="#7">Continuation of stationary states.</a></li><li><a href="#8">Plot the solution</a></li></ul></div><h2>Initialise workspace<a name="1"></a></h2><p>Clear workspace</p><pre class="codeinput">clear <span class="string">all</span>
+
+<span class="comment">% Create a continuation object.</span>
+a{1}=auto;
+</pre><h2>Definition of function file<a name="2"></a></h2><p>Display function file contents.</p><pre class="codeinput">type(a{1}.s.FuncFileName);
+</pre><pre class="codeoutput">
+function [f,o,dfdu,dfdp]= func(par,u,ijac)
+%
+% equations file for demo pd2
+%
+f=[];
+o=[];
+dfdu=[];
+dfdp=[];
+
+% set the nonlinear term
+f(1)= par(1)*u(1)*( 1. - u(1) ) - u(1)*u(2);
+f(2)= -u(2) + u(1)*u(2);
+
+
+</pre><h2>Definition of initial conditions file<a name="3"></a></h2><p>Display initial conditions file contents.</p><pre class="codeinput">type(a{1}.s.StpntFileName);
+</pre><pre class="codeoutput">
+function [par,u,o]= stpnt(t)
+%
+% starting point for demo int
+par=zeros(36,1);
+o=[];
+
+% set the (constant) parameter
+par(1) = 12.;
+%
+% set the actual width of the space interval [0,par(11)]
+par(11) = 1.;
+
+% set the initial data in the (scaled) interval [0,1]
+u(1) = sin(pi*t);
+u(2) = 1.;
+
+% also set the space derivative of the initial data
+% note the scaling by 1/par(11) 
+u(3) = pi*cos(pi*t)/par(11);
+u(4) = 0./par(11);
+
+% set the diffusion constants
+par(15) = 1.;
+par(16) = 1.;
+
+
+</pre><h2>Set intial conditions<a name="4"></a></h2><p>In this case we load data from the starting point file. The <tt>stpnt.m</tt> file is called repeatedly for this option of Ips</p><p>Note that in the subroutine <tt>stpnt.m</tt> the initial data must be scaled to the unit interval, and that the scaled derivative must also be provided; see the equations-file <tt>func.f</tt>.</p><p>Initial data are <img src="run_demo_pd2_eq83306.png" alt="$u(x)=\sin(\pi x/L)$"> and <img src="run_demo_pd2_eq71582.png" alt="$u_2(x)=1$"> at time zero.</p><pre class="codeinput">[a{1}.s.Par0,a{1}.s.U0,a{1}.s.Out0]=stpnt(0);
+</pre><h2>Load and display constants<a name="5"></a></h2><p>In the first run the continuation parameter is the independent time variable, namely <tt>PAR(14)</tt>, while <img src="run_demo_pd2_eq28396.png" alt="$p_1=12$"> is fixed.</p><p>The constants <tt>DS</tt>, <tt>DSMIN</tt>, and <tt>DSMAX</tt> then control the step size in space-time, here consisting of <tt>PAR(14)</tt> and  <img src="run_demo_pd2_eq44149.png" alt="$(u_1(x),u_2(x))$">.</p><pre class="codeinput">a{1}.c=cpd21(a{1}.c);
+
+<span class="comment">% Display the constants.</span>
+a{1}.c
+</pre><pre class="codeoutput">
+ans = 
+
+  autoconstants handle
+
+  Properties:
+     Ndim: 2
+    Noutx: 0
+      Ips: 16
+      Irs: 0
+      Ilp: 0
+      Icp: 14
+     Ntst: 10
+     Ncol: 4
+      Iad: 3
+      Isp: 0
+      Isw: 1
+     Iplt: 3
+      Nbc: 0
+     Nint: 0
+      Nmx: 35
+      Rl0: 0
+      Rl1: 500
+       A0: 0
+       A1: 100
+      Npr: 10
+     Mxbf: 10
+      Iid: 2
+     Itmx: 8
+     Itnw: 7
+     Nwtn: 3
+      Jac: 0
+     Epsl: 1.0000e-006
+     Epsu: 1.0000e-006
+     Epss: 1.0000e-004
+       Ds: 0.1000
+    Dsmin: 1.0000e-003
+    Dsmax: 5
+     Iads: 1
+      Thl: []
+      Thu: []
+      Uzr: []
+
+
+</pre><h2>Time integration towards stationary state<a name="6"></a></h2><p>Find stationary state.</p><pre class="codeinput">a{1}=runauto(a{1});
+</pre><pre class="codeoutput">Warning: Truncating U0 to length defined by Ndim 
+ 
+    --------------- DYNAMICAL SYSTEMS TOOLBOX ---------------------     
+ 
+USER NAME      : ECOETZEE
+DATE           : 26/10/2010 10:10:58
+ 
+ 
+&lt;
+  BR    PT  TY  LAB     TIME INTEGRAL U(01)     MAX U(01)     MAX U(02)
+   1     1  EP    1   0.00000E+00   6.36620E-01   1.00000E+00   1.00000E+00
+   1    10        2   3.30173E-01   2.08360E-01   3.23508E-01   1.00000E+00
+   1    20        3   1.39181E+00   9.58280E-02   1.49742E-01   1.00000E+00
+   1    30        4   4.36574E+00   7.72029E-02   1.20754E-01   1.00000E+00
+   1    35  EP    5   1.08431E+01   7.64484E-02   1.19515E-01   1.00000E+00
+
+ Total Time    0.812E+00
+&gt;
+</pre><h2>Continuation of stationary states.<a name="7"></a></h2><p>In the second run the continuation parameter is <img src="run_demo_pd2_eq28925.png" alt="$p_1$">. Restart from autof8 object from previous run. A branch point is located during this run.</p><pre class="codeinput">a{2}=a{1};
+a{2}.c=cpd22(a{2}.c);
+a{2}=runauto(a{2});
+</pre><pre class="codeoutput"> 
+    --------------- DYNAMICAL SYSTEMS TOOLBOX ---------------------     
+ 
+USER NAME      : ECOETZEE
+DATE           : 26/10/2010 10:10:59
+ 
+ 
+&lt;
+  BR    PT  TY  LAB      PAR(01) INTEGRAL U(01)     MAX U(01)     MAX U(02)
+   1     8  BP    6   1.07712E+01   1.08866E-05   1.70973E-05   1.00000E+00
+   1    15  EP    7   7.82250E+00  -2.78185E-01   5.27238E-24   1.00000E+00
+
+ Total Time    0.453E+00
+&gt;
+</pre><h2>Plot the solution<a name="8"></a></h2><p>Create plaut object and plot solution.</p><pre class="codeinput">p=plautobj;
+set(p,<span class="string">'xLab'</span>,<span class="string">'Par'</span>,<span class="string">'yLab'</span>,<span class="string">'L2norm'</span>);
+ploteq(p,a);
+</pre><img vspace="5" hspace="5" src="run_demo_pd2_01.png" alt=""> <p class="footer"><br>
+      Published with MATLAB&reg; 7.9<br></p></div><!--
+##### SOURCE BEGIN #####
+%% Stationary States (2D Problem)(Demo : pd2)
+% This demo uses Euler's method to locate a stationary solution of
+% a nonlinear parabolic PDE, followed by continuation of this stationary
+% state in a free problem parameter. The equations are
+%
+% : ${\partial u_1 / \partial t} = D_1~{\partial^2 u_1 / \partial x^2}~+~p_1~ u ~( 1-u) ~-~ u_1 u_2$ , 
+% : ${\partial u_2 / \partial t} = D_2~{\partial^2 u_2 / \partial x^2} ~-~ u_2 ~+~ u_1 u_2$ , 
+%
+%
+% * on the space interval |[0,L]|,
+% * where |L=PAR(11)=1| is fixed throughout,
+% * as are the diffusion constants |D_1=PAR(15)=Z| and |D_2=PAR(16)=1|.
+% * The boundary conditions are |u_1(0) = u_1(L) = 0| and |u_2(0) = u_2(L) = 1|,
+%   for all time.
+% 
+% Euler time integration is only first order accurate, so that
+% the time step must be sufficiently small to ensure correct results.
+% Indeed, this option has been added only as a convenience, and should
+% generally be used only to locate stationary states.
+% 
+%% Initialise workspace
+% Clear workspace
+clear all
+
+% Create a continuation object.
+a{1}=auto;
+
+%% Definition of function file
+% Display function file contents.
+type(a{1}.s.FuncFileName);
+
+%% Definition of initial conditions file
+% Display initial conditions file contents.
+type(a{1}.s.StpntFileName);
+
+%% Set intial conditions
+% In this case we load data from the starting point file. The |stpnt.m| file is
+% called repeatedly for this option of Ips
+%
+% Note that in the subroutine |stpnt.m| the initial data must be scaled to
+% the unit interval, and that the scaled derivative must also be provided;
+% see the equations-file |func.f|.
+%
+% Initial data are $u(x)=\sin(\pi x/L)$ and $u_2(x)=1$ at time zero.
+%
+[a{1}.s.Par0,a{1}.s.U0,a{1}.s.Out0]=stpnt(0);
+
+%% Load and display constants
+% In the first run the continuation parameter is the independent time variable,
+% namely |PAR(14)|, while $p_1=12$ is fixed.
+%
+% The constants |DS|, |DSMIN|, and |DSMAX| then control the step size
+% in space-time, here consisting of |PAR(14)| and  $(u_1(x),u_2(x))$.
+a{1}.c=cpd21(a{1}.c);
+
+% Display the constants.
+a{1}.c
+
+%% Time integration towards stationary state
+% Find stationary state.
+a{1}=runauto(a{1});
+
+%% Continuation of stationary states.
+% In the second run the continuation parameter is $p_1$. Restart from 
+% autof8 object from previous run. A branch point is located during this run.
+a{2}=a{1};
+a{2}.c=cpd22(a{2}.c);
+a{2}=runauto(a{2});
+
+%% Plot the solution
+% Create plaut object and plot solution.
+p=plautobj;
+set(p,'xLab','Par','yLab','L2norm');
+ploteq(p,a);
+
+
+##### SOURCE END #####
+--></body></html>
