@@ -84,6 +84,15 @@
 ! 
       PRHS(1) = mxCreateDoubleMatrix(NPARX,1,0) 
       CALL mxCopyReal8ToPtr(PAR,mxGetPr(PRHS(1)),NPARX) 
+
+! Trap any Not a Number occurences and throw error 
+!
+      NANptr = mxGetPr(PRHS(1))
+      NUMEL = mxGetNumberOfElements(PRHS(1))
+      IF( NUMSTAB(%VAL(NANptr),NUMEL) ) THEN
+          WRITE(MSGSTR,104)TRIM(FUNCFILENAME)
+          CALL AUTOSTOPWITHERROR(MSGSTR)  
+      ENDIF
 ! 
 ! Define the state variable in MATLAB environment 
 ! 
@@ -113,14 +122,6 @@
       ENDIF
 ! 
 !      
-! Trap any Not a Number occurences and throw error 
-!
-      NANptr = mxGetPr(PRHS(1))
-      NUMEL = mxGetNumberOfElements(PLHS(1))
-      IF( NUMSTAB(%VAL(NANptr),NUMEL) ) THEN
-          WRITE(MSGSTR,104)TRIM(FUNCFILENAME)
-          CALL AUTOSTOPWITHERROR(MSGSTR)  
-      ENDIF
 ! Copy the results back to Fortran variable. 
 ! Check the F return variable first. 
 !          
@@ -401,6 +402,16 @@
 ! 
       PRHS(1) = mxCreateDoubleMatrix(NPARX,1,0) 
       CALL mxCopyReal8ToPtr(PAR,mxGetPr(PRHS(1)),NPARX) 
+!      
+! Trap any Not a Number occurences and throw error 
+!
+      NANptr = mxGetPr(PRHS(1))
+      NUMEL = mxGetNumberOfElements(PRHS(1))
+      IF( NUMSTAB(%VAL(NANptr),NUMEL) ) THEN
+          WRITE(MSGSTR,304)TRIM(BCNDFILENAME)
+          CALL AUTOSTOPWITHERROR(MSGSTR)   
+      ENDIF
+! 
 ! 
 ! Define the lower bounds of states in MATLAB environment 
 ! 
@@ -434,17 +445,7 @@
 !     
           CALL AUTOSTOPWITHERROR(MSGSTR)
       ENDIF
-!      
-!      
-! Trap any Not a Number occurences and throw error 
-!
-      NANptr = mxGetPr(PRHS(1))
-      NUMEL = mxGetNumberOfElements(PLHS(1))
-      IF( NUMSTAB(%VAL(NANptr),NUMEL) ) THEN
-          WRITE(MSGSTR,304)TRIM(BCNDFILENAME)
-          CALL AUTOSTOPWITHERROR(MSGSTR)   
-      ENDIF
-!      
+!          
 ! Copy the results back to Fortran variable. 
 ! Check the FB return variable first. 
 ! 
@@ -550,6 +551,16 @@
 ! 
       PRHS(1) = mxCreateDoubleMatrix(NPARX,1,0) 
       CALL mxCopyReal8ToPtr(PAR,mxGetPr(PRHS(1)),NPARX) 
+!
+! Trap any Not a Number occurences and throw error 
+!
+      NANptr = mxGetPr(PRHS(1))
+      NUMEL = mxGetNumberOfElements(PRHS(1))
+      IF( NUMSTAB(%VAL(NANptr),NUMEL) ) THEN
+          WRITE(MSGSTR,404)TRIM(ICNDFILENAME)
+          CALL AUTOSTOPWITHERROR(MSGSTR)   
+      ENDIF
+! 
 ! 
 ! Define the state variable in MATLAB environment 
 ! 
@@ -577,16 +588,7 @@
           CALL mxDestroyArray(MSGptr)
           CALL AUTOSTOPWITHERROR(MSGSTR)
       ENDIF
-!   
-! Trap any Not a Number occurences and throw error 
-!
-      NANptr = mxGetPr(PRHS(1))
-      NUMEL = mxGetNumberOfElements(PLHS(1))
-      IF( NUMSTAB(%VAL(NANptr),NUMEL) ) THEN
-          WRITE(MSGSTR,404)TRIM(ICNDFILENAME)
-          CALL AUTOSTOPWITHERROR(MSGSTR)   
-      ENDIF
-!      
+!        
 ! Copy the results back to Fortran variable. 
 ! Check the FB return variable first. 
 ! 
