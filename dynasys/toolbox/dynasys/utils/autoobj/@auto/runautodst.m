@@ -27,7 +27,7 @@ function obj=runautodst(obj)
 
 slfile=obj.s.SimulinkModel;
 
-try
+try  
     
 %--------------------------------------------------------------------------
 % CLEAR ANY ALLOCATED ARRAYS
@@ -88,6 +88,19 @@ if strcmp(obj.s.Fort7,'on') || strcmp(obj.s.Fort8,'on') || strcmp(obj.s.Fort9,'o
 end
 
 %--------------------------------------------------------------------------
+% COMPILE SIMULINK MODELS IF NEEDED
+%--------------------------------------------------------------------------
+% This function is only really used if a Simulink model is being used to
+% obtain the derivatives. The model needs to be compiled before it is
+% possible to obtain the derivatives
+if ~isempty(slfile) 
+    open_system(slfile);    
+    if strcmp(get_param(slfile, 'SimulationStatus'),'stopped')
+      feval(slfile,[],[],[],'compile');
+    end
+end
+
+%--------------------------------------------------------------------------
 % INITIAL AND RESTART INFORMATION
 %--------------------------------------------------------------------------
 % Make sure U vector is correct size, otherwise wrong 
@@ -138,20 +151,6 @@ disp([' ']);
 if ~isempty(slfile)
 disp(['SIMULINK MODEL : ',slfile]);    
 end
-
-%--------------------------------------------------------------------------
-% COMPILE SIMULINK MODELS IF NEEDED
-%--------------------------------------------------------------------------
-% This function is only really used if a Simulink model is being used to
-% obtain the derivatives. The model needs to be compiled before it is
-% possible to obtain the derivatives
-if ~isempty(slfile) 
-    open_system(slfile);    
-    if strcmp(get_param(slfile, 'SimulationStatus'),'stopped')
-      feval(slfile,[],[],[],'compile');
-    end
-end
- 
 
 %--------------------------------------------------------------------------
 % CALL AUTO GATEWAY ROUTINE, START AUTO
