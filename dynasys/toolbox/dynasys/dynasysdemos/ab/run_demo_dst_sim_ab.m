@@ -110,6 +110,7 @@ p=plautobj;
 set(p,'xLab','Par','yLab','L2-norm','axLim',[0,0.16,0,10]);
 ploteq(p,a);
 snapnow;
+close(gcf);
 
 %% Compute periodic solutions
 % We want to do the continuation from the Hopf Bifurcation to determine the 

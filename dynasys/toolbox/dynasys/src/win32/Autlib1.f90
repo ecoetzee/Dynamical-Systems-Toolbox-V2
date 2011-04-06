@@ -502,6 +502,7 @@
       ELSE
        IF(READ2EOF.EQV..TRUE.)GOTO 5
        NDIM=NDIMDST
+       NOUTX=NOUTXDST
        IPS=IPSDST
        IRS=IRSDST
        ILP=ILPDST

@@ -5,7 +5,7 @@ function c=cab2(c)
 %  Date       : 15-Oct-2010 13:31:51
 %
 
-set(c,'Ndim',2,'Noutx',200,'Ips',2,'Irs',4,'Ilp',0);
+set(c,'Ndim',2,'Noutx',2,'Ips',2,'Irs',4,'Ilp',0);
 set(c,'Icp',[1,11]);
 set(c,'Ntst',50,'Ncol',4,'Iad',3,'Isp',1,'Isw',1,'Iplt',0,'Nbc',0,'Nint',0);
 set(c,'Nmx',300,'Rl0',0,'Rl1',0.15,'A0',0,'A1',100);

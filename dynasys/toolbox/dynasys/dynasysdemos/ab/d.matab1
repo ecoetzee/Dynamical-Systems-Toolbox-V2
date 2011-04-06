@@ -1,5 +1,6 @@
 
-  BR    PT  TY  LAB       PAR(01)       L2-NORM          U(01)         U(02)   1     1  EP    1   0.00000E+00   0.00000E+00   0.00000E+00   0.00000E+00
+  BR    PT  TY  LAB       PAR(01)       L2-NORM          U(01)         U(02)
+   1     1  EP    1   0.00000E+00   0.00000E+00   0.00000E+00   0.00000E+00
 ===============================================
 
   BR    PT  IT         PAR           L2-NORM
@@ -22,7 +23,8 @@
    1     2         Eigenvalue  1:  -1.00424E+00   0.00000E+00
    1     2         Eigenvalue  2:  -2.94242E+00   0.00000E+00
 
-  BR    PT  TY  LAB       PAR(01)       L2-NORM          U(01)         U(02)   1    -2        0   4.04281E-03   1.95871E-02   4.10407E-03   1.91523E-02
+  BR    PT  TY  LAB       PAR(01)       L2-NORM          U(01)         U(02)
+   1    -2        0   4.04281E-03   1.95871E-02   4.10407E-03   1.91523E-02
 
    1     2         Iterations   :   2
    1     2         Next Step    :   1.50000E-02
@@ -41,7 +43,8 @@
    1     3         Eigenvalue  1:  -1.00762E+00   0.00000E+00
    1     3         Eigenvalue  2:  -2.89902E+00   0.00000E+00
 
-  BR    PT  TY  LAB       PAR(01)       L2-NORM          U(01)         U(02)   1    -3        0   6.99872E-03   3.42930E-02   7.18538E-03   3.35318E-02
+  BR    PT  TY  LAB       PAR(01)       L2-NORM          U(01)         U(02)
+   1    -3        0   6.99872E-03   3.42930E-02   7.18538E-03   3.35318E-02
 
    1     3         Iterations   :   2
    1     3         Next Step    :   2.25000E-02
@@ -60,7 +63,8 @@
    1     4         Eigenvalue  1:  -1.01304E+00   0.00000E+00
    1     4         Eigenvalue  2:  -2.83354E+00   0.00000E+00
 
-  BR    PT  TY  LAB       PAR(01)       L2-NORM          U(01)         U(02)   1    -4        0   1.13124E-02   5.63756E-02   1.18123E-02   5.51242E-02
+  BR    PT  TY  LAB       PAR(01)       L2-NORM          U(01)         U(02)
+   1    -4        0   1.13124E-02   5.63756E-02   1.18123E-02   5.51242E-02
 
    1     4         Iterations   :   2
    1     4         Next Step    :   3.37500E-02
@@ -79,7 +83,8 @@
    1     5         Eigenvalue  1:  -1.02205E+00   0.00000E+00
    1     5         Eigenvalue  2:  -2.73438E+00   0.00000E+00
 
-  BR    PT  TY  LAB       PAR(01)       L2-NORM          U(01)         U(02)   1    -5        0   1.75190E-02   8.95500E-02   1.87633E-02   8.75622E-02
+  BR    PT  TY  LAB       PAR(01)       L2-NORM          U(01)         U(02)
+   1    -5        0   1.75190E-02   8.95500E-02   1.87633E-02   8.75622E-02
 
    1     5         Iterations   :   2
    1     5         Next Step    :   5.00000E-02
@@ -99,7 +104,8 @@
    1     6         Eigenvalue  1:  -1.03780E+00   0.00000E+00
    1     6         Eigenvalue  2:  -2.58500E+00   0.00000E+00
 
-  BR    PT  TY  LAB       PAR(01)       L2-NORM          U(01)         U(02)   1    -6        0   2.61521E-02   1.38799E-01   2.90824E-02   1.35718E-01
+  BR    PT  TY  LAB       PAR(01)       L2-NORM          U(01)         U(02)
+   1    -6        0   2.61521E-02   1.38799E-01   2.90824E-02   1.35718E-01
 
    1     6         Iterations   :   3
    1     6         Next Step    :   5.00000E-02
@@ -119,7 +125,8 @@
    1     7         Eigenvalue  1:  -1.05733E+00   0.00000E+00
    1     7         Eigenvalue  2:  -2.43177E+00   0.00000E+00
 
-  BR    PT  TY  LAB       PAR(01)       L2-NORM          U(01)         U(02)   1    -7        0   3.41452E-02   1.88156E-01   3.94242E-02   1.83979E-01
+  BR    PT  TY  LAB       PAR(01)       L2-NORM          U(01)         U(02)
+   1    -7        0   3.41452E-02   1.88156E-01   3.94242E-02   1.83979E-01
 
    1     7         Iterations   :   3
    1     7         Next Step    :   5.00000E-02
@@ -139,7 +146,8 @@
    1     8         Eigenvalue  1:  -1.08231E+00   0.00000E+00
    1     8         Eigenvalue  2:  -2.27308E+00   0.00000E+00
 
-  BR    PT  TY  LAB       PAR(01)       L2-NORM          U(01)         U(02)   1    -8        0   4.15319E-02   2.37607E-01   4.97857E-02   2.32333E-01
+  BR    PT  TY  LAB       PAR(01)       L2-NORM          U(01)         U(02)
+   1    -8        0   4.15319E-02   2.37607E-01   4.97857E-02   2.32333E-01
 
    1     8         Iterations   :   3
    1     8         Next Step    :   5.00000E-02
@@ -159,7 +167,8 @@
    1     9         Eigenvalue  1:  -1.11577E+00   0.00000E+00
    1     9         Eigenvalue  2:  -2.10595E+00   0.00000E+00
 
-  BR    PT  TY  LAB       PAR(01)       L2-NORM          U(01)         U(02)   1    -9        0   4.83451E-02   2.87141E-01   6.01644E-02   2.80767E-01
+  BR    PT  TY  LAB       PAR(01)       L2-NORM          U(01)         U(02)
+   1    -9        0   4.83451E-02   2.87141E-01   6.01644E-02   2.80767E-01
 
    1     9         Iterations   :   3
    1     9         Next Step    :   5.00000E-02
@@ -179,7 +188,8 @@
    1    10         Eigenvalue  1:  -1.16436E+00   0.00000E+00
    1    10         Eigenvalue  2:  -1.92374E+00   0.00000E+00
 
-  BR    PT  TY  LAB       PAR(01)       L2-NORM          U(01)         U(02)   1   -10        0   5.46165E-02   3.36746E-01   7.05581E-02   3.29271E-01
+  BR    PT  TY  LAB       PAR(01)       L2-NORM          U(01)         U(02)
+   1   -10        0   5.46165E-02   3.36746E-01   7.05581E-02   3.29271E-01
 
    1    10         Iterations   :   3
    1    10         Next Step    :   5.00000E-02
@@ -199,7 +209,8 @@
    1    11         Eigenvalue  1:  -1.25010E+00   0.00000E+00
    1    11         Eigenvalue  2:  -1.70449E+00   0.00000E+00
 
-  BR    PT  TY  LAB       PAR(01)       L2-NORM          U(01)         U(02)   1   -11        0   6.03771E-02   3.86413E-01   8.09648E-02   3.77836E-01
+  BR    PT  TY  LAB       PAR(01)       L2-NORM          U(01)         U(02)
+   1   -11        0   6.03771E-02   3.86413E-01   8.09648E-02   3.77836E-01
 
    1    11         Iterations   :   3
    1    11         Next Step    :   5.00000E-02
@@ -219,7 +230,8 @@
    1    12         Eigenvalue  1:  -1.41061E+00  -1.80411E-01
    1    12         Eigenvalue  2:  -1.41061E+00   1.80411E-01
 
-  BR    PT  TY  LAB       PAR(01)       L2-NORM          U(01)         U(02)   1   -12        0   6.56564E-02   4.36134E-01   9.13827E-02   4.26453E-01
+  BR    PT  TY  LAB       PAR(01)       L2-NORM          U(01)         U(02)
+   1   -12        0   6.56564E-02   4.36134E-01   9.13827E-02   4.26453E-01
 
    1    12         Iterations   :   3
    1    12         Next Step    :   5.00000E-02
@@ -239,7 +251,8 @@
    1    13         Eigenvalue  1:  -1.34400E+00  -3.29185E-01
    1    13         Eigenvalue  2:  -1.34400E+00   3.29185E-01
 
-  BR    PT  TY  LAB       PAR(01)       L2-NORM          U(01)         U(02)   1   -13        0   7.04829E-02   4.85900E-01   1.01810E-01   4.75114E-01
+  BR    PT  TY  LAB       PAR(01)       L2-NORM          U(01)         U(02)
+   1   -13        0   7.04829E-02   4.85900E-01   1.01810E-01   4.75114E-01
 
    1    13         Iterations   :   3
    1    13         Next Step    :   5.00000E-02
@@ -259,7 +272,8 @@
    1    14         Eigenvalue  1:  -1.27750E+00  -4.19371E-01
    1    14         Eigenvalue  2:  -1.27750E+00   4.19371E-01
 
-  BR    PT  TY  LAB       PAR(01)       L2-NORM          U(01)         U(02)   1   -14        0   7.48839E-02   5.35706E-01   1.12246E-01   5.23815E-01
+  BR    PT  TY  LAB       PAR(01)       L2-NORM          U(01)         U(02)
+   1   -14        0   7.48839E-02   5.35706E-01   1.12246E-01   5.23815E-01
 
    1    14         Iterations   :   3
    1    14         Next Step    :   5.00000E-02
@@ -278,7 +292,8 @@
    1    15         Eigenvalue  1:  -1.21110E+00  -4.84901E-01
    1    15         Eigenvalue  2:  -1.21110E+00   4.84901E-01
 
-  BR    PT  TY  LAB       PAR(01)       L2-NORM          U(01)         U(02)   1   -15        0   7.88855E-02   5.85546E-01   1.22689E-01   5.72548E-01
+  BR    PT  TY  LAB       PAR(01)       L2-NORM          U(01)         U(02)
+   1   -15        0   7.88855E-02   5.85546E-01   1.22689E-01   5.72548E-01
 
    1    15         Iterations   :   2
    1    15         Next Step    :   5.00000E-02
@@ -297,7 +312,8 @@
    1    16         Eigenvalue  1:  -1.14483E+00  -5.34973E-01
    1    16         Eigenvalue  2:  -1.14483E+00   5.34973E-01
 
-  BR    PT  TY  LAB       PAR(01)       L2-NORM          U(01)         U(02)   1   -16        0   8.25125E-02   6.35414E-01   1.33138E-01   6.21309E-01
+  BR    PT  TY  LAB       PAR(01)       L2-NORM          U(01)         U(02)
+   1   -16        0   8.25125E-02   6.35414E-01   1.33138E-01   6.21309E-01
 
    1    16         Iterations   :   2
    1    16         Next Step    :   5.00000E-02
@@ -316,7 +332,8 @@
    1    17         Eigenvalue  1:  -1.07869E+00  -5.73709E-01
    1    17         Eigenvalue  2:  -1.07869E+00   5.73709E-01
 
-  BR    PT  TY  LAB       PAR(01)       L2-NORM          U(01)         U(02)   1   -17        0   8.57887E-02   6.85307E-01   1.43592E-01   6.70094E-01
+  BR    PT  TY  LAB       PAR(01)       L2-NORM          U(01)         U(02)
+   1   -17        0   8.57887E-02   6.85307E-01   1.43592E-01   6.70094E-01
 
    1    17         Iterations   :   2
    1    17         Next Step    :   5.00000E-02
@@ -335,7 +352,8 @@
    1    18         Eigenvalue  1:  -1.01270E+00  -6.03361E-01
    1    18         Eigenvalue  2:  -1.01270E+00   6.03361E-01
 
-  BR    PT  TY  LAB       PAR(01)       L2-NORM          U(01)         U(02)   1   -18        0   8.87366E-02   7.35220E-01   1.54050E-01   7.18900E-01
+  BR    PT  TY  LAB       PAR(01)       L2-NORM          U(01)         U(02)
+   1   -18        0   8.87366E-02   7.35220E-01   1.54050E-01   7.18900E-01
 
    1    18         Iterations   :   2
    1    18         Next Step    :   5.00000E-02
@@ -354,7 +372,8 @@
    1    19         Eigenvalue  1:  -9.46870E-01  -6.25290E-01
    1    19         Eigenvalue  2:  -9.46870E-01   6.25290E-01
 
-  BR    PT  TY  LAB       PAR(01)       L2-NORM          U(01)         U(02)   1   -19        0   9.13775E-02   7.85150E-01   1.64512E-01   7.67721E-01
+  BR    PT  TY  LAB       PAR(01)       L2-NORM          U(01)         U(02)
+   1   -19        0   9.13775E-02   7.85150E-01   1.64512E-01   7.67721E-01
 
    1    19         Iterations   :   2
    1    19         Next Step    :   5.00000E-02
@@ -373,7 +392,8 @@
    1    20         Eigenvalue  1:  -8.81207E-01  -6.40361E-01
    1    20         Eigenvalue  2:  -8.81207E-01   6.40361E-01
 
-  BR    PT  TY  LAB       PAR(01)       L2-NORM          U(01)         U(02)   1   -20        0   9.37319E-02   8.35094E-01   1.74977E-01   8.16557E-01
+  BR    PT  TY  LAB       PAR(01)       L2-NORM          U(01)         U(02)
+   1   -20        0   9.37319E-02   8.35094E-01   1.74977E-01   8.16557E-01
 
    1    20         Iterations   :   2
    1    20         Next Step    :   5.00000E-02
@@ -392,7 +412,8 @@
    1    21         Eigenvalue  1:  -8.15724E-01  -6.49128E-01
    1    21         Eigenvalue  2:  -8.15724E-01   6.49128E-01
 
-  BR    PT  TY  LAB       PAR(01)       L2-NORM          U(01)         U(02)   1   -21        0   9.58189E-02   8.85051E-01   1.85444E-01   8.65405E-01
+  BR    PT  TY  LAB       PAR(01)       L2-NORM          U(01)         U(02)
+   1   -21        0   9.58189E-02   8.85051E-01   1.85444E-01   8.65405E-01
 
    1    21         Iterations   :   2
    1    21         Next Step    :   5.00000E-02
@@ -411,7 +432,8 @@
    1    22         Eigenvalue  1:  -7.50431E-01  -6.51927E-01
    1    22         Eigenvalue  2:  -7.50431E-01   6.51927E-01
 
-  BR    PT  TY  LAB       PAR(01)       L2-NORM          U(01)         U(02)   1   -22        0   9.76567E-02   9.35017E-01   1.95913E-01   9.14262E-01
+  BR    PT  TY  LAB       PAR(01)       L2-NORM          U(01)         U(02)
+   1   -22        0   9.76567E-02   9.35017E-01   1.95913E-01   9.14262E-01
 
    1    22         Iterations   :   2
    1    22         Next Step    :   5.00000E-02
@@ -430,7 +452,8 @@
    1    23         Eigenvalue  1:  -6.85338E-01  -6.48921E-01
    1    23         Eigenvalue  2:  -6.85338E-01   6.48921E-01
 
-  BR    PT  TY  LAB       PAR(01)       L2-NORM          U(01)         U(02)   1   -23        0   9.92626E-02   9.84991E-01   2.06384E-01   9.63127E-01
+  BR    PT  TY  LAB       PAR(01)       L2-NORM          U(01)         U(02)
+   1   -23        0   9.92626E-02   9.84991E-01   2.06384E-01   9.63127E-01
 
    1    23         Iterations   :   2
    1    23         Next Step    :   5.00000E-02
@@ -449,7 +472,8 @@
    1    24         Eigenvalue  1:  -6.20456E-01  -6.40123E-01
    1    24         Eigenvalue  2:  -6.20456E-01   6.40123E-01
 
-  BR    PT  TY  LAB       PAR(01)       L2-NORM          U(01)         U(02)   1   -24        0   1.00653E-01   1.03497E+00   2.16857E-01   1.01200E+00
+  BR    PT  TY  LAB       PAR(01)       L2-NORM          U(01)         U(02)
+   1   -24        0   1.00653E-01   1.03497E+00   2.16857E-01   1.01200E+00
 
    1    24         Iterations   :   2
    1    24         Next Step    :   5.00000E-02
@@ -468,7 +492,8 @@
    1    25         Eigenvalue  1:  -5.55795E-01  -6.25388E-01
    1    25         Eigenvalue  2:  -5.55795E-01   6.25388E-01
 
-  BR    PT  TY  LAB       PAR(01)       L2-NORM          U(01)         U(02)   1   -25        0   1.01843E-01   1.08496E+00   2.27330E-01   1.06087E+00
+  BR    PT  TY  LAB       PAR(01)       L2-NORM          U(01)         U(02)
+   1   -25        0   1.01843E-01   1.08496E+00   2.27330E-01   1.06087E+00
 
    1    25         Iterations   :   2
    1    25         Next Step    :   5.00000E-02
@@ -487,7 +512,8 @@
    1    26         Eigenvalue  1:  -4.91368E-01  -6.04394E-01
    1    26         Eigenvalue  2:  -4.91368E-01   6.04394E-01
 
-  BR    PT  TY  LAB       PAR(01)       L2-NORM          U(01)         U(02)   1   -26        0   1.02847E-01   1.13495E+00   2.37805E-01   1.10975E+00
+  BR    PT  TY  LAB       PAR(01)       L2-NORM          U(01)         U(02)
+   1   -26        0   1.02847E-01   1.13495E+00   2.37805E-01   1.10975E+00
 
    1    26         Iterations   :   2
    1    26         Next Step    :   5.00000E-02
@@ -506,7 +532,8 @@
    1    27         Eigenvalue  1:  -4.27184E-01  -5.76581E-01
    1    27         Eigenvalue  2:  -4.27184E-01   5.76581E-01
 
-  BR    PT  TY  LAB       PAR(01)       L2-NORM          U(01)         U(02)   1   -27        0   1.03680E-01   1.18494E+00   2.48280E-01   1.15864E+00
+  BR    PT  TY  LAB       PAR(01)       L2-NORM          U(01)         U(02)
+   1   -27        0   1.03680E-01   1.18494E+00   2.48280E-01   1.15864E+00
 
    1    27         Iterations   :   2
    1    27         Next Step    :   5.00000E-02
@@ -525,7 +552,8 @@
    1    28         Eigenvalue  1:  -3.63255E-01  -5.41036E-01
    1    28         Eigenvalue  2:  -3.63255E-01   5.41036E-01
 
-  BR    PT  TY  LAB       PAR(01)       L2-NORM          U(01)         U(02)   1   -28        0   1.04353E-01   1.23494E+00   2.58755E-01   1.20752E+00
+  BR    PT  TY  LAB       PAR(01)       L2-NORM          U(01)         U(02)
+   1   -28        0   1.04353E-01   1.23494E+00   2.58755E-01   1.20752E+00
 
    1    28         Iterations   :   2
    1    28         Next Step    :   5.00000E-02
@@ -544,7 +572,8 @@
    1    29         Eigenvalue  1:  -2.99594E-01  -4.96260E-01
    1    29         Eigenvalue  2:  -2.99594E-01   4.96260E-01
 
-  BR    PT  TY  LAB       PAR(01)       L2-NORM          U(01)         U(02)   1   -29        0   1.04880E-01   1.28493E+00   2.69231E-01   1.25641E+00
+  BR    PT  TY  LAB       PAR(01)       L2-NORM          U(01)         U(02)
+   1   -29        0   1.04880E-01   1.28493E+00   2.69231E-01   1.25641E+00
 
    1    29         Iterations   :   2
    1    29         Next Step    :   5.00000E-02
@@ -563,7 +592,8 @@
    1    30         Eigenvalue  1:  -2.36212E-01  -4.39633E-01
    1    30         Eigenvalue  2:  -2.36212E-01   4.39633E-01
 
-  BR    PT  TY  LAB       PAR(01)       L2-NORM          U(01)         U(02)   1   -30        0   1.05271E-01   1.33493E+00   2.79707E-01   1.30530E+00
+  BR    PT  TY  LAB       PAR(01)       L2-NORM          U(01)         U(02)
+   1   -30        0   1.05271E-01   1.33493E+00   2.79707E-01   1.30530E+00
 
    1    30         Iterations   :   2
    1    30         Next Step    :   5.00000E-02
@@ -582,7 +612,8 @@
    1    31         Eigenvalue  1:  -1.73124E-01  -3.65930E-01
    1    31         Eigenvalue  2:  -1.73124E-01   3.65930E-01
 
-  BR    PT  TY  LAB       PAR(01)       L2-NORM          U(01)         U(02)   1   -31        0   1.05538E-01   1.38493E+00   2.90183E-01   1.35419E+00
+  BR    PT  TY  LAB       PAR(01)       L2-NORM          U(01)         U(02)
+   1   -31        0   1.05538E-01   1.38493E+00   2.90183E-01   1.35419E+00
 
    1    31         Iterations   :   2
    1    31         Next Step    :   5.00000E-02
@@ -601,7 +632,8 @@
    1    32         Eigenvalue  1:  -1.10341E-01  -2.61430E-01
    1    32         Eigenvalue  2:  -1.10341E-01   2.61430E-01
 
-  BR    PT  TY  LAB       PAR(01)       L2-NORM          U(01)         U(02)   1   -32        0   1.05691E-01   1.43493E+00   3.00660E-01   1.40308E+00
+  BR    PT  TY  LAB       PAR(01)       L2-NORM          U(01)         U(02)
+   1   -32        0   1.05691E-01   1.43493E+00   3.00660E-01   1.40308E+00
 
    1    32         Iterations   :   2
    1    32         Next Step    :   5.00000E-02
@@ -629,7 +661,8 @@
    1    33         Eigenvalue  1:   4.15386E-04   0.00000E+00
    1    33         Eigenvalue  2:  -9.75202E-02   0.00000E+00
 
-  BR    PT  TY  LAB       PAR(01)       L2-NORM          U(01)         U(02)   1    33  LP    2   1.05739E-01   1.48439E+00   3.11023E-01   1.45144E+00
+  BR    PT  TY  LAB       PAR(01)       L2-NORM          U(01)         U(02)
+   1    33  LP    2   1.05739E-01   1.48439E+00   3.11023E-01   1.45144E+00
 ===============================================
 
   BR    PT  IT         PAR           L2-NORM
@@ -645,7 +678,8 @@
    1    34         Eigenvalue  1:   2.95823E-01   0.00000E+00
    1    34         Eigenvalue  2:  -2.68668E-01   0.00000E+00
 
-  BR    PT  TY  LAB       PAR(01)       L2-NORM          U(01)         U(02)   1    34        0   1.05693E-01   1.53439E+00   3.21499E-01   1.50033E+00
+  BR    PT  TY  LAB       PAR(01)       L2-NORM          U(01)         U(02)
+   1    34        0   1.05693E-01   1.53439E+00   3.21499E-01   1.50033E+00
 
    1    34         Iterations   :   2
    1    34         Next Step    :   5.00000E-02
@@ -664,7 +698,8 @@
    1    35         Eigenvalue  1:   4.78450E-01   0.00000E+00
    1    35         Eigenvalue  2:  -3.27739E-01   0.00000E+00
 
-  BR    PT  TY  LAB       PAR(01)       L2-NORM          U(01)         U(02)   1    35        0   1.05559E-01   1.58439E+00   3.31976E-01   1.54922E+00
+  BR    PT  TY  LAB       PAR(01)       L2-NORM          U(01)         U(02)
+   1    35        0   1.05559E-01   1.58439E+00   3.31976E-01   1.54922E+00
 
    1    35         Iterations   :   2
    1    35         Next Step    :   5.00000E-02
@@ -683,7 +718,8 @@
    1    36         Eigenvalue  1:   6.37394E-01   0.00000E+00
    1    36         Eigenvalue  2:  -3.63865E-01   0.00000E+00
 
-  BR    PT  TY  LAB       PAR(01)       L2-NORM          U(01)         U(02)   1    36        0   1.05347E-01   1.63439E+00   3.42452E-01   1.59811E+00
+  BR    PT  TY  LAB       PAR(01)       L2-NORM          U(01)         U(02)
+   1    36        0   1.05347E-01   1.63439E+00   3.42452E-01   1.59811E+00
 
    1    36         Iterations   :   2
    1    36         Next Step    :   5.00000E-02
@@ -702,7 +738,8 @@
    1    37         Eigenvalue  1:   7.84172E-01   0.00000E+00
    1    37         Eigenvalue  2:  -3.88597E-01   0.00000E+00
 
-  BR    PT  TY  LAB       PAR(01)       L2-NORM          U(01)         U(02)   1    37        0   1.05063E-01   1.68439E+00   3.52929E-01   1.64700E+00
+  BR    PT  TY  LAB       PAR(01)       L2-NORM          U(01)         U(02)
+   1    37        0   1.05063E-01   1.68439E+00   3.52929E-01   1.64700E+00
 
    1    37         Iterations   :   2
    1    37         Next Step    :   5.00000E-02
@@ -721,7 +758,8 @@
    1    38         Eigenvalue  1:   9.23137E-01   0.00000E+00
    1    38         Eigenvalue  2:  -4.06327E-01   0.00000E+00
 
-  BR    PT  TY  LAB       PAR(01)       L2-NORM          U(01)         U(02)   1    38        0   1.04716E-01   1.73439E+00   3.63405E-01   1.69589E+00
+  BR    PT  TY  LAB       PAR(01)       L2-NORM          U(01)         U(02)
+   1    38        0   1.04716E-01   1.73439E+00   3.63405E-01   1.69589E+00
 
    1    38         Iterations   :   2
    1    38         Next Step    :   5.00000E-02
@@ -740,7 +778,8 @@
    1    39         Eigenvalue  1:   1.05644E+00   0.00000E+00
    1    39         Eigenvalue  2:  -4.19249E-01   0.00000E+00
 
-  BR    PT  TY  LAB       PAR(01)       L2-NORM          U(01)         U(02)   1    39        0   1.04311E-01   1.78439E+00   3.73881E-01   1.74478E+00
+  BR    PT  TY  LAB       PAR(01)       L2-NORM          U(01)         U(02)
+   1    39        0   1.04311E-01   1.78439E+00   3.73881E-01   1.74478E+00
 
    1    39         Iterations   :   2
    1    39         Next Step    :   5.00000E-02
@@ -759,7 +798,8 @@
    1    40         Eigenvalue  1:   1.18530E+00   0.00000E+00
    1    40         Eigenvalue  2:  -4.28620E-01   0.00000E+00
 
-  BR    PT  TY  LAB       PAR(01)       L2-NORM          U(01)         U(02)   1    40        0   1.03855E-01   1.83438E+00   3.84357E-01   1.79367E+00
+  BR    PT  TY  LAB       PAR(01)       L2-NORM          U(01)         U(02)
+   1    40        0   1.03855E-01   1.83438E+00   3.84357E-01   1.79367E+00
 
    1    40         Iterations   :   2
    1    40         Next Step    :   5.00000E-02
@@ -778,7 +818,8 @@
    1    41         Eigenvalue  1:   1.31046E+00   0.00000E+00
    1    41         Eigenvalue  2:  -4.35232E-01   0.00000E+00
 
-  BR    PT  TY  LAB       PAR(01)       L2-NORM          U(01)         U(02)   1    41        0   1.03354E-01   1.88438E+00   3.94833E-01   1.84255E+00
+  BR    PT  TY  LAB       PAR(01)       L2-NORM          U(01)         U(02)
+   1    41        0   1.03354E-01   1.88438E+00   3.94833E-01   1.84255E+00
 
    1    41         Iterations   :   2
    1    41         Next Step    :   5.00000E-02
@@ -797,7 +838,8 @@
    1    42         Eigenvalue  1:   1.43238E+00   0.00000E+00
    1    42         Eigenvalue  2:  -4.39608E-01   0.00000E+00
 
-  BR    PT  TY  LAB       PAR(01)       L2-NORM          U(01)         U(02)   1    42        0   1.02814E-01   1.93438E+00   4.05309E-01   1.89144E+00
+  BR    PT  TY  LAB       PAR(01)       L2-NORM          U(01)         U(02)
+   1    42        0   1.02814E-01   1.93438E+00   4.05309E-01   1.89144E+00
 
    1    42         Iterations   :   2
    1    42         Next Step    :   5.00000E-02
@@ -816,7 +858,8 @@
    1    43         Eigenvalue  1:   1.55140E+00   0.00000E+00
    1    43         Eigenvalue  2:  -4.42112E-01   0.00000E+00
 
-  BR    PT  TY  LAB       PAR(01)       L2-NORM          U(01)         U(02)   1    43        0   1.02240E-01   1.98438E+00   4.15784E-01   1.94033E+00
+  BR    PT  TY  LAB       PAR(01)       L2-NORM          U(01)         U(02)
+   1    43        0   1.02240E-01   1.98438E+00   4.15784E-01   1.94033E+00
 
    1    43         Iterations   :   2
    1    43         Next Step    :   5.00000E-02
@@ -835,7 +878,8 @@
    1    44         Eigenvalue  1:   1.66769E+00   0.00000E+00
    1    44         Eigenvalue  2:  -4.43002E-01   0.00000E+00
 
-  BR    PT  TY  LAB       PAR(01)       L2-NORM          U(01)         U(02)   1    44        0   1.01638E-01   2.03437E+00   4.26260E-01   1.98921E+00
+  BR    PT  TY  LAB       PAR(01)       L2-NORM          U(01)         U(02)
+   1    44        0   1.01638E-01   2.03437E+00   4.26260E-01   1.98921E+00
 
    1    44         Iterations   :   2
    1    44         Next Step    :   5.00000E-02
@@ -854,7 +898,8 @@
    1    45         Eigenvalue  1:   1.78140E+00   0.00000E+00
    1    45         Eigenvalue  2:  -4.42463E-01   0.00000E+00
 
-  BR    PT  TY  LAB       PAR(01)       L2-NORM          U(01)         U(02)   1    45        0   1.01012E-01   2.08437E+00   4.36736E-01   2.03810E+00
+  BR    PT  TY  LAB       PAR(01)       L2-NORM          U(01)         U(02)
+   1    45        0   1.01012E-01   2.08437E+00   4.36736E-01   2.03810E+00
 
    1    45         Iterations   :   2
    1    45         Next Step    :   5.00000E-02
@@ -873,7 +918,8 @@
    1    46         Eigenvalue  1:   1.89258E+00   0.00000E+00
    1    46         Eigenvalue  2:  -4.40631E-01   0.00000E+00
 
-  BR    PT  TY  LAB       PAR(01)       L2-NORM          U(01)         U(02)   1    46        0   1.00366E-01   2.13436E+00   4.47211E-01   2.08699E+00
+  BR    PT  TY  LAB       PAR(01)       L2-NORM          U(01)         U(02)
+   1    46        0   1.00366E-01   2.13436E+00   4.47211E-01   2.08699E+00
 
    1    46         Iterations   :   2
    1    46         Next Step    :   5.00000E-02
@@ -892,7 +938,8 @@
    1    47         Eigenvalue  1:   2.00126E+00   0.00000E+00
    1    47         Eigenvalue  2:  -4.37602E-01   0.00000E+00
 
-  BR    PT  TY  LAB       PAR(01)       L2-NORM          U(01)         U(02)   1    47        0   9.97059E-02   2.18436E+00   4.57687E-01   2.13587E+00
+  BR    PT  TY  LAB       PAR(01)       L2-NORM          U(01)         U(02)
+   1    47        0   9.97059E-02   2.18436E+00   4.57687E-01   2.13587E+00
 
    1    47         Iterations   :   2
    1    47         Next Step    :   5.00000E-02
@@ -911,7 +958,8 @@
    1    48         Eigenvalue  1:   2.10744E+00   0.00000E+00
    1    48         Eigenvalue  2:  -4.33442E-01   0.00000E+00
 
-  BR    PT  TY  LAB       PAR(01)       L2-NORM          U(01)         U(02)   1    48        0   9.90351E-02   2.23436E+00   4.68162E-01   2.18476E+00
+  BR    PT  TY  LAB       PAR(01)       L2-NORM          U(01)         U(02)
+   1    48        0   9.90351E-02   2.23436E+00   4.68162E-01   2.18476E+00
 
    1    48         Iterations   :   2
    1    48         Next Step    :   5.00000E-02
@@ -930,7 +978,8 @@
    1    49         Eigenvalue  1:   2.21107E+00   0.00000E+00
    1    49         Eigenvalue  2:  -4.28196E-01   0.00000E+00
 
-  BR    PT  TY  LAB       PAR(01)       L2-NORM          U(01)         U(02)   1    49        0   9.83577E-02   2.28435E+00   4.78638E-01   2.23364E+00
+  BR    PT  TY  LAB       PAR(01)       L2-NORM          U(01)         U(02)
+   1    49        0   9.83577E-02   2.28435E+00   4.78638E-01   2.23364E+00
 
    1    49         Iterations   :   2
    1    49         Next Step    :   5.00000E-02
@@ -949,7 +998,8 @@
    1    50         Eigenvalue  1:   2.31209E+00   0.00000E+00
    1    50         Eigenvalue  2:  -4.21887E-01   0.00000E+00
 
-  BR    PT  TY  LAB       PAR(01)       L2-NORM          U(01)         U(02)   1    50        0   9.76777E-02   2.33435E+00   4.89113E-01   2.28253E+00
+  BR    PT  TY  LAB       PAR(01)       L2-NORM          U(01)         U(02)
+   1    50        0   9.76777E-02   2.33435E+00   4.89113E-01   2.28253E+00
 
    1    50         Iterations   :   2
    1    50         Next Step    :   5.00000E-02
@@ -967,7 +1017,8 @@
    1    51         Eigenvalue  1:   2.41041E+00   0.00000E+00
    1    51         Eigenvalue  2:  -4.14524E-01   0.00000E+00
 
-  BR    PT  TY  LAB       PAR(01)       L2-NORM          U(01)         U(02)   1    51        0   9.69986E-02   2.38434E+00   4.99589E-01   2.33141E+00
+  BR    PT  TY  LAB       PAR(01)       L2-NORM          U(01)         U(02)
+   1    51        0   9.69986E-02   2.38434E+00   4.99589E-01   2.33141E+00
 
    1    51         Iterations   :   1
    1    51         Next Step    :   5.00000E-02
@@ -986,7 +1037,8 @@
    1    52         Eigenvalue  1:   2.50591E+00   0.00000E+00
    1    52         Eigenvalue  2:  -4.06098E-01   0.00000E+00
 
-  BR    PT  TY  LAB       PAR(01)       L2-NORM          U(01)         U(02)   1    52        0   9.63240E-02   2.43434E+00   5.10064E-01   2.38030E+00
+  BR    PT  TY  LAB       PAR(01)       L2-NORM          U(01)         U(02)
+   1    52        0   9.63240E-02   2.43434E+00   5.10064E-01   2.38030E+00
 
    1    52         Iterations   :   2
    1    52         Next Step    :   5.00000E-02
@@ -1005,7 +1057,8 @@
    1    53         Eigenvalue  1:   2.59847E+00   0.00000E+00
    1    53         Eigenvalue  2:  -3.96588E-01   0.00000E+00
 
-  BR    PT  TY  LAB       PAR(01)       L2-NORM          U(01)         U(02)   1    53        0   9.56576E-02   2.48433E+00   5.20540E-01   2.42919E+00
+  BR    PT  TY  LAB       PAR(01)       L2-NORM          U(01)         U(02)
+   1    53        0   9.56576E-02   2.48433E+00   5.20540E-01   2.42919E+00
 
    1    53         Iterations   :   2
    1    53         Next Step    :   5.00000E-02
@@ -1024,7 +1077,8 @@
    1    54         Eigenvalue  1:   2.68791E+00   0.00000E+00
    1    54         Eigenvalue  2:  -3.85957E-01   0.00000E+00
 
-  BR    PT  TY  LAB       PAR(01)       L2-NORM          U(01)         U(02)   1    54        0   9.50026E-02   2.53433E+00   5.31015E-01   2.47807E+00
+  BR    PT  TY  LAB       PAR(01)       L2-NORM          U(01)         U(02)
+   1    54        0   9.50026E-02   2.53433E+00   5.31015E-01   2.47807E+00
 
    1    54         Iterations   :   2
    1    54         Next Step    :   5.00000E-02
@@ -1043,7 +1097,8 @@
    1    55         Eigenvalue  1:   2.77405E+00   0.00000E+00
    1    55         Eigenvalue  2:  -3.74156E-01   0.00000E+00
 
-  BR    PT  TY  LAB       PAR(01)       L2-NORM          U(01)         U(02)   1    55        0   9.43625E-02   2.58432E+00   5.41491E-01   2.52696E+00
+  BR    PT  TY  LAB       PAR(01)       L2-NORM          U(01)         U(02)
+   1    55        0   9.43625E-02   2.58432E+00   5.41491E-01   2.52696E+00
 
    1    55         Iterations   :   2
    1    55         Next Step    :   5.00000E-02
@@ -1062,7 +1117,8 @@
    1    56         Eigenvalue  1:   2.85668E+00   0.00000E+00
    1    56         Eigenvalue  2:  -3.61120E-01   0.00000E+00
 
-  BR    PT  TY  LAB       PAR(01)       L2-NORM          U(01)         U(02)   1    56        0   9.37405E-02   2.63432E+00   5.51967E-01   2.57584E+00
+  BR    PT  TY  LAB       PAR(01)       L2-NORM          U(01)         U(02)
+   1    56        0   9.37405E-02   2.63432E+00   5.51967E-01   2.57584E+00
 
    1    56         Iterations   :   2
    1    56         Next Step    :   5.00000E-02
@@ -1081,7 +1137,8 @@
    1    57         Eigenvalue  1:   2.93555E+00   0.00000E+00
    1    57         Eigenvalue  2:  -3.46768E-01   0.00000E+00
 
-  BR    PT  TY  LAB       PAR(01)       L2-NORM          U(01)         U(02)   1    57        0   9.31401E-02   2.68432E+00   5.62442E-01   2.62473E+00
+  BR    PT  TY  LAB       PAR(01)       L2-NORM          U(01)         U(02)
+   1    57        0   9.31401E-02   2.68432E+00   5.62442E-01   2.62473E+00
 
    1    57         Iterations   :   2
    1    57         Next Step    :   5.00000E-02
@@ -1100,7 +1157,8 @@
    1    58         Eigenvalue  1:   3.01038E+00   0.00000E+00
    1    58         Eigenvalue  2:  -3.31001E-01   0.00000E+00
 
-  BR    PT  TY  LAB       PAR(01)       L2-NORM          U(01)         U(02)   1    58        0   9.25644E-02   2.73431E+00   5.72918E-01   2.67362E+00
+  BR    PT  TY  LAB       PAR(01)       L2-NORM          U(01)         U(02)
+   1    58        0   9.25644E-02   2.73431E+00   5.72918E-01   2.67362E+00
 
    1    58         Iterations   :   2
    1    58         Next Step    :   5.00000E-02
@@ -1119,7 +1177,8 @@
    1    59         Eigenvalue  1:   3.08087E+00   0.00000E+00
    1    59         Eigenvalue  2:  -3.13700E-01   0.00000E+00
 
-  BR    PT  TY  LAB       PAR(01)       L2-NORM          U(01)         U(02)   1    59        0   9.20169E-02   2.78431E+00   5.83394E-01   2.72251E+00
+  BR    PT  TY  LAB       PAR(01)       L2-NORM          U(01)         U(02)
+   1    59        0   9.20169E-02   2.78431E+00   5.83394E-01   2.72251E+00
 
    1    59         Iterations   :   2
    1    59         Next Step    :   5.00000E-02
@@ -1138,7 +1197,8 @@
    1    60         Eigenvalue  1:   3.14664E+00   0.00000E+00
    1    60         Eigenvalue  2:  -2.94722E-01   0.00000E+00
 
-  BR    PT  TY  LAB       PAR(01)       L2-NORM          U(01)         U(02)   1    60        0   9.15009E-02   2.83431E+00   5.93870E-01   2.77139E+00
+  BR    PT  TY  LAB       PAR(01)       L2-NORM          U(01)         U(02)
+   1    60        0   9.15009E-02   2.83431E+00   5.93870E-01   2.77139E+00
 
    1    60         Iterations   :   2
    1    60         Next Step    :   5.00000E-02
@@ -1157,7 +1217,8 @@
    1    61         Eigenvalue  1:   3.20728E+00   0.00000E+00
    1    61         Eigenvalue  2:  -2.73896E-01   0.00000E+00
 
-  BR    PT  TY  LAB       PAR(01)       L2-NORM          U(01)         U(02)   1    61        0   9.10201E-02   2.88431E+00   6.04346E-01   2.82028E+00
+  BR    PT  TY  LAB       PAR(01)       L2-NORM          U(01)         U(02)
+   1    61        0   9.10201E-02   2.88431E+00   6.04346E-01   2.82028E+00
 
    1    61         Iterations   :   2
    1    61         Next Step    :   5.00000E-02
@@ -1176,7 +1237,8 @@
    1    62         Eigenvalue  1:   3.26232E+00   0.00000E+00
    1    62         Eigenvalue  2:  -2.51018E-01   0.00000E+00
 
-  BR    PT  TY  LAB       PAR(01)       L2-NORM          U(01)         U(02)   1    62        0   9.05782E-02   2.93430E+00   6.14822E-01   2.86917E+00
+  BR    PT  TY  LAB       PAR(01)       L2-NORM          U(01)         U(02)
+   1    62        0   9.05782E-02   2.93430E+00   6.14822E-01   2.86917E+00
 
    1    62         Iterations   :   2
    1    62         Next Step    :   5.00000E-02
@@ -1195,7 +1257,8 @@
    1    63         Eigenvalue  1:   3.31123E+00   0.00000E+00
    1    63         Eigenvalue  2:  -2.25841E-01   0.00000E+00
 
-  BR    PT  TY  LAB       PAR(01)       L2-NORM          U(01)         U(02)   1    63        0   9.01789E-02   2.98430E+00   6.25298E-01   2.91806E+00
+  BR    PT  TY  LAB       PAR(01)       L2-NORM          U(01)         U(02)
+   1    63        0   9.01789E-02   2.98430E+00   6.25298E-01   2.91806E+00
 
    1    63         Iterations   :   2
    1    63         Next Step    :   5.00000E-02
@@ -1214,7 +1277,8 @@
    1    64         Eigenvalue  1:   3.35336E+00   0.00000E+00
    1    64         Eigenvalue  2:  -1.98067E-01   0.00000E+00
 
-  BR    PT  TY  LAB       PAR(01)       L2-NORM          U(01)         U(02)   1    64        0   8.98264E-02   3.03430E+00   6.35774E-01   2.96695E+00
+  BR    PT  TY  LAB       PAR(01)       L2-NORM          U(01)         U(02)
+   1    64        0   8.98264E-02   3.03430E+00   6.35774E-01   2.96695E+00
 
    1    64         Iterations   :   2
    1    64         Next Step    :   5.00000E-02
@@ -1233,7 +1297,8 @@
    1    65         Eigenvalue  1:   3.38798E+00   0.00000E+00
    1    65         Eigenvalue  2:  -1.67336E-01   0.00000E+00
 
-  BR    PT  TY  LAB       PAR(01)       L2-NORM          U(01)         U(02)   1    65        0   8.95250E-02   3.08430E+00   6.46250E-01   3.01584E+00
+  BR    PT  TY  LAB       PAR(01)       L2-NORM          U(01)         U(02)
+   1    65        0   8.95250E-02   3.08430E+00   6.46250E-01   3.01584E+00
 
    1    65         Iterations   :   2
    1    65         Next Step    :   5.00000E-02
@@ -1252,7 +1317,8 @@
    1    66         Eigenvalue  1:   3.41424E+00   0.00000E+00
    1    66         Eigenvalue  2:  -1.33201E-01   0.00000E+00
 
-  BR    PT  TY  LAB       PAR(01)       L2-NORM          U(01)         U(02)   1    66        0   8.92795E-02   3.13430E+00   6.56727E-01   3.06473E+00
+  BR    PT  TY  LAB       PAR(01)       L2-NORM          U(01)         U(02)
+   1    66        0   8.92795E-02   3.13430E+00   6.56727E-01   3.06473E+00
 
    1    66         Iterations   :   2
    1    66         Next Step    :   5.00000E-02
@@ -1271,7 +1337,8 @@
    1    67         Eigenvalue  1:   3.43112E+00   0.00000E+00
    1    67         Eigenvalue  2:  -9.51104E-02   0.00000E+00
 
-  BR    PT  TY  LAB       PAR(01)       L2-NORM          U(01)         U(02)   1    67        0   8.90950E-02   3.18430E+00   6.67203E-01   3.11361E+00
+  BR    PT  TY  LAB       PAR(01)       L2-NORM          U(01)         U(02)
+   1    67        0   8.90950E-02   3.18430E+00   6.67203E-01   3.11361E+00
 
    1    67         Iterations   :   2
    1    67         Next Step    :   5.00000E-02
@@ -1290,7 +1357,8 @@
    1    68         Eigenvalue  1:   3.43738E+00   0.00000E+00
    1    68         Eigenvalue  2:  -5.23670E-02   0.00000E+00
 
-  BR    PT  TY  LAB       PAR(01)       L2-NORM          U(01)         U(02)   1    68        0   8.89771E-02   3.23430E+00   6.77680E-01   3.16250E+00
+  BR    PT  TY  LAB       PAR(01)       L2-NORM          U(01)         U(02)
+   1    68        0   8.89771E-02   3.23430E+00   6.77680E-01   3.16250E+00
 
    1    68         Iterations   :   2
    1    68         Next Step    :   5.00000E-02
@@ -1309,7 +1377,8 @@
    1    69         Eigenvalue  1:   3.43153E+00   0.00000E+00
    1    69         Eigenvalue  2:  -4.07637E-03   0.00000E+00
 
-  BR    PT  TY  LAB       PAR(01)       L2-NORM          U(01)         U(02)   1    69        0   8.89321E-02   3.28430E+00   6.88156E-01   3.21139E+00
+  BR    PT  TY  LAB       PAR(01)       L2-NORM          U(01)         U(02)
+   1    69        0   8.89321E-02   3.28430E+00   6.88156E-01   3.21139E+00
 
    1    69         Iterations   :   2
    1    69         Next Step    :   5.00000E-02
@@ -1346,7 +1415,8 @@
    1    70         Eigenvalue  1:   3.43050E+00   0.00000E+00
    1    70         Eigenvalue  2:  -2.43424E-08   0.00000E+00
 
-  BR    PT  TY  LAB       PAR(01)       L2-NORM          U(01)         U(02)   1    70  LP    3   8.89318E-02   3.28824E+00   6.88982E-01   3.21525E+00
+  BR    PT  TY  LAB       PAR(01)       L2-NORM          U(01)         U(02)
+   1    70  LP    3   8.89318E-02   3.28824E+00   6.88982E-01   3.21525E+00
 ===============================================
 
   BR    PT  IT         PAR           L2-NORM
@@ -1362,7 +1432,8 @@
    1    71         Eigenvalue  1:   3.40949E+00   0.00000E+00
    1    71         Eigenvalue  2:   5.55998E-02   0.00000E+00
 
-  BR    PT  TY  LAB       PAR(01)       L2-NORM          U(01)         U(02)   1    71        0   8.89733E-02   3.33824E+00   6.99459E-01   3.26414E+00
+  BR    PT  TY  LAB       PAR(01)       L2-NORM          U(01)         U(02)
+   1    71        0   8.89733E-02   3.33824E+00   6.99459E-01   3.26414E+00
 
    1    71         Iterations   :   2
    1    71         Next Step    :   5.00000E-02
@@ -1381,7 +1452,8 @@
    1    72         Eigenvalue  1:   3.37195E+00   0.00000E+00
    1    72         Eigenvalue  2:   1.19641E-01   0.00000E+00
 
-  BR    PT  TY  LAB       PAR(01)       L2-NORM          U(01)         U(02)   1    72        0   8.91031E-02   3.38824E+00   7.09935E-01   3.31303E+00
+  BR    PT  TY  LAB       PAR(01)       L2-NORM          U(01)         U(02)
+   1    72        0   8.91031E-02   3.38824E+00   7.09935E-01   3.31303E+00
 
    1    72         Iterations   :   2
    1    72         Next Step    :   5.00000E-02
@@ -1400,7 +1472,8 @@
    1    73         Eigenvalue  1:   3.31470E+00   0.00000E+00
    1    73         Eigenvalue  2:   1.94374E-01   0.00000E+00
 
-  BR    PT  TY  LAB       PAR(01)       L2-NORM          U(01)         U(02)   1    73        0   8.93301E-02   3.43824E+00   7.20411E-01   3.36192E+00
+  BR    PT  TY  LAB       PAR(01)       L2-NORM          U(01)         U(02)
+   1    73        0   8.93301E-02   3.43824E+00   7.20411E-01   3.36192E+00
 
    1    73         Iterations   :   2
    1    73         Next Step    :   5.00000E-02
@@ -1419,7 +1492,8 @@
    1    74         Eigenvalue  1:   3.23342E+00   0.00000E+00
    1    74         Eigenvalue  2:   2.83085E-01   0.00000E+00
 
-  BR    PT  TY  LAB       PAR(01)       L2-NORM          U(01)         U(02)   1    74        0   8.96647E-02   3.48824E+00   7.30888E-01   3.41081E+00
+  BR    PT  TY  LAB       PAR(01)       L2-NORM          U(01)         U(02)
+   1    74        0   8.96647E-02   3.48824E+00   7.30888E-01   3.41081E+00
 
    1    74         Iterations   :   2
    1    74         Next Step    :   5.00000E-02
@@ -1438,7 +1512,8 @@
    1    75         Eigenvalue  1:   3.12179E+00   0.00000E+00
    1    75         Eigenvalue  2:   3.90868E-01   0.00000E+00
 
-  BR    PT  TY  LAB       PAR(01)       L2-NORM          U(01)         U(02)   1    75        0   9.01186E-02   3.53824E+00   7.41364E-01   3.45970E+00
+  BR    PT  TY  LAB       PAR(01)       L2-NORM          U(01)         U(02)
+   1    75        0   9.01186E-02   3.53824E+00   7.41364E-01   3.45970E+00
 
    1    75         Iterations   :   2
    1    75         Next Step    :   5.00000E-02
@@ -1457,7 +1532,8 @@
    1    76         Eigenvalue  1:   2.96973E+00   0.00000E+00
    1    76         Eigenvalue  2:   5.26377E-01   0.00000E+00
 
-  BR    PT  TY  LAB       PAR(01)       L2-NORM          U(01)         U(02)   1    76        0   9.07055E-02   3.58823E+00   7.51839E-01   3.50858E+00
+  BR    PT  TY  LAB       PAR(01)       L2-NORM          U(01)         U(02)
+   1    76        0   9.07055E-02   3.58823E+00   7.51839E-01   3.50858E+00
 
    1    76         Iterations   :   2
    1    76         Next Step    :   5.00000E-02
@@ -1476,7 +1552,8 @@
    1    77         Eigenvalue  1:   2.75850E+00   0.00000E+00
    1    77         Eigenvalue  2:   7.06662E-01   0.00000E+00
 
-  BR    PT  TY  LAB       PAR(01)       L2-NORM          U(01)         U(02)   1    77        0   9.14414E-02   3.63823E+00   7.62315E-01   3.55747E+00
+  BR    PT  TY  LAB       PAR(01)       L2-NORM          U(01)         U(02)
+   1    77        0   9.14414E-02   3.63823E+00   7.62315E-01   3.55747E+00
 
    1    77         Iterations   :   2
    1    77         Next Step    :   5.00000E-02
@@ -1495,7 +1572,8 @@
    1    78         Eigenvalue  1:   2.44095E+00   0.00000E+00
    1    78         Eigenvalue  2:   9.76900E-01   0.00000E+00
 
-  BR    PT  TY  LAB       PAR(01)       L2-NORM          U(01)         U(02)   1    78        0   9.23452E-02   3.68822E+00   7.72789E-01   3.60635E+00
+  BR    PT  TY  LAB       PAR(01)       L2-NORM          U(01)         U(02)
+   1    78        0   9.23452E-02   3.68822E+00   7.72789E-01   3.60635E+00
 
    1    78         Iterations   :   2
    1    78         Next Step    :   5.00000E-02
@@ -1514,7 +1592,8 @@
    1    79         Eigenvalue  1:   1.67590E+00  -2.59564E-01
    1    79         Eigenvalue  2:   1.67590E+00   2.59564E-01
 
-  BR    PT  TY  LAB       PAR(01)       L2-NORM          U(01)         U(02)   1    79        0   9.34393E-02   3.73821E+00   7.83263E-01   3.65523E+00
+  BR    PT  TY  LAB       PAR(01)       L2-NORM          U(01)         U(02)
+   1    79        0   9.34393E-02   3.73821E+00   7.83263E-01   3.65523E+00
 
    1    79         Iterations   :   2
    1    79         Next Step    :   5.00000E-02
@@ -1533,7 +1612,8 @@
    1    80         Eigenvalue  1:   1.63207E+00  -8.76652E-01
    1    80         Eigenvalue  2:   1.63207E+00   8.76652E-01
 
-  BR    PT  TY  LAB       PAR(01)       L2-NORM          U(01)         U(02)   1    80        0   9.47506E-02   3.78819E+00   7.93736E-01   3.70410E+00
+  BR    PT  TY  LAB       PAR(01)       L2-NORM          U(01)         U(02)
+   1    80        0   9.47506E-02   3.78819E+00   7.93736E-01   3.70410E+00
 
    1    80         Iterations   :   2
    1    80         Next Step    :   5.00000E-02
@@ -1552,7 +1632,8 @@
    1    81         Eigenvalue  1:   1.57573E+00  -1.25719E+00
    1    81         Eigenvalue  2:   1.57573E+00   1.25719E+00
 
-  BR    PT  TY  LAB       PAR(01)       L2-NORM          U(01)         U(02)   1    81        0   9.63116E-02   3.83817E+00   8.04208E-01   3.75297E+00
+  BR    PT  TY  LAB       PAR(01)       L2-NORM          U(01)         U(02)
+   1    81        0   9.63116E-02   3.83817E+00   8.04208E-01   3.75297E+00
 
    1    81         Iterations   :   2
    1    81         Next Step    :   5.00000E-02
@@ -1571,7 +1652,8 @@
    1    82         Eigenvalue  1:   1.50475E+00  -1.58689E+00
    1    82         Eigenvalue  2:   1.50475E+00   1.58689E+00
 
-  BR    PT  TY  LAB       PAR(01)       L2-NORM          U(01)         U(02)   1    82        0   9.81621E-02   3.88813E+00   8.14677E-01   3.80183E+00
+  BR    PT  TY  LAB       PAR(01)       L2-NORM          U(01)         U(02)
+   1    82        0   9.81621E-02   3.88813E+00   8.14677E-01   3.80183E+00
 
    1    82         Iterations   :   2
    1    82         Next Step    :   5.00000E-02
@@ -1590,7 +1672,8 @@
    1    83         Eigenvalue  1:   1.41652E+00  -1.89694E+00
    1    83         Eigenvalue  2:   1.41652E+00   1.89694E+00
 
-  BR    PT  TY  LAB       PAR(01)       L2-NORM          U(01)         U(02)   1    83        0   1.00351E-01   3.93808E+00   8.25143E-01   3.85067E+00
+  BR    PT  TY  LAB       PAR(01)       L2-NORM          U(01)         U(02)
+   1    83        0   1.00351E-01   3.93808E+00   8.25143E-01   3.85067E+00
 
    1    83         Iterations   :   2
    1    83         Next Step    :   5.00000E-02
@@ -1609,7 +1692,8 @@
    1    84         Eigenvalue  1:   1.30777E+00  -2.20001E+00
    1    84         Eigenvalue  2:   1.30777E+00   2.20001E+00
 
-  BR    PT  TY  LAB       PAR(01)       L2-NORM          U(01)         U(02)   1    84        0   1.02940E-01   3.98802E+00   8.35606E-01   3.89949E+00
+  BR    PT  TY  LAB       PAR(01)       L2-NORM          U(01)         U(02)
+   1    84        0   1.02940E-01   3.98802E+00   8.35606E-01   3.89949E+00
 
    1    84         Iterations   :   2
    1    84         Next Step    :   5.00000E-02
@@ -1628,7 +1712,8 @@
    1    85         Eigenvalue  1:   1.17437E+00  -2.50288E+00
    1    85         Eigenvalue  2:   1.17437E+00   2.50288E+00
 
-  BR    PT  TY  LAB       PAR(01)       L2-NORM          U(01)         U(02)   1    85        0   1.06008E-01   4.03792E+00   8.46062E-01   3.94829E+00
+  BR    PT  TY  LAB       PAR(01)       L2-NORM          U(01)         U(02)
+   1    85        0   1.06008E-01   4.03792E+00   8.46062E-01   3.94829E+00
 
    1    85         Iterations   :   2
    1    85         Next Step    :   5.00000E-02
@@ -1647,7 +1732,8 @@
    1    86         Eigenvalue  1:   1.01099E+00  -2.80968E+00
    1    86         Eigenvalue  2:   1.01099E+00   2.80968E+00
 
-  BR    PT  TY  LAB       PAR(01)       L2-NORM          U(01)         U(02)   1    86        0   1.09652E-01   4.08779E+00   8.56511E-01   3.99705E+00
+  BR    PT  TY  LAB       PAR(01)       L2-NORM          U(01)         U(02)
+   1    86        0   1.09652E-01   4.08779E+00   8.56511E-01   3.99705E+00
 
    1    86         Iterations   :   2
    1    86         Next Step    :   5.00000E-02
@@ -1666,7 +1752,8 @@
    1    87         Eigenvalue  1:   8.10712E-01  -3.12298E+00
    1    87         Eigenvalue  2:   8.10712E-01   3.12298E+00
 
-  BR    PT  TY  LAB       PAR(01)       L2-NORM          U(01)         U(02)   1    87        0   1.14004E-01   4.13760E+00   8.66948E-01   4.04576E+00
+  BR    PT  TY  LAB       PAR(01)       L2-NORM          U(01)         U(02)
+   1    87        0   1.14004E-01   4.13760E+00   8.66948E-01   4.04576E+00
 
    1    87         Iterations   :   2
    1    87         Next Step    :   5.00000E-02
@@ -1686,7 +1773,8 @@
    1    88         Eigenvalue  1:   5.64371E-01  -3.44406E+00
    1    88         Eigenvalue  2:   5.64371E-01   3.44406E+00
 
-  BR    PT  TY  LAB       PAR(01)       L2-NORM          U(01)         U(02)   1    88        0   1.19236E-01   4.18733E+00   8.77367E-01   4.09438E+00
+  BR    PT  TY  LAB       PAR(01)       L2-NORM          U(01)         U(02)
+   1    88        0   1.19236E-01   4.18733E+00   8.77367E-01   4.09438E+00
 
    1    88         Iterations   :   3
    1    88         Next Step    :   5.00000E-02
@@ -1706,7 +1794,8 @@
    1    89         Eigenvalue  1:   2.59629E-01  -3.77254E+00
    1    89         Eigenvalue  2:   2.59629E-01   3.77254E+00
 
-  BR    PT  TY  LAB       PAR(01)       L2-NORM          U(01)         U(02)   1    89        0   1.25578E-01   4.23692E+00   8.87759E-01   4.14287E+00
+  BR    PT  TY  LAB       PAR(01)       L2-NORM          U(01)         U(02)
+   1    89        0   1.25578E-01   4.23692E+00   8.87759E-01   4.14287E+00
 
    1    89         Iterations   :   3
    1    89         Next Step    :   5.00000E-02
@@ -1753,7 +1842,8 @@
    1    90         Eigenvalue  2:   1.17291E-05   4.00776E+00
  ==> Location of special point :  Convergence.   Step size =   1.47513E-06
 
-  BR    PT  TY  LAB       PAR(01)       L2-NORM          U(01)         U(02)   1    90  HB    4   1.30900E-01   4.27187E+00   8.95080E-01   4.17704E+00
+  BR    PT  TY  LAB       PAR(01)       L2-NORM          U(01)         U(02)
+   1    90  HB    4   1.30900E-01   4.27187E+00   8.95080E-01   4.17704E+00
 ===============================================
 
   BR    PT  IT         PAR           L2-NORM
@@ -1770,7 +1860,8 @@
    1    91         Eigenvalue  1:  -4.46849E-01  -4.33961E+00
    1    91         Eigenvalue  2:  -4.46849E-01   4.33961E+00
 
-  BR    PT  TY  LAB       PAR(01)       L2-NORM          U(01)         U(02)   1   -91        0   1.39933E-01   4.32104E+00   9.05384E-01   4.22513E+00
+  BR    PT  TY  LAB       PAR(01)       L2-NORM          U(01)         U(02)
+   1   -91        0   1.39933E-01   4.32104E+00   9.05384E-01   4.22513E+00
 
    1    91         Iterations   :   3
    1    91         Next Step    :   5.00000E-02
@@ -1790,6 +1881,7 @@
    1    92         Eigenvalue  1:  -1.01430E+00  -4.65763E+00
    1    92         Eigenvalue  2:  -1.01430E+00   4.65763E+00
 
-  BR    PT  TY  LAB       PAR(01)       L2-NORM          U(01)         U(02)   1   -92  EP    5   1.51242E-01   4.36975E+00   9.15589E-01   4.27275E+00
+  BR    PT  TY  LAB       PAR(01)       L2-NORM          U(01)         U(02)
+   1   -92  EP    5   1.51242E-01   4.36975E+00   9.15589E-01   4.27275E+00
 ===============================================
  Total Time    0.938E-01
