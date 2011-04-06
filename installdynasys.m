@@ -289,7 +289,7 @@ else
     
     fclose(fid);
     
-    copyfile('startup.m',[startdir,'\startup.m']);
+    movefile('startup.m',[startdir,'\startup.m']);
     
 end
 
@@ -320,7 +320,7 @@ if get(handles.installcb,'Value')==0
    
    fclose(fid);
    
-   copyfile('info.xml',srcdir,'f');
+   movefile('info.xml',srcdir,'f');
 end
 
 % clean up
