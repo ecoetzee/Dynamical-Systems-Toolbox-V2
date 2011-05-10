@@ -2732,9 +2732,9 @@
          DO I=1,ODIM
             CALL WRITECOL(4,'   OUT',I)      
          ENDDO
+         WRITE(IUNIT,"(1X/A)",ADVANCE="NO")''
        ENDIF
 !       
-       WRITE(IUNIT,"()")
        CALL FLUSH(IUNIT)
       RETURN
       CONTAINS
