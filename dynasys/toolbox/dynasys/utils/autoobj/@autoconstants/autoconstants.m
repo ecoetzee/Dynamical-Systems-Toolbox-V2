@@ -58,7 +58,7 @@ classdef autoconstants < hgsetget
         %
         % Constants
         Ndim=2;             % Problem dimension
-        Noutx=0;            % Maximum number of outputs written out
+        Noutx=10;           % Maximum number of outputs written out
         Ips=1;              % Problem type
         Irs=0;              % Start solution label
         Ilp=1;              % Fold detection

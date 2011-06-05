@@ -25,7 +25,7 @@ classdef autosimopts < hgsetget
                               % constraints. Can be any name.
         FoptFileName='fopt';  % Not used
         PvlsFileName='pvls';  % Not used
-        OutFileName='';       % Any string, The name of the extension for 
+        OutFileName='tmp';    % Any string, The name of the extension for 
                               % the constants file if using '07P' mode, i.e. 
                               % c.OutFileName. Or the extension name of the 
                               % output files when files are requiredin 
@@ -104,30 +104,30 @@ classdef autosimopts < hgsetget
         function obj=set.Fort7(obj,value)
             if ~isempty(strmatch('off',value,'exact')) && ~isempty(strmatch('07P',obj.RunMode,'exact'))
                 error('DST:OutputFiles','Can not switch Fort.7 file output off in 07P mode');
-            elseif ~isempty(strmatch('on',value,'exact')) && ~isempty(strmatch('DST',obj.RunMode,'exact'))
+            elseif ~isempty(strmatch('on',value,'exact')) || ~isempty(strmatch('off',value,'exact')) && ~isempty(strmatch('DST',obj.RunMode,'exact'))
                 obj.Fort7=lower(value);
             else
-                %error('DST:OutputFiles','Incorrect option specified. Use either [''on'' | ''off'']');
+                error('DST:OutputFiles','Incorrect option specified. Use either [''on'' | ''off'']');
             end
         end
         %
         function obj=set.Fort8(obj,value)
             if ~isempty(strmatch('off',value,'exact')) && ~isempty(strmatch('07P',obj.RunMode,'exact'))
                 error('DST:OutputFiles','Can not switch Fort.8 file output off in 07P mode');
-            elseif ~isempty(strmatch('on',value,'exact')) && ~isempty(strmatch('DST',obj.RunMode,'exact'))
+            elseif ~isempty(strmatch('on',value,'exact')) || ~isempty(strmatch('off',value,'exact')) && ~isempty(strmatch('DST',obj.RunMode,'exact'))
                 obj.Fort8=lower(value);
             else
-%                error('DST:OutputFiles','Incorrect option specified. Use either [''on'' | ''off'']');
+                error('DST:OutputFiles','Incorrect option specified. Use either [''on'' | ''off'']');
             end
         end
         %
         function obj=set.Fort9(obj,value)
             if ~isempty(strmatch('off',value,'exact')) && ~isempty(strmatch('07P',obj.RunMode,'exact'))
-                error('DST:OutputFiles','Can not switch Fort.9 file output off in 07P mode');
-            elseif ~isempty(strmatch('on',value,'exact')) && ~isempty(strmatch('DST',obj.RunMode,'exact'))
+                error('DST:OutputFiles','Can not switch Fort.9 file output off in 07P mode');                
+            elseif ~isempty(strmatch('on',value,'exact')) || ~isempty(strmatch('off',value,'exact')) && ~isempty(strmatch('DST',obj.RunMode,'exact'))
                 obj.Fort9=lower(value);
             else
-%                error('DST:OutputFiles','Incorrect option specified. Use either [''on'' | ''off'']');
+                error('DST:OutputFiles','Incorrect option specified. Use either [''on'' | ''off'']');
             end
         end
     end

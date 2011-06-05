@@ -195,7 +195,7 @@ cleanup(slfile);
 
 catch runautodstError
     cleanup(slfile);
-    error(runautodstError.message);
+    rethrow(runautodstError);
 end
 
 %--------------------------------------------------------------------------

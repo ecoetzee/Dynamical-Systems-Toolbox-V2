@@ -16,6 +16,14 @@ function [version, versionDate] = dynasysversion()
 %   $Revision: 356 $    
 %   $Date: 2010-11-02 10:02:00 +0000 (Tue, 02 Nov 2010) $
 
-version = '2.4.4';
-versionDate = '2011-02-26';
+
+% Changed error traps to rethrow last error. 
+% Changed Noutx to set default outputs to 20 instead of empty.
+% Fixed option to be able to set file outputs to on and off. It did not
+% switch off once it was set to on.
+version = '2.4.5';
+versionDate = '2011-06-05';
+
+% version = '2.4.4';
+% versionDate = '2011-02-26';
 

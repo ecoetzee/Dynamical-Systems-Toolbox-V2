@@ -153,7 +153,7 @@ cleanup(slfile);
 
 catch runauto07pError
     cleanup(slfile);
-    error(runauto07pError.message);
+    rethrow(runauto07pError);
 end
 
 %--------------------------------------------------------------------------
