@@ -2,7 +2,7 @@
 <demos>
    <name>Dynamical Systems</name>
    <type>toolbox</type>
-   <icon>HelpIcon.DEMOS</icon>
+   <icon>$toolbox/matlab/icons/matlabicon.gif</icon>
    <description isCdata="no">
    <p>Dynamical Systems Toolbox extends the MATLAB&#174; technical computing environment 
 with tools and widely used algorithms for bifurcation analysis. 

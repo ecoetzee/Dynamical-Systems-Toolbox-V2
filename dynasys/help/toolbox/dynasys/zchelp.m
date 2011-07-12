@@ -10,17 +10,17 @@ if exist(helpjar)==2
     delete(helpjar);
 end
 
-delstr={'*.html','*.htm','*.jpg','*.jpeg','*.gif','*.png','*.css','*.cpt','*.txt','*.js','corel'};
+delstr={'*.html','*.htm','*.jpg','*.jpeg','*.gif','*.png','*.css','*.cpt','*.txt','*.js'};
 
 for i=1:length(delstr)
   delete(delstr{i});
 end
 
 try
-   rmdir('corel');
+   rmdir('corel','s');
 end
 try
-   rmdir('backup'); 
+   rmdir('backup','s'); 
 end
 
 disp('Copying new jar file...');

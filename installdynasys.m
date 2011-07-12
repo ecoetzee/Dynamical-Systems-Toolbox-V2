@@ -22,7 +22,7 @@ function varargout = installdynasys(varargin)
 
 % Edit the above text to modify the response to help installdynasys
 
-% Last Modified by GUIDE v2.5 05-Mar-2010 08:11:26
+% Last Modified by GUIDE v2.5 12-Jul-2011 11:30:12
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -36,6 +36,27 @@ if nargin && ischar(varargin{1})
     gui_State.gui_Callback = str2func(varargin{1});
 end
 
+% check version numbers
+v = ver( 'MATLAB' );
+matlabVersionDST='MATLAB R2009A';
+
+if  datenum(v.Date) < 733788
+    prompt = sprintf('MATLAB version too old: This package requires %s or newer.\nDo you want to continue?', ...
+        matlabVersionDST);
+    title = 'Incorrect MATLAB version';
+    response = questdlg( prompt, title, ...
+        'Install anyway', 'No, don''t install', 'No, don''t install');
+    switch upper(response)
+        case 'INSTALL ANYWAY'
+            % Do nothing
+        otherwise
+            disp('MATLAB version too old - installation abandoned.');
+            return;
+    end
+    
+end
+
+% build gui
 if nargout
     [varargout{1:nargout}] = gui_mainfcn(gui_State, varargin{:});
 else
@@ -44,7 +65,7 @@ end
 % End initialization code - DO NOT EDIT
 
 
-% --- Executes just before installdynasys is made visible.
+%--------------------------------------------------------------------------
 function installdynasys_OpeningFcn(hObject, eventdata, handles, varargin)
 % This function has no output args, see OutputFcn.
 % hObject    handle to figure
@@ -58,41 +79,33 @@ handles.output = hObject;
 % Update handles structure
 guidata(hObject, handles);
 
-% Place matlabroot installation defaults in boxes
-bslh=filesep;
-set(handles.srcfiledit,'String',matlabroot);
+% Place matlabroot installation defaults in boxes. Check to see if you can
+% install to Matlab root directory. If so, use this is as default.
+% Otherwise use home directory of user.
+[Success,Message,MessageID] = fileattrib([matlabroot,filesep,'Toolbox']);
 
-hdrive=getenv('HOMEDRIVE');
-hpath=getenv('HOMEPATH');
-fs=filesep;
-
-if ispc
-    hdrive=getenv('HOMEDRIVE');
-    hpath=getenv('HOMEPATH');
-    hpd=[hdrive,filesep,hpath,filesep];
-    hpd=strrep(hpd,'\\',fs);
-    hpd=strrep(hpd,'\',fs);
-    hpd=strrep(hpd,'//',fs);
-    hpd=strrep(hpd,'/',fs);    
-    set(handles.startupfiledit,'String',hpd);
-    set(handles.startupfiledit,'Enable','off');
-    set(handles.startupbrowsepb,'Enable','off');
-elseif isunix
-    hdrive=getenv('HOME');
-    set(handles.startupfiledit,'String',[hdrive,filesep,'Desktop']);
-    set(handles.startupfiledit,'Enable','off');
-    set(handles.startupbrowsepb,'Enable','off');
+if Message.UserWrite == 1
+    InstallDir=[matlabroot,filesep,'toolbox'];
 else
-    error('Could not recognise machine type')
+    if ispc
+        InstallDir=[getenv('USERPROFILE'),filesep,'Desktop'];
+    elseif isunix
+        InstallDir=[getenv('HOME'),filesep,'Desktop'];
+    else
+        error('Could not recognise machine type')
+    end
+    set(handles.installcb, 'Value', 0, 'Enable', 'off');
 end
-    
+
+installcb_Callback(handles.installcb, [], handles);
+set(handles.srcfiledit,'String',InstallDir);      
 movegui('center');
 
 % UIWAIT makes installdynasys wait for user response (see UIRESUME)
 % uiwait(handles.installdynasysfig);
 
 
-% --- Outputs from this function are returned to the command line.
+%--------------------------------------------------------------------------
 function varargout = installdynasys_OutputFcn(hObject, eventdata, handles) 
 % varargout  cell array for returning output args (see VARARGOUT);
 % hObject    handle to figure
@@ -103,7 +116,7 @@ function varargout = installdynasys_OutputFcn(hObject, eventdata, handles)
 varargout{1} = handles.output;
 
 
-% --- Executes on button press in installcb.
+%--------------------------------------------------------------------------
 function installcb_Callback(hObject, eventdata, handles)
 % hObject    handle to installcb (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
@@ -112,16 +125,16 @@ function installcb_Callback(hObject, eventdata, handles)
 % Hint: get(hObject,'Value') returns toggle state of installcb
 if get(hObject,'Value') == 1
     bslh=filesep;
-    set(handles.srcfiledit,'String',matlabroot);
+    set(handles.srcfiledit,'String',[matlabroot,filesep,'toolbox']);
     set(handles.srcfiledit,'Enable','off');
-    set(handles.srcbrowsepb,'Enable','off');
+    set(handles.srcbrowsepb,'Enable','off'); 
 else
     set(hObject,'Value',0);
     set(handles.srcfiledit,'Enable','on');
-    set(handles.srcbrowsepb,'Enable','on');
+    set(handles.srcbrowsepb,'Enable','on');     
 end
 
-% --- Executes during object creation, after setting all properties.
+%--------------------------------------------------------------------------
 function srcfiledit_CreateFcn(hObject, eventdata, handles)
 % hObject    handle to srcfiledit (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
@@ -133,6 +146,7 @@ if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgr
     set(hObject,'BackgroundColor','white');
 end
 
+%--------------------------------------------------------------------------
 function srcfiledit_Callback(hObject, eventdata, handles)
 % hObject    handle to helpfiledit (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
@@ -142,7 +156,7 @@ function srcfiledit_Callback(hObject, eventdata, handles)
 %        str2double(get(hObject,'String')) returns contents of helpfiledit
 %        as a double
 
-% --- Executes on button press in srcbrowsepb.
+%--------------------------------------------------------------------------
 function srcbrowsepb_Callback(hObject, eventdata, handles)
 % hObject    handle to srcbrowsepb (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
@@ -154,75 +168,40 @@ if dirname==0
     return
 end
 
-bslh=filesep;
 set(handles.srcfiledit,'String',dirname);
     
-% --- Executes on button press in startupbrowsepb.
-function startupbrowsepb_Callback(hObject, eventdata, handles)
-% hObject    handle to startupbrowsepb (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    structure with handles and user data (see GUIDATA)
-dirname=uigetdir;
-
-if dirname==0
-    return
-end
-
-set(handles.startupfiledit,'String',dirname);
-
-
-function startupfiledit_Callback(hObject, eventdata, handles)
-% hObject    handle to startupfiledit (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    structure with handles and user data (see GUIDATA)
-
-% Hints: get(hObject,'String') returns contents of startupfiledit as text
-%        str2double(get(hObject,'String')) returns contents of startupfiledit as a double
-
-
-% --- Executes during object creation, after setting all properties.
-function startupfiledit_CreateFcn(hObject, eventdata, handles)
-% hObject    handle to startupfiledit (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    empty - handles not created until after all CreateFcns called
-
-% Hint: edit controls usually have a white background on Windows.
-%       See ISPC and COMPUTER.
-if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
-    set(hObject,'BackgroundColor','white');
-end
-
-% --- Executes on button press in startupcb.
-function startupcb_Callback(hObject, eventdata, handles)
-% hObject    handle to startupcb (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    structure with handles and user data (see GUIDATA)
-
-% Hint: get(hObject,'Value') returns toggle state of startupcb
-if get(hObject,'Value') == 1
-    set(handles.startupfiledit,'Enable','on');
-    set(handles.startupbrowsepb,'Enable','on');
-else
-    set(handles.startupfiledit,'Enable','off');
-    set(handles.startupbrowsepb,'Enable','off');
-end
-
-% --- Executes on button press in installpb.
+%--------------------------------------------------------------------------
 function installpb_Callback(hObject, eventdata, handles)
 % hObject    handle to installpb (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
+warning('off','MATLAB:HandleGraphics:ObsoletedProperty:JavaFrame');
+
 try
-disp('Installing Dynamical Systems Toolbox...');
 set(gcf,'Pointer','watch');
 drawnow;
 
 srcdir=get(handles.srcfiledit,'String');
+startupdir=srcdir;
+
+setstatusbar(gcf,'Checking installation directory attributes...');pause(2);
+[Success,Message,MessageID] = fileattrib(srcdir);
+
+if Message.UserWrite==0
+    setstatusbar(gcf,'');
+    set(gcf,'Pointer','arrow');
+    errordlg('Installation directory does not have write access.');
+    return
+end
+pause(2);
+
 fs=filesep;
 
-if strcmp(srcdir,matlabroot)
-    helpdir=sprintf('%s%shelp%stoolbox%sdynasys',srcdir,fs,fs,fs);
-    srcdir=sprintf('%s%stoolbox%sdynasys',srcdir,fs,fs);
+setstatusbar(gcf,'Creating installation directories...');pause(2);
+
+if ~isempty(strmatch(matlabroot,srcdir))
+    helpdir=sprintf('%s%stoolbox%sdynasys',docroot,fs,fs);
+    srcdir=sprintf('%s%sdynasys',srcdir,fs);
 else
     helpdir=sprintf('%s%sdynasys%shelp%stoolbox%sdynasys',srcdir,fs,fs,fs,fs);
     srcdir=sprintf('%s%sdynasys%stoolbox%sdynasys',srcdir,fs,fs,fs);
@@ -238,8 +217,6 @@ helpdir=strrep(helpdir,'//','/');
 helpdir=strrep(helpdir,'/',fs);
 helpdir=strrep(helpdir,'\',fs);
 
-startdir=get(handles.startupfiledit,'String');
-
 status1=mkdir(srcdir);
 status2=mkdir(helpdir);
 if status1==0 || status2==0
@@ -247,11 +224,15 @@ if status1==0 || status2==0
 end
 
 rtdir=sprintf('%s%sdynasys',pwd,fs);
+setstatusbar(gcf,'Copying source files...');
 copyfile(sprintf('%s%stoolbox%sdynasys',rtdir,fs,fs),srcdir,'f');
+setstatusbar(gcf,'Copying help files...');
 copyfile(sprintf('%s%shelp%stoolbox%sdynasys',rtdir,fs,fs,fs),helpdir,'f');
 
 % update path definition
-if get(handles.startupcb,'Value')==0
+if ~isempty(strmatch(matlabroot,srcdir))
+    setstatusbar(gcf,'Adding paths...');pause(2);
+
     % add paths to pathdef.m file if checkbox is off
     addpath(helpdir);
     addpath(srcdir);
@@ -269,6 +250,8 @@ if get(handles.startupcb,'Value')==0
     savepath;
 else
     % add paths to a startup file if checkbox is on
+    setstatusbar(gcf,'Creating startup file...');pause(2);
+
     fid=fopen('startup.m','w');
     
     if fid<0
@@ -289,13 +272,15 @@ else
     
     fclose(fid);
     
-    movefile('startup.m',[startdir,'\startup.m']);
+    movefile('startup.m',[startupdir,'\startup.m']);
     
 end
 
+setstatusbar(gcf,'Coping info.xml file...');pause(2);
+   
 % change info.xml if not installing to matlab root directory
 if get(handles.installcb,'Value')==0
-   
+
    % read from template file and replace directory string
    A=readfile('info_template.xml');
    l=A{10};
@@ -324,23 +309,23 @@ if get(handles.installcb,'Value')==0
 end
 
 % clean up
-disp('Finished with installation')
+setstatusbar(gcf,'');
 set(gcf,'Pointer','arrow');
 
 catch
-   set(gcf,'Pointer','arrow');
-   fclose('all');
-   error(lasterr);
+   setstatusbar(gcf,'');
+   set(gcf,'Pointer','arrow');   fclose('all');
+   errordlg(lasterr);
 end
 
-% --- Executes on button press in closepb.
+%--------------------------------------------------------------------------
 function closepb_Callback(hObject, eventdata, handles)
 % hObject    handle to closepb (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 close(gcf)
 
-
+%--------------------------------------------------------------------------
 function A=readfile(filename)
 
 fid=fopen(filename,'r');
@@ -354,4 +339,35 @@ count=1;
 while feof(fid)==0
    A{count}=fgetl(fid);
    count=count+1;  
+end
+
+%--------------------------------------------------------------------------
+function userDir = getuserdir(varargin)
+%GETUSERDIR   return the user home directory.
+%   USERDIR = GETUSERDIR returns the user home directory using the registry
+%   on windows systems and using Java on non windows systems as a string
+%
+%   Example:
+%      getuserdir() returns on windows
+%           C:\Documents and Settings\MyName\Eigene Dateien
+
+if ispc
+    userDir = winqueryreg('HKEY_CURRENT_USER',...
+        ['Software\Microsoft\Windows\CurrentVersion\' ...
+         'Explorer\Shell Folders'],'Personal');
+else
+    userDir = char(java.lang.System.getProperty('user.home'));
+end
+
+%--------------------------------------------------------------------------
+function []=setstatusbar(hFig,statusText)
+
+if ~ishandle(hFig)
+    return
+else
+    jFrame = get(hFig,'JavaFrame');
+    jRootPane = jFrame.fFigureClient.getWindow;
+    statusbarObj = com.mathworks.mwswing.MJStatusBar;
+    jRootPane.setStatusBar(statusbarObj);
+    statusbarObj.setText(statusText);
 end

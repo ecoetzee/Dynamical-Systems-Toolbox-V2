@@ -3,7 +3,7 @@
   xsi:noNamespaceSchemaLocation="http://www.bristol.ac.uk">
 <?xml-stylesheet type="text/xsl" href=""?>
 
-<matlabrelease>2008b</matlabrelease>
+<matlabrelease>2009a</matlabrelease>
 <name>Dynamical Systems</name>
 <type>toolbox</type>
 <icon>$toolbox/matlab/icons/matlabicon.gif</icon>

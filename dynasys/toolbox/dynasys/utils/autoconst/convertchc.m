@@ -1,5 +1,10 @@
 function []=convertchc(fName)
 % CONVERTCHC - convert c-file into handle class format. 
+%   CONVERTCHC(FILENAME) where FILENAME is the original AUTO constants file
+%   name
+%
+%   Example:
+%            >>  convertchc('c.ab')
 
 %   Created by Etienne COETZEE, James RANKIN,and Phani THOTA, University of Bristol
 %
