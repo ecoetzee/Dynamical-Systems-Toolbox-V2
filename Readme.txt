@@ -12,6 +12,12 @@ At this stage we are still in the process of adding several engineering examples
 toolbox . Feel free to develop some examples for inclusion into the toolbox. There are 
 template files that you can use for inclusion of your own examples.
 
+**System Requirements**
+
+1. MATLAB R2009A or higher
+2. Intel Visual Fortran 9.1 or higher for compiling on Windows, if needed.
+3. GCC 4.3.1 or higher for compiling on Linux.
+
 **Authors**
 
 This toolbox was written by Etienne Coetzee, Phani Thota and James Rankin from the 
