@@ -7,7 +7,7 @@
 <name>Dynamical Systems</name>
 <type>toolbox</type>
 <icon>$toolbox/matlab/icons/matlabicon.gif</icon>
-<help_location>C:\Documents and Settings\ecoetzee\Desktop\dynasys\help\toolbox\dynasys</help_location>
+<help_location>$docroot/toolbox/dynasys</help_location>
 
 <list>
 
